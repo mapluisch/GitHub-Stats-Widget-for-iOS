@@ -38,7 +38,7 @@ struct GitHubStatsWidgetView: View {
     private var statsInfo: some View {
         HStack {
             Spacer()
-            VStack(alignment: .center, spacing: 6) {
+            VStack {
                 if entry.configuration.useIcons as? Bool ?? true {
                     iconAndText(for: "followers", count: entry.followers)
                     iconAndText(for: "star", count: entry.stars)
@@ -58,10 +58,9 @@ struct GitHubStatsWidgetView: View {
     private func iconAndText(for type: String, count: Int) -> some View {
         let iconName = "\(type)-\(colorScheme == .dark ? "light" : "dark")"
         return HStack {
-            iconImage(named: iconName, width: 20, height: 20)
-            Text("\(count)")
-                .minimumScaleFactor(0.5)
-                .lineLimit(1)
+                iconImage(named: iconName, width: 16, height: 16)
+                Text("\(count)")
+                    .offset(x: 0, y: (iconName.starts(with: "star") ? 0.5 : -0.5))
         }
     }
     
