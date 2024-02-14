@@ -8,17 +8,35 @@
 import SwiftUI
 
 struct ContentView: View {
+    // Use @State to hold the message for display
+    @State private var resultMessage: String = "Loading..."
+
     var body: some View {
-        VStack {
-            Image(systemName: "globe")
-                .imageScale(.large)
-                .foregroundStyle(.tint)
-            Text("Hello, world!")
+        Text(resultMessage)
+            .padding()
+            .onAppear {
+                // Initiate the network request
+                fetchGitHubUserStats()
+            }
+    }
+    
+    private func fetchGitHubUserStats() {
+        let username = "mapluisch"
+        GitHubAPIManager.shared.fetchGitHubUserStats(username: username) { result in
+            DispatchQueue.main.async {
+                switch result {
+                case .success(let (user, totalStars)):
+                    self.resultMessage = "Followers: \(user.followers), Total Stars: \(totalStars)"
+                case .failure(let error):
+                    self.resultMessage = "Error: \(error.localizedDescription)"
+                }
+            }
         }
-        .padding()
     }
 }
 
-#Preview {
-    ContentView()
+struct ContentView_Previews: PreviewProvider {
+    static var previews: some View {
+        ContentView()
+    }
 }
