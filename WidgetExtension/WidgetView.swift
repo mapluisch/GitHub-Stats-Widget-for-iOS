@@ -47,7 +47,7 @@ struct GitHubStatsWidgetView: View {
                     Text("Stars: \(entry.stars)")
                 }
             }
-            .frame(maxWidth: .infinity)
+            .frame(maxWidth: 55)
             Spacer()
         }
     }
@@ -58,9 +58,10 @@ struct GitHubStatsWidgetView: View {
     private func iconAndText(for type: String, count: Int) -> some View {
         let iconName = "\(type)-\(colorScheme == .dark ? "light" : "dark")"
         return HStack {
-                iconImage(named: iconName, width: 16, height: 16)
-                Text("\(count)")
-                    .offset(x: 0, y: (iconName.starts(with: "star") ? 0.5 : -0.5))
+            iconImage(named: iconName, width: 16, height: 16)
+            Spacer()
+            Text("\(count)")
+                .offset(x: 0, y: (iconName.starts(with: "star") ? 1.5 : -0.5))
         }
     }
     
