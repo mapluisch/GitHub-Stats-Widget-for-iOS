@@ -89,7 +89,7 @@
 					<key>INIntentParameterConfigurable</key>
 					<true/>
 					<key>INIntentParameterDisplayName</key>
-					<string>useIcons</string>
+					<string>Use Icons</string>
 					<key>INIntentParameterDisplayNameID</key>
 					<string>I7WaYj</string>
 					<key>INIntentParameterDisplayPriority</key>

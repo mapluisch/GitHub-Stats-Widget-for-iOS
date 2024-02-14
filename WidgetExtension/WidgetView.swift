@@ -15,7 +15,7 @@ struct GitHubStatsWidgetView: View {
     @Environment(\.colorScheme) var colorScheme
     
     var body: some View {
-        VStack(alignment: .leading, spacing: 16) {
+        VStack(alignment: .center, spacing: 16) {
             userInfo
             statsInfo
         }
@@ -36,16 +36,22 @@ struct GitHubStatsWidgetView: View {
     }
     
     private var statsInfo: some View {
-        VStack {
-            if entry.configuration.useIcons as? Bool ?? true {
-                iconAndText(for: "followers", count: entry.followers)
-                iconAndText(for: "star", count: entry.stars)
-            } else {
-                Text("Followers: \(entry.followers)")
-                Text("Stars: \(entry.stars)")
+        HStack {
+            Spacer()
+            VStack(alignment: .center, spacing: 6) {
+                if entry.configuration.useIcons as? Bool ?? true {
+                    iconAndText(for: "followers", count: entry.followers)
+                    iconAndText(for: "star", count: entry.stars)
+                } else {
+                    Text("Followers: \(entry.followers)")
+                    Text("Stars: \(entry.stars)")
+                }
             }
+            .frame(maxWidth: .infinity)
+            Spacer()
         }
     }
+
     
     // MARK: - Helper Functions
     
@@ -72,7 +78,7 @@ struct GitHubStatsWidgetView: View {
 
 struct GitHubStatsWidgetView_Previews: PreviewProvider {
     static var previews: some View {
-        GitHubStatsWidgetView(entry: GitHubUserStatsEntry(date: Date(), username: "mapluisch", followers: 12, stars: 34, configuration: GitHubUserConfigurationIntent()))
+        GitHubStatsWidgetView(entry: GitHubUserStatsEntry(date: Date(), username: "mapluisch", followers: 2, stars: 15, configuration: GitHubUserConfigurationIntent()))
             .previewContext(WidgetPreviewContext(family: .systemSmall))
     }
 }

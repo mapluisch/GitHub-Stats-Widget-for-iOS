@@ -23,11 +23,11 @@ struct GitHubStatsTimelineProvider: IntentTimelineProvider {
     typealias Intent = GitHubUserConfigurationIntent
     
     func placeholder(in context: Context) -> GitHubUserStatsEntry {
-        GitHubUserStatsEntry(date: Date(), username: "mapluisch", followers: 0, stars: 0, configuration: GitHubUserConfigurationIntent())
+        GitHubUserStatsEntry(date: Date(), username: "mapluisch", followers: 2, stars: 15, configuration: GitHubUserConfigurationIntent())
     }
 
     func getSnapshot(for configuration: GitHubUserConfigurationIntent, in context: Context, completion: @escaping (GitHubUserStatsEntry) -> ()) {
-        let entry = GitHubUserStatsEntry(date: Date(), username: "mapluisch", followers: 0, stars: 0, configuration: configuration)
+        let entry = GitHubUserStatsEntry(date: Date(), username: "mapluisch", followers: 2, stars: 15, configuration: configuration)
         completion(entry)
     }
 
@@ -44,7 +44,7 @@ struct GitHubStatsTimelineProvider: IntentTimelineProvider {
                 let entry = GitHubUserStatsEntry(date: currentDate, username: user.login, followers: user.followers, stars: totalStars, configuration: configuration)
                 entries.append(entry)
             case .failure:
-                let entry = GitHubUserStatsEntry(date: currentDate, username: username, followers: 0, stars: 0, configuration: configuration)
+                let entry = GitHubUserStatsEntry(date: currentDate, username: username, followers: 2, stars: 15, configuration: configuration)
                 entries.append(entry)
             }
 
