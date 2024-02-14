@@ -10,11 +10,12 @@ import WidgetKit
 
 struct GitHubStatsWidgetView: View {
     let entry: GitHubUserStatsEntry
-
+    @Environment(\.colorScheme) var colorScheme
+    
     var body: some View {
         VStack(alignment: .leading, spacing: 12) {
             HStack {
-                Image("github-black")
+                Image(colorScheme == .dark ? "github-white" : "github-black")
                     .renderingMode(.original)
                         .resizable()
                         .scaledToFit()
@@ -22,10 +23,11 @@ struct GitHubStatsWidgetView: View {
                 Text(entry.username)
                     .font(.headline)
             }
-            Text("Followers: \(entry.followers)")
-            Text("Stars: \(entry.stars)")
+            VStack(alignment: .leading, spacing: 6) {
+                Text("Followers: \(entry.followers)")
+                Text("Stars: \(entry.stars)")
+            }
         }
-        .padding(.all, 2)
         .containerBackground(Color(UIColor.systemBackground), for: .widget)
     }
 }
