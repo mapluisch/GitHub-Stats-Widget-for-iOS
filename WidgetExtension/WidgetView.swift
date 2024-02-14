@@ -40,14 +40,14 @@ struct GitHubStatsWidgetView: View {
             Spacer()
             VStack {
                 if entry.configuration.useIcons as? Bool ?? true {
-                    iconAndText(for: "followers", count: entry.followers)
-                    iconAndText(for: "star", count: entry.stars)
-                } else {
-                    Text("Followers: \(entry.followers)")
-                    Text("Stars: \(entry.stars)")
+                    iconAndText(for: "followers", currentCount: entry.followers, previousCount: entry.previousFollowers)
+                    iconAndText(for: "star", currentCount: entry.stars, previousCount: entry.previousStars)
+                 } else {
+                    Text("Followers: \(entry.followers.formatToK())")
+                    Text("Stars: \(entry.stars.formatToK())")
                 }
             }
-            .frame(maxWidth: 55)
+            .frame(maxWidth: entry.configuration.useIcons as? Bool ?? true ? 105 : .infinity)
             Spacer()
         }
     }
@@ -55,13 +55,21 @@ struct GitHubStatsWidgetView: View {
     
     // MARK: - Helper Functions
     
-    private func iconAndText(for type: String, count: Int) -> some View {
+    private func iconAndText(for type: String, currentCount: Int, previousCount: Int) -> some View {
         let iconName = "\(type)-\(colorScheme == .dark ? "light" : "dark")"
         return HStack {
             iconImage(named: iconName, width: 16, height: 16)
             Spacer()
-            Text("\(count)")
-                .offset(x: 0, y: (iconName.starts(with: "star") ? 1.5 : -0.5))
+            Text("\(currentCount.formatToK())")
+            if currentCount > previousCount {
+                Image(systemName: "arrow.up")
+                            .foregroundColor(.green)
+                            .transition(.scale)
+            } else if currentCount < previousCount {
+                Image(systemName: "arrow.down")
+                    .foregroundColor(.red)
+                    .transition(.scale)
+            }
         }
     }
     
@@ -74,11 +82,22 @@ struct GitHubStatsWidgetView: View {
     }
 }
 
+extension Int {
+    func formatToK() -> String {
+        if self >= 1000 {
+            let divided = Double(self) / 1000.0
+            return String(format: "%.1fk", divided).replacingOccurrences(of: ".0", with: "")
+        } else {
+            return "\(self)"
+        }
+    }
+}
+
 // MARK: - Previews
 
 struct GitHubStatsWidgetView_Previews: PreviewProvider {
     static var previews: some View {
-        GitHubStatsWidgetView(entry: GitHubUserStatsEntry(date: Date(), username: "mapluisch", followers: 2, stars: 15, configuration: GitHubUserConfigurationIntent()))
+        GitHubStatsWidgetView(entry: GitHubUserStatsEntry(date: Date(), username: "mapluisch", followers: 2, stars: 15, configuration: GitHubUserConfigurationIntent(), previousFollowers: 0, previousStars: 0))
             .previewContext(WidgetPreviewContext(family: .systemSmall))
     }
 }
