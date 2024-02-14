@@ -13,7 +13,7 @@ struct GitHubStatsWidgetView: View {
     @Environment(\.colorScheme) var colorScheme
     
     var body: some View {
-        VStack(alignment: .leading, spacing: 12) {
+        VStack(alignment: .leading, spacing: 16) {
             HStack {
                 Image(colorScheme == .dark ? "github-white" : "github-black")
                     .renderingMode(.original)
@@ -22,6 +22,9 @@ struct GitHubStatsWidgetView: View {
                         .frame(width: 20, height: 20)
                 Text(entry.username)
                     .font(.headline)
+                    .minimumScaleFactor(0.5)
+                    .lineLimit(4)
+                    .frame(maxWidth: .infinity, alignment: .leading)
             }
             VStack(alignment: .leading, spacing: 6) {
                 Text("Followers: \(entry.followers)")
