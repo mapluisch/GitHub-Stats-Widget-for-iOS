@@ -8,14 +8,12 @@
 import SwiftUI
 
 struct ContentView: View {
-    // Use @State to hold the message for display
     @State private var resultMessage: String = "Loading..."
 
     var body: some View {
         Text(resultMessage)
             .padding()
             .onAppear {
-                // Initiate the network request
                 fetchGitHubUserStats()
             }
     }

@@ -23,7 +23,6 @@
 		EC75C44F2B7C00B30095D708 /* TimelineProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC75C44D2B7C00B30095D708 /* TimelineProvider.swift */; };
 		EC75C4512B7C021C0095D708 /* GitHubConfigurationIntent.intentdefinition in Sources */ = {isa = PBXBuildFile; fileRef = EC75C4502B7C021C0095D708 /* GitHubConfigurationIntent.intentdefinition */; };
 		EC75C4522B7C021C0095D708 /* GitHubConfigurationIntent.intentdefinition in Sources */ = {isa = PBXBuildFile; fileRef = EC75C4502B7C021C0095D708 /* GitHubConfigurationIntent.intentdefinition */; };
-		EC75C4552B7C03DB0095D708 /* WidgetView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC75C4542B7C03DB0095D708 /* WidgetView.swift */; };
 		EC75C4562B7C03DB0095D708 /* WidgetView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC75C4542B7C03DB0095D708 /* WidgetView.swift */; };
 /* End PBXBuildFile section */
 
@@ -121,7 +120,6 @@
 				EC75C44A2B7BFA930095D708 /* GitHubAPIManager.swift */,
 				EC75C44D2B7C00B30095D708 /* TimelineProvider.swift */,
 				EC75C4502B7C021C0095D708 /* GitHubConfigurationIntent.intentdefinition */,
-				EC75C4542B7C03DB0095D708 /* WidgetView.swift */,
 			);
 			path = "GitHub Stats Widget";
 			sourceTree = "<group>";
@@ -148,6 +146,7 @@
 			children = (
 				EC75C43A2B7BF98E0095D708 /* WidgetExtensionBundle.swift */,
 				EC75C43C2B7BF98E0095D708 /* WidgetExtension.swift */,
+				EC75C4542B7C03DB0095D708 /* WidgetView.swift */,
 				EC75C4402B7BF98E0095D708 /* Assets.xcassets */,
 				EC75C4422B7BF98E0095D708 /* Info.plist */,
 			);
@@ -255,7 +254,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				EC75C4552B7C03DB0095D708 /* WidgetView.swift in Sources */,
 				EC75C4512B7C021C0095D708 /* GitHubConfigurationIntent.intentdefinition in Sources */,
 				EC75C4242B7BF90B0095D708 /* ContentView.swift in Sources */,
 				EC75C4222B7BF90B0095D708 /* GitHub_Stats_WidgetApp.swift in Sources */,

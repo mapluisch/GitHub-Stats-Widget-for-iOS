@@ -23,17 +23,16 @@ struct GitHubStatsTimelineProvider: IntentTimelineProvider {
     typealias Intent = GitHubUserConfigurationIntent
     
     func placeholder(in context: Context) -> GitHubUserStatsEntry {
-        GitHubUserStatsEntry(date: Date(), username: "github", followers: 0, stars: 0, configuration: GitHubUserConfigurationIntent())
+        GitHubUserStatsEntry(date: Date(), username: "mapluisch", followers: 0, stars: 0, configuration: GitHubUserConfigurationIntent())
     }
 
     func getSnapshot(for configuration: GitHubUserConfigurationIntent, in context: Context, completion: @escaping (GitHubUserStatsEntry) -> ()) {
-        let entry = GitHubUserStatsEntry(date: Date(), username: "github", followers: 0, stars: 0, configuration: configuration)
+        let entry = GitHubUserStatsEntry(date: Date(), username: "mapluisch", followers: 0, stars: 0, configuration: configuration)
         completion(entry)
     }
 
     func getTimeline(for configuration: GitHubUserConfigurationIntent, in context: Context, completion: @escaping (Timeline<GitHubUserStatsEntry>) -> ()) {
-        // Use the GitHub username from the widget configuration
-        let username = configuration.username ?? "github"
+        let username = configuration.username ?? "mapluisch"
 
         GitHubAPIManager.shared.fetchGitHubUserStats(username: username) { result in
             var entries: [GitHubUserStatsEntry] = []

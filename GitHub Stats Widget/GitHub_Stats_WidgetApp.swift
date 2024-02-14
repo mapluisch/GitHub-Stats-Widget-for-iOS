@@ -14,6 +14,4 @@ struct GitHub_Stats_WidgetApp: App {
             ContentView()
         }
     }
-    
 }
-
