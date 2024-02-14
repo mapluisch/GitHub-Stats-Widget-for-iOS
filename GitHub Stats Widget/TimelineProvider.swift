@@ -34,27 +34,38 @@ struct GitHubStatsTimelineProvider: IntentTimelineProvider {
     }
 
     func getTimeline(for configuration: GitHubUserConfigurationIntent, in context: Context, completion: @escaping (Timeline<GitHubUserStatsEntry>) -> ()) {
-        let username = configuration.username ?? "mapluisch"
+        let username = configuration.username ?? "defaultUsername"
         
         GitHubAPIManager.shared.fetchGitHubUserStats(username: username) { result in
+            var entries: [GitHubUserStatsEntry] = []
             let currentDate = Date()
-            let refreshDate = Calendar.current.date(byAdding: .hour, value: 1, to: currentDate)!
-            let defaults = UserDefaults.standard
             
-            let previousFollowers = defaults.integer(forKey: "\(username)_followers")
-            let previousStars = defaults.integer(forKey: "\(username)_stars")
+            let refreshInterval = 5
+            let totalRefreshIntervals = 12
             
-            switch result {
-            case .success(let (user, totalStars)):
-                defaults.set(user.followers, forKey: "\(username)_followers")
-                defaults.set(totalStars, forKey: "\(username)_stars")
-                
-                let entry = GitHubUserStatsEntry(date: currentDate, username: user.login, followers: user.followers, stars: totalStars, configuration: configuration, previousFollowers: previousFollowers, previousStars: previousStars)
-                completion(Timeline(entries: [entry], policy: .after(refreshDate)))
-            case .failure:
-                let entry = GitHubUserStatsEntry(date: currentDate, username: username, followers: 0, stars: 0, configuration: configuration, previousFollowers: previousFollowers, previousStars: previousStars)
-                completion(Timeline(entries: [entry], policy: .after(refreshDate)))
+            for i in 0..<totalRefreshIntervals {
+                if let entryDate = Calendar.current.date(byAdding: .minute, value: i * refreshInterval, to: currentDate) {
+                    let previousFollowers = UserDefaults.standard.integer(forKey: "\(username)_followers")
+                    let previousStars = UserDefaults.standard.integer(forKey: "\(username)_stars")
+                    
+                    var followers = previousFollowers
+                    var stars = previousStars
+                    
+                    if case .success(let (user, totalStars)) = result {
+                        followers = user.followers
+                        stars = totalStars
+                        
+                        UserDefaults.standard.set(followers, forKey: "\(username)_followers")
+                        UserDefaults.standard.set(stars, forKey: "\(username)_stars")
+                    }
+                    
+                    let entry = GitHubUserStatsEntry(date: entryDate, username: username, followers: followers, stars: stars, configuration: configuration, previousFollowers: previousFollowers, previousStars: previousStars)
+                    entries.append(entry)
+                }
             }
+            
+            let timeline = Timeline(entries: entries, policy: .atEnd)
+            completion(timeline)
         }
     }
 }

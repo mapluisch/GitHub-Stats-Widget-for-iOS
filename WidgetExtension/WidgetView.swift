@@ -43,11 +43,11 @@ struct GitHubStatsWidgetView: View {
                     iconAndText(for: "followers", currentCount: entry.followers, previousCount: entry.previousFollowers)
                     iconAndText(for: "star", currentCount: entry.stars, previousCount: entry.previousStars)
                  } else {
-                    Text("Followers: \(entry.followers.formatToK())")
-                    Text("Stars: \(entry.stars.formatToK())")
+                     countText(prefix:"Followers: ", currentCount: entry.followers, previousCount: entry.previousFollowers)
+                     countText(prefix:"Stars: ", currentCount: entry.stars, previousCount: entry.previousStars)
                 }
             }
-            .frame(maxWidth: entry.configuration.useIcons as? Bool ?? true ? 105 : .infinity)
+            .frame(maxWidth: entry.configuration.useIcons as? Bool ?? true ? 85 : .infinity)
             Spacer()
         }
     }
@@ -60,16 +60,21 @@ struct GitHubStatsWidgetView: View {
         return HStack {
             iconImage(named: iconName, width: 16, height: 16)
             Spacer()
-            Text("\(currentCount.formatToK())")
-            if currentCount > previousCount {
-                Image(systemName: "arrow.up")
-                            .foregroundColor(.green)
-                            .transition(.scale)
-            } else if currentCount < previousCount {
-                Image(systemName: "arrow.down")
-                    .foregroundColor(.red)
-                    .transition(.scale)
-            }
+            countText(prefix: "", currentCount: currentCount, previousCount: previousCount)
+        }
+    }
+    
+    private func countText(prefix: String, currentCount: Int, previousCount: Int) -> Text {
+        let formattedCount = currentCount.formatToK()
+        let arrow = currentCount > previousCount ? "↑" : currentCount < previousCount ? "↓" : ""
+        let arrowColor = currentCount > previousCount ? Color.green : Color.red
+        
+        if arrow.isEmpty {
+            return Text("\(prefix)\(formattedCount)")
+        } else {
+            let combinedLabel = "\(prefix)\(formattedCount) "
+            let combinedText = Text(combinedLabel) + Text(arrow).foregroundColor(arrowColor)
+            return combinedText
         }
     }
     
