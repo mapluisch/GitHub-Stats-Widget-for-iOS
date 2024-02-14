@@ -28,7 +28,7 @@
 			<key>INIntentIneligibleForSuggestions</key>
 			<true/>
 			<key>INIntentLastParameterTag</key>
-			<integer>1</integer>
+			<integer>3</integer>
 			<key>INIntentName</key>
 			<string>GitHubUserConfiguration</string>
 			<key>INIntentParameters</key>
@@ -45,11 +45,17 @@
 					<key>INIntentParameterMetadata</key>
 					<dict>
 						<key>INIntentParameterMetadataCapitalization</key>
-						<string>Sentences</string>
+						<string>None</string>
 						<key>INIntentParameterMetadataDefaultValue</key>
-						<string>Your GitHub Username</string>
+						<string>mapluisch</string>
 						<key>INIntentParameterMetadataDefaultValueID</key>
 						<string>nWqKUV</string>
+						<key>INIntentParameterMetadataDisableAutocorrect</key>
+						<true/>
+						<key>INIntentParameterMetadataDisableSmartDashes</key>
+						<true/>
+						<key>INIntentParameterMetadataDisableSmartQuotes</key>
+						<true/>
 					</dict>
 					<key>INIntentParameterName</key>
 					<string>username</string>
@@ -65,7 +71,7 @@
 							<key>INIntentParameterPromptDialogCustom</key>
 							<true/>
 							<key>INIntentParameterPromptDialogFormatString</key>
-							<string>Enter your GitHub username</string>
+							<string>Your GitHub username</string>
 							<key>INIntentParameterPromptDialogFormatStringID</key>
 							<string>cwIaVY</string>
 							<key>INIntentParameterPromptDialogType</key>
@@ -78,6 +84,56 @@
 					<integer>1</integer>
 					<key>INIntentParameterType</key>
 					<string>String</string>
+				</dict>
+				<dict>
+					<key>INIntentParameterConfigurable</key>
+					<true/>
+					<key>INIntentParameterDisplayName</key>
+					<string>useIcons</string>
+					<key>INIntentParameterDisplayNameID</key>
+					<string>I7WaYj</string>
+					<key>INIntentParameterDisplayPriority</key>
+					<integer>2</integer>
+					<key>INIntentParameterMetadata</key>
+					<dict>
+						<key>INIntentParameterMetadataDefaultValue</key>
+						<true/>
+						<key>INIntentParameterMetadataFalseDisplayName</key>
+						<string>false</string>
+						<key>INIntentParameterMetadataFalseDisplayNameID</key>
+						<string>RoSEZ3</string>
+						<key>INIntentParameterMetadataTrueDisplayName</key>
+						<string>true</string>
+						<key>INIntentParameterMetadataTrueDisplayNameID</key>
+						<string>ya0mpX</string>
+					</dict>
+					<key>INIntentParameterName</key>
+					<string>useIcons</string>
+					<key>INIntentParameterPromptDialogs</key>
+					<array>
+						<dict>
+							<key>INIntentParameterPromptDialogCustom</key>
+							<true/>
+							<key>INIntentParameterPromptDialogType</key>
+							<string>Configuration</string>
+						</dict>
+						<dict>
+							<key>INIntentParameterPromptDialogCustom</key>
+							<true/>
+							<key>INIntentParameterPromptDialogFormatString</key>
+							<string>Use Icons</string>
+							<key>INIntentParameterPromptDialogFormatStringID</key>
+							<string>1IVFCn</string>
+							<key>INIntentParameterPromptDialogType</key>
+							<string>Primary</string>
+						</dict>
+					</array>
+					<key>INIntentParameterSupportsResolution</key>
+					<true/>
+					<key>INIntentParameterTag</key>
+					<integer>3</integer>
+					<key>INIntentParameterType</key>
+					<string>Boolean</string>
 				</dict>
 			</array>
 			<key>INIntentResponse</key>
