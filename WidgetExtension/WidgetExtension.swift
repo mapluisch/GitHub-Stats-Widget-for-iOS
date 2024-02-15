@@ -17,7 +17,7 @@ struct GitHubStatsWidget: Widget {
         }
         .configurationDisplayName("GitHub Stats")
         .description("Displays GitHub followers and stars.")
-        .supportedFamilies([.systemSmall])
+        .supportedFamilies([.systemSmall, .systemMedium, .systemLarge])
     }
 }
 

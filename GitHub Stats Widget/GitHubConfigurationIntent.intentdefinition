@@ -139,7 +139,7 @@
 					<key>INIntentParameterConfigurable</key>
 					<true/>
 					<key>INIntentParameterDisplayName</key>
-					<string>Show Date</string>
+					<string>Show Refresh Timestamp</string>
 					<key>INIntentParameterDisplayNameID</key>
 					<string>hXfV17</string>
 					<key>INIntentParameterDisplayPriority</key>
@@ -171,7 +171,7 @@
 							<key>INIntentParameterPromptDialogCustom</key>
 							<true/>
 							<key>INIntentParameterPromptDialogFormatString</key>
-							<string>Show Date</string>
+							<string>Show Refresh Timestamp</string>
 							<key>INIntentParameterPromptDialogFormatStringID</key>
 							<string>1Y5Bym</string>
 							<key>INIntentParameterPromptDialogType</key>

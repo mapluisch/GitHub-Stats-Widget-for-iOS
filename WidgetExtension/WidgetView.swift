@@ -12,17 +12,25 @@ import WidgetKit
 
 struct GitHubStatsWidgetView: View {
     let entry: GitHubUserStatsEntry
+    @Environment(\.widgetFamily) var widgetFamily
     @Environment(\.colorScheme) var colorScheme
     
     var body: some View {
-        VStack(alignment: .center, spacing: 16) {
-            UserInfoView(username: entry.configuration.username ?? "mapluisch", showUsername: entry.configuration.showUsername as? Bool ?? true, colorScheme: colorScheme)
-            StatsInfoView(entry: entry, colorScheme: colorScheme)
-            if entry.configuration.showDate as? Bool ?? true {
-                DateInfoView()
+        Group {
+            if widgetFamily == .systemSmall {
+                SmallWidgetView(entry: entry, colorScheme: colorScheme)
+                    .containerBackground(Color(UIColor.systemBackground), for: .widget)
+            } else if widgetFamily == .systemMedium {
+                MediumWidgetView(entry: entry, colorScheme: colorScheme)
+                    .containerBackground(Color(UIColor.systemBackground), for: .widget)
+            } else if widgetFamily == .systemLarge {
+                LargeWidgetView(entry: entry, colorScheme: colorScheme)
+                    .containerBackground(Color(UIColor.systemBackground), for: .widget)
+            } else {
+                SmallWidgetView(entry: entry, colorScheme: colorScheme)
+                    .containerBackground(Color(UIColor.systemBackground), for: .widget)
             }
         }
-        .containerBackground(Color(UIColor.systemBackground), for: .widget)
     }
 }
     

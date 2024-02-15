@@ -36,6 +36,12 @@
 		ECB4B8C72B7E4015009DF428 /* DateInfoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECB4B8C52B7E4015009DF428 /* DateInfoView.swift */; };
 		ECB4B8C92B7E407C009DF428 /* CountTextView.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECB4B8C82B7E407C009DF428 /* CountTextView.swift */; };
 		ECB4B8CA2B7E407C009DF428 /* CountTextView.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECB4B8C82B7E407C009DF428 /* CountTextView.swift */; };
+		ECB4B8CC2B7E8B9D009DF428 /* SmallWidgetView.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECB4B8CB2B7E8B9D009DF428 /* SmallWidgetView.swift */; };
+		ECB4B8CD2B7E8B9D009DF428 /* SmallWidgetView.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECB4B8CB2B7E8B9D009DF428 /* SmallWidgetView.swift */; };
+		ECB4B8CF2B7E8F3C009DF428 /* MediumWidgetView.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECB4B8CE2B7E8F3C009DF428 /* MediumWidgetView.swift */; };
+		ECB4B8D02B7E8F3C009DF428 /* MediumWidgetView.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECB4B8CE2B7E8F3C009DF428 /* MediumWidgetView.swift */; };
+		ECB4B8D22B7E8F5C009DF428 /* LargeWidgetView.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECB4B8D12B7E8F5C009DF428 /* LargeWidgetView.swift */; };
+		ECB4B8D32B7E8F5C009DF428 /* LargeWidgetView.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECB4B8D12B7E8F5C009DF428 /* LargeWidgetView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -86,6 +92,9 @@
 		ECB4B8C22B7E3FF1009DF428 /* IconWithTextView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IconWithTextView.swift; sourceTree = "<group>"; };
 		ECB4B8C52B7E4015009DF428 /* DateInfoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateInfoView.swift; sourceTree = "<group>"; };
 		ECB4B8C82B7E407C009DF428 /* CountTextView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CountTextView.swift; sourceTree = "<group>"; };
+		ECB4B8CB2B7E8B9D009DF428 /* SmallWidgetView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SmallWidgetView.swift; sourceTree = "<group>"; };
+		ECB4B8CE2B7E8F3C009DF428 /* MediumWidgetView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MediumWidgetView.swift; sourceTree = "<group>"; };
+		ECB4B8D12B7E8F5C009DF428 /* LargeWidgetView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LargeWidgetView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -173,6 +182,9 @@
 				ECB4B8C22B7E3FF1009DF428 /* IconWithTextView.swift */,
 				ECB4B8C52B7E4015009DF428 /* DateInfoView.swift */,
 				ECB4B8C82B7E407C009DF428 /* CountTextView.swift */,
+				ECB4B8CB2B7E8B9D009DF428 /* SmallWidgetView.swift */,
+				ECB4B8CE2B7E8F3C009DF428 /* MediumWidgetView.swift */,
+				ECB4B8D12B7E8F5C009DF428 /* LargeWidgetView.swift */,
 			);
 			path = WidgetExtension;
 			sourceTree = "<group>";
@@ -281,11 +293,14 @@
 				ECB4B8C62B7E4015009DF428 /* DateInfoView.swift in Sources */,
 				ECB4B8BA2B7E3E50009DF428 /* WidgetViewHelpers.swift in Sources */,
 				ECB4B8BD2B7E3F43009DF428 /* UserInfoView.swift in Sources */,
+				ECB4B8CF2B7E8F3C009DF428 /* MediumWidgetView.swift in Sources */,
 				ECB4B8C92B7E407C009DF428 /* CountTextView.swift in Sources */,
+				ECB4B8CC2B7E8B9D009DF428 /* SmallWidgetView.swift in Sources */,
 				EC75C4512B7C021C0095D708 /* GitHubConfigurationIntent.intentdefinition in Sources */,
 				EC75C4242B7BF90B0095D708 /* ContentView.swift in Sources */,
 				ECB4B8C02B7E3F8A009DF428 /* StatsInfoView.swift in Sources */,
 				EC75C4222B7BF90B0095D708 /* GitHub_Stats_WidgetApp.swift in Sources */,
+				ECB4B8D22B7E8F5C009DF428 /* LargeWidgetView.swift in Sources */,
 				ECB4B8C32B7E3FF1009DF428 /* IconWithTextView.swift in Sources */,
 				EC75C44B2B7BFA930095D708 /* GitHubAPIManager.swift in Sources */,
 				EC75C44E2B7C00B30095D708 /* TimelineProvider.swift in Sources */,
@@ -297,13 +312,16 @@
 			buildActionMask = 2147483647;
 			files = (
 				ECB4B8C42B7E3FF1009DF428 /* IconWithTextView.swift in Sources */,
+				ECB4B8CD2B7E8B9D009DF428 /* SmallWidgetView.swift in Sources */,
 				ECB4B8BB2B7E3E50009DF428 /* WidgetViewHelpers.swift in Sources */,
 				EC75C4522B7C021C0095D708 /* GitHubConfigurationIntent.intentdefinition in Sources */,
+				ECB4B8D32B7E8F5C009DF428 /* LargeWidgetView.swift in Sources */,
 				EC75C43B2B7BF98E0095D708 /* WidgetExtensionBundle.swift in Sources */,
 				ECB4B8BE2B7E3F43009DF428 /* UserInfoView.swift in Sources */,
 				EC75C4562B7C03DB0095D708 /* WidgetView.swift in Sources */,
 				ECB4B8C72B7E4015009DF428 /* DateInfoView.swift in Sources */,
 				EC75C44C2B7BFA930095D708 /* GitHubAPIManager.swift in Sources */,
+				ECB4B8D02B7E8F3C009DF428 /* MediumWidgetView.swift in Sources */,
 				EC75C43D2B7BF98E0095D708 /* WidgetExtension.swift in Sources */,
 				EC75C44F2B7C00B30095D708 /* TimelineProvider.swift in Sources */,
 				ECB4B8C12B7E3F8A009DF428 /* StatsInfoView.swift in Sources */,
