@@ -18,7 +18,9 @@ struct GitHubStatsWidgetView: View {
         VStack(alignment: .center, spacing: 16) {
             userInfo
             statsInfo
-            dateInfo
+            if entry.configuration.showDate as? Bool ?? true {
+                dateInfo
+            }
         }
         .containerBackground(Color(UIColor.systemBackground), for: .widget)
     }
@@ -32,12 +34,12 @@ struct GitHubStatsWidgetView: View {
                 .resizable()
                 .scaledToFit()
                 .frame(width: 24, height: 24)
-            Text(entry.username)
+            let nameString = (entry.configuration.showUsername as? Bool ?? true) ? entry.username : "GitHub Stats"
+            Text(nameString)
                 .font(.headline)
                 .minimumScaleFactor(0.5)
                 .lineLimit(4)
                 .frame(height: 24, alignment: .center)
-                .contentTransition(.numericText())
         }
     }
     
@@ -50,9 +52,7 @@ struct GitHubStatsWidgetView: View {
                     iconAndText(for: "star.circle", currentCount: entry.stars, previousCount: entry.previousStars)
                  } else {
                      countText(prefix:"Followers: ", currentCount: entry.followers, previousCount: entry.previousFollowers)
-                         .contentTransition(.numericText())
                      countText(prefix:"Stars: ", currentCount: entry.stars, previousCount: entry.previousStars)
-                         .contentTransition(.numericText())
                 }
             }
             .frame(maxWidth: entry.configuration.useIcons as? Bool ?? true ? 80 : .infinity)
@@ -62,21 +62,24 @@ struct GitHubStatsWidgetView: View {
 
     private var dateInfo: some View {
         HStack {
-            Image(colorScheme == .dark ? "github-light" : "github-dark")
-                .renderingMode(.original)
-                .resizable()
-                .scaledToFit()
-                .frame(width: 24, height: 24)
-            Text(entry.username)
-                .font(.headline)
+            Text(currentDateTimeString())
+                .font(.system(size: 14, weight: .light))
                 .minimumScaleFactor(0.5)
-                .lineLimit(4)
-                .frame(height: 24, alignment: .center)
-                .contentTransition(.numericText())
+                .lineLimit(1)
         }
     }
+
     
     // MARK: - Helper Functions
+    
+    private func currentDateTimeString() -> String {
+        let now = Date()
+        let formatter = DateFormatter()
+        formatter.dateStyle = .medium
+        formatter.timeStyle = .short
+        formatter.locale = Locale.current
+        return formatter.string(from: now)
+    }
     
     private func iconAndText(for type: String, currentCount: Int, previousCount: Int) -> some View {
         return HStack {
