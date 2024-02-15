@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct ContributionsView: View {
-    let contributions: [Contribution]
+    var contributions: [Contribution]
     let numberOfDays: Int
     let maxCirclesPerRow: Int = 7
 
@@ -43,10 +43,10 @@ struct ContributionsView: View {
                 HStack(spacing: 4) {
                     ForEach(0..<maxCirclesPerRow, id: \.self) { itemIndex in
                         let overallIndex = rowIndex * maxCirclesPerRow + itemIndex
-                        if overallIndex < contributions.count {
+                        if overallIndex < filteredContributions.count {
                             Circle()
-                                .fill(colorForContribution(contributions[overallIndex].count))
-                                .strokeBorder(.white.opacity(0.4), lineWidth: (overallIndex == contributions.count - 1) ? 2.5 : 0)
+                                .fill(colorForContribution(filteredContributions[overallIndex].count))
+                                .strokeBorder(.white.opacity(0.4), lineWidth: (overallIndex == filteredContributions.count - 1) ? 2.5 : 0)
                                 .frame(width: 12, height: 12)
                         } else {
                             Spacer()

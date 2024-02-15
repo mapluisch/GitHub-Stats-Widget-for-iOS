@@ -50,17 +50,11 @@ struct GitHubStatsWidget2View: View {
 
     
 // MARK: - Previews
-let sampleContributions = [
-    Contribution(date: Calendar.current.date(byAdding: .day, value: -8, to: Date())!, count: 0),
-    Contribution(date: Calendar.current.date(byAdding: .day, value: -7, to: Date())!, count: 0),
-    Contribution(date: Calendar.current.date(byAdding: .day, value: -6, to: Date())!, count: 0),
-    Contribution(date: Calendar.current.date(byAdding: .day, value: -5, to: Date())!, count: 0),
-    Contribution(date: Calendar.current.date(byAdding: .day, value: -4, to: Date())!, count: 0),
-    Contribution(date: Calendar.current.date(byAdding: .day, value: -3, to: Date())!, count: 1),
-    Contribution(date: Calendar.current.date(byAdding: .day, value: -2, to: Date())!, count: 2),
-    Contribution(date: Calendar.current.date(byAdding: .day, value: -1, to: Date())!, count: 3),
-    Contribution(date: Calendar.current.date(byAdding: .day, value: 0, to: Date())!, count: 4)
-]
+let sampleContributions: [Contribution] = (0..<7).map { day in
+    let date = Calendar.current.date(byAdding: .day, value: -day, to: Date())!
+    let count = (day == 0) ? 4 : Int.random(in: 0...3)
+    return Contribution(date: date, count: count)
+}.reversed()
 
 struct GitHubStatsWidgetView_Previews: PreviewProvider {
     static var previews: some View {

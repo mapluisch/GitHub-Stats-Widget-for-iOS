@@ -17,7 +17,7 @@ struct SmallWidgetWithContribsView: View {
             UserInfoView(username: entry.configuration.username ?? "mapluisch", showUsername: entry.configuration.showUsername as? Bool ?? true, colorScheme: colorScheme)
             StatsInfoView(entry: entry, colorScheme: colorScheme)
             Divider()
-            ContributionsView(contributions: entry.contributions, numberOfDays: 7)
+            ContributionsView(contributions: entry.contributions, numberOfDays: 28)
                 .scaleEffect(0.85)
                 .offset(x: 0, y: -4)
         }
