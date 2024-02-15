@@ -24,6 +24,18 @@
 		EC75C4512B7C021C0095D708 /* GitHubConfigurationIntent.intentdefinition in Sources */ = {isa = PBXBuildFile; fileRef = EC75C4502B7C021C0095D708 /* GitHubConfigurationIntent.intentdefinition */; };
 		EC75C4522B7C021C0095D708 /* GitHubConfigurationIntent.intentdefinition in Sources */ = {isa = PBXBuildFile; fileRef = EC75C4502B7C021C0095D708 /* GitHubConfigurationIntent.intentdefinition */; };
 		EC75C4562B7C03DB0095D708 /* WidgetView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC75C4542B7C03DB0095D708 /* WidgetView.swift */; };
+		ECB4B8BA2B7E3E50009DF428 /* WidgetViewHelpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECB4B8B92B7E3E50009DF428 /* WidgetViewHelpers.swift */; };
+		ECB4B8BB2B7E3E50009DF428 /* WidgetViewHelpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECB4B8B92B7E3E50009DF428 /* WidgetViewHelpers.swift */; };
+		ECB4B8BD2B7E3F43009DF428 /* UserInfoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECB4B8BC2B7E3F43009DF428 /* UserInfoView.swift */; };
+		ECB4B8BE2B7E3F43009DF428 /* UserInfoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECB4B8BC2B7E3F43009DF428 /* UserInfoView.swift */; };
+		ECB4B8C02B7E3F8A009DF428 /* StatsInfoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECB4B8BF2B7E3F8A009DF428 /* StatsInfoView.swift */; };
+		ECB4B8C12B7E3F8A009DF428 /* StatsInfoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECB4B8BF2B7E3F8A009DF428 /* StatsInfoView.swift */; };
+		ECB4B8C32B7E3FF1009DF428 /* IconWithTextView.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECB4B8C22B7E3FF1009DF428 /* IconWithTextView.swift */; };
+		ECB4B8C42B7E3FF1009DF428 /* IconWithTextView.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECB4B8C22B7E3FF1009DF428 /* IconWithTextView.swift */; };
+		ECB4B8C62B7E4015009DF428 /* DateInfoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECB4B8C52B7E4015009DF428 /* DateInfoView.swift */; };
+		ECB4B8C72B7E4015009DF428 /* DateInfoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECB4B8C52B7E4015009DF428 /* DateInfoView.swift */; };
+		ECB4B8C92B7E407C009DF428 /* CountTextView.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECB4B8C82B7E407C009DF428 /* CountTextView.swift */; };
+		ECB4B8CA2B7E407C009DF428 /* CountTextView.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECB4B8C82B7E407C009DF428 /* CountTextView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -68,6 +80,12 @@
 		EC75C4502B7C021C0095D708 /* GitHubConfigurationIntent.intentdefinition */ = {isa = PBXFileReference; lastKnownFileType = file.intentdefinition; path = GitHubConfigurationIntent.intentdefinition; sourceTree = "<group>"; };
 		EC75C4532B7C02290095D708 /* GitHub-Stats-Widget-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = "GitHub-Stats-Widget-Info.plist"; sourceTree = SOURCE_ROOT; };
 		EC75C4542B7C03DB0095D708 /* WidgetView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WidgetView.swift; sourceTree = "<group>"; };
+		ECB4B8B92B7E3E50009DF428 /* WidgetViewHelpers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WidgetViewHelpers.swift; sourceTree = "<group>"; };
+		ECB4B8BC2B7E3F43009DF428 /* UserInfoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserInfoView.swift; sourceTree = "<group>"; };
+		ECB4B8BF2B7E3F8A009DF428 /* StatsInfoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatsInfoView.swift; sourceTree = "<group>"; };
+		ECB4B8C22B7E3FF1009DF428 /* IconWithTextView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IconWithTextView.swift; sourceTree = "<group>"; };
+		ECB4B8C52B7E4015009DF428 /* DateInfoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateInfoView.swift; sourceTree = "<group>"; };
+		ECB4B8C82B7E407C009DF428 /* CountTextView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CountTextView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -149,6 +167,12 @@
 				EC75C4542B7C03DB0095D708 /* WidgetView.swift */,
 				EC75C4402B7BF98E0095D708 /* Assets.xcassets */,
 				EC75C4422B7BF98E0095D708 /* Info.plist */,
+				ECB4B8B92B7E3E50009DF428 /* WidgetViewHelpers.swift */,
+				ECB4B8BC2B7E3F43009DF428 /* UserInfoView.swift */,
+				ECB4B8BF2B7E3F8A009DF428 /* StatsInfoView.swift */,
+				ECB4B8C22B7E3FF1009DF428 /* IconWithTextView.swift */,
+				ECB4B8C52B7E4015009DF428 /* DateInfoView.swift */,
+				ECB4B8C82B7E407C009DF428 /* CountTextView.swift */,
 			);
 			path = WidgetExtension;
 			sourceTree = "<group>";
@@ -254,9 +278,15 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				ECB4B8C62B7E4015009DF428 /* DateInfoView.swift in Sources */,
+				ECB4B8BA2B7E3E50009DF428 /* WidgetViewHelpers.swift in Sources */,
+				ECB4B8BD2B7E3F43009DF428 /* UserInfoView.swift in Sources */,
+				ECB4B8C92B7E407C009DF428 /* CountTextView.swift in Sources */,
 				EC75C4512B7C021C0095D708 /* GitHubConfigurationIntent.intentdefinition in Sources */,
 				EC75C4242B7BF90B0095D708 /* ContentView.swift in Sources */,
+				ECB4B8C02B7E3F8A009DF428 /* StatsInfoView.swift in Sources */,
 				EC75C4222B7BF90B0095D708 /* GitHub_Stats_WidgetApp.swift in Sources */,
+				ECB4B8C32B7E3FF1009DF428 /* IconWithTextView.swift in Sources */,
 				EC75C44B2B7BFA930095D708 /* GitHubAPIManager.swift in Sources */,
 				EC75C44E2B7C00B30095D708 /* TimelineProvider.swift in Sources */,
 			);
@@ -266,12 +296,18 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				ECB4B8C42B7E3FF1009DF428 /* IconWithTextView.swift in Sources */,
+				ECB4B8BB2B7E3E50009DF428 /* WidgetViewHelpers.swift in Sources */,
 				EC75C4522B7C021C0095D708 /* GitHubConfigurationIntent.intentdefinition in Sources */,
 				EC75C43B2B7BF98E0095D708 /* WidgetExtensionBundle.swift in Sources */,
+				ECB4B8BE2B7E3F43009DF428 /* UserInfoView.swift in Sources */,
 				EC75C4562B7C03DB0095D708 /* WidgetView.swift in Sources */,
+				ECB4B8C72B7E4015009DF428 /* DateInfoView.swift in Sources */,
 				EC75C44C2B7BFA930095D708 /* GitHubAPIManager.swift in Sources */,
 				EC75C43D2B7BF98E0095D708 /* WidgetExtension.swift in Sources */,
 				EC75C44F2B7C00B30095D708 /* TimelineProvider.swift in Sources */,
+				ECB4B8C12B7E3F8A009DF428 /* StatsInfoView.swift in Sources */,
+				ECB4B8CA2B7E407C009DF428 /* CountTextView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
