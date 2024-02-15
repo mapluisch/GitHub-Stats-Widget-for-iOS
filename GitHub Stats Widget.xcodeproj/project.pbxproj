@@ -42,6 +42,8 @@
 		ECB4B8D02B7E8F3C009DF428 /* MediumWidgetView.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECB4B8CE2B7E8F3C009DF428 /* MediumWidgetView.swift */; };
 		ECB4B8D22B7E8F5C009DF428 /* LargeWidgetView.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECB4B8D12B7E8F5C009DF428 /* LargeWidgetView.swift */; };
 		ECB4B8D32B7E8F5C009DF428 /* LargeWidgetView.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECB4B8D12B7E8F5C009DF428 /* LargeWidgetView.swift */; };
+		ECB4B8D52B7E9507009DF428 /* ContributionFetcher.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECB4B8D42B7E9507009DF428 /* ContributionFetcher.swift */; };
+		ECB4B8D62B7E9507009DF428 /* ContributionFetcher.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECB4B8D42B7E9507009DF428 /* ContributionFetcher.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -95,6 +97,7 @@
 		ECB4B8CB2B7E8B9D009DF428 /* SmallWidgetView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SmallWidgetView.swift; sourceTree = "<group>"; };
 		ECB4B8CE2B7E8F3C009DF428 /* MediumWidgetView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MediumWidgetView.swift; sourceTree = "<group>"; };
 		ECB4B8D12B7E8F5C009DF428 /* LargeWidgetView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LargeWidgetView.swift; sourceTree = "<group>"; };
+		ECB4B8D42B7E9507009DF428 /* ContributionFetcher.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContributionFetcher.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -185,6 +188,7 @@
 				ECB4B8CB2B7E8B9D009DF428 /* SmallWidgetView.swift */,
 				ECB4B8CE2B7E8F3C009DF428 /* MediumWidgetView.swift */,
 				ECB4B8D12B7E8F5C009DF428 /* LargeWidgetView.swift */,
+				ECB4B8D42B7E9507009DF428 /* ContributionFetcher.swift */,
 			);
 			path = WidgetExtension;
 			sourceTree = "<group>";
@@ -304,6 +308,7 @@
 				ECB4B8C32B7E3FF1009DF428 /* IconWithTextView.swift in Sources */,
 				EC75C44B2B7BFA930095D708 /* GitHubAPIManager.swift in Sources */,
 				EC75C44E2B7C00B30095D708 /* TimelineProvider.swift in Sources */,
+				ECB4B8D52B7E9507009DF428 /* ContributionFetcher.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -316,6 +321,7 @@
 				ECB4B8BB2B7E3E50009DF428 /* WidgetViewHelpers.swift in Sources */,
 				EC75C4522B7C021C0095D708 /* GitHubConfigurationIntent.intentdefinition in Sources */,
 				ECB4B8D32B7E8F5C009DF428 /* LargeWidgetView.swift in Sources */,
+				ECB4B8D62B7E9507009DF428 /* ContributionFetcher.swift in Sources */,
 				EC75C43B2B7BF98E0095D708 /* WidgetExtensionBundle.swift in Sources */,
 				ECB4B8BE2B7E3F43009DF428 /* UserInfoView.swift in Sources */,
 				EC75C4562B7C03DB0095D708 /* WidgetView.swift in Sources */,
