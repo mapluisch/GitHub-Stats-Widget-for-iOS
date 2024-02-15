@@ -9,10 +9,21 @@ import SwiftUI
 
 struct ContributionsView: View {
     let contributions: [Contribution]
+    let numberOfDays: Int
+
+    var filteredContributions: [Contribution] {
+            let sortedContributions = contributions.sorted { $0.date < $1.date }
+        
+            if sortedContributions.count > numberOfDays {
+                return Array(sortedContributions.suffix(numberOfDays))
+            } else {
+                return sortedContributions
+            }
+        }
 
     var body: some View {
         HStack {
-            ForEach(contributions, id: \.date) { contribution in
+            ForEach(filteredContributions, id: \.date) { contribution in
                 Circle()
                     .fill(colorForContribution(contribution.count))
                     .frame(width: 12, height: 12)

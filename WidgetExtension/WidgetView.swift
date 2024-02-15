@@ -33,6 +33,21 @@ struct GitHubStatsWidgetView: View {
         }
     }
 }
+
+struct GitHubStatsWidget2View: View {
+    let entry: GitHubUserStatsEntry
+    @Environment(\.widgetFamily) var widgetFamily
+    @Environment(\.colorScheme) var colorScheme
+    
+    var body: some View {
+        Group {
+            SmallWidgetWithContribsView(entry: entry, colorScheme:   colorScheme)
+                .containerBackground(Color(UIColor.systemBackground), for: .widget)
+        }
+    }
+}
+
+
     
 // MARK: - Previews
 let sampleContributions = [
@@ -62,6 +77,21 @@ struct GitHubStatsWidgetView_Previews: PreviewProvider {
             )
             .previewContext(WidgetPreviewContext(family: .systemSmall))
             .previewDisplayName("Small Widget")
+            
+            GitHubStatsWidget2View(
+                entry: GitHubUserStatsEntry(
+                    date: Date(),
+                    username: "mapluisch",
+                    followers: 2,
+                    stars: 15,
+                    configuration: GitHubUserConfigurationIntent(),
+                    previousFollowers: 0,
+                    previousStars: 0,
+                    contributions: sampleContributions
+                )
+            )
+            .previewContext(WidgetPreviewContext(family: .systemSmall))
+            .previewDisplayName("Small Widget With Contribs")
             
             GitHubStatsWidgetView(
                 entry: GitHubUserStatsEntry(

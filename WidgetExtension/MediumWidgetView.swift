@@ -26,7 +26,7 @@ struct MediumWidgetView: View {
             }.padding()
             VStack(alignment: .center, spacing: 16) {
                 Text("Contributions").font(.footnote)
-                ContributionsView(contributions: entry.contributions)
+                ContributionsView(contributions: entry.contributions, numberOfDays: 7)
             }.padding()
         }
     }
