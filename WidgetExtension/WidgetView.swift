@@ -51,6 +51,8 @@ struct GitHubStatsWidget2View: View {
     
 // MARK: - Previews
 let sampleContributions = [
+    Contribution(date: Calendar.current.date(byAdding: .day, value: -8, to: Date())!, count: 0),
+    Contribution(date: Calendar.current.date(byAdding: .day, value: -7, to: Date())!, count: 0),
     Contribution(date: Calendar.current.date(byAdding: .day, value: -6, to: Date())!, count: 0),
     Contribution(date: Calendar.current.date(byAdding: .day, value: -5, to: Date())!, count: 0),
     Contribution(date: Calendar.current.date(byAdding: .day, value: -4, to: Date())!, count: 0),

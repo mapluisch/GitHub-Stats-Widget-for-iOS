@@ -10,23 +10,49 @@ import SwiftUI
 struct ContributionsView: View {
     let contributions: [Contribution]
     let numberOfDays: Int
+    let maxCirclesPerRow: Int = 7
 
     var filteredContributions: [Contribution] {
-            let sortedContributions = contributions.sorted { $0.date < $1.date }
-        
-            if sortedContributions.count > numberOfDays {
-                return Array(sortedContributions.suffix(numberOfDays))
-            } else {
-                return sortedContributions
-            }
+        let sortedContributions = contributions.sorted { $0.date < $1.date }
+    
+        if sortedContributions.count > numberOfDays {
+            return Array(sortedContributions.suffix(numberOfDays))
+        } else {
+            return sortedContributions
         }
+    }
+    
+    var contributionsThisMonth: [Contribution] {
+        let currentDate = Date()
+        let calendar = Calendar.current
+        
+        let components = calendar.dateComponents([.year, .month], from: currentDate)
+        guard let startOfMonth = calendar.date(from: components) else { return [] }
+        
+        return contributions.filter { $0.date >= startOfMonth && $0.date <= currentDate }
+            .sorted(by: { $0.date < $1.date })
+    }
+
+    private var numberOfRows: Int {
+        (contributions.count + maxCirclesPerRow - 1) / maxCirclesPerRow
+    }
 
     var body: some View {
-        HStack {
-            ForEach(filteredContributions, id: \.date) { contribution in
-                Circle()
-                    .fill(colorForContribution(contribution.count))
-                    .frame(width: 12, height: 12)
+        VStack(alignment: .leading, spacing: 4) {
+            ForEach(0..<numberOfRows, id: \.self) { rowIndex in
+                HStack(spacing: 4) {
+                    ForEach(0..<maxCirclesPerRow, id: \.self) { itemIndex in
+                        let overallIndex = rowIndex * maxCirclesPerRow + itemIndex
+                        if overallIndex < contributions.count {
+                            Circle()
+                                .fill(colorForContribution(contributions[overallIndex].count))
+                                .strokeBorder(.white.opacity(0.4), lineWidth: (overallIndex == contributions.count - 1) ? 2.5 : 0)
+                                .frame(width: 12, height: 12)
+                        } else {
+                            Spacer()
+                        }
+                    }
+                }
             }
         }
     }
