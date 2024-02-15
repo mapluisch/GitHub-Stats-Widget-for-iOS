@@ -18,6 +18,7 @@ struct GitHubStatsWidgetView: View {
         VStack(alignment: .center, spacing: 16) {
             userInfo
             statsInfo
+            dateInfo
         }
         .containerBackground(Color(UIColor.systemBackground), for: .widget)
     }
@@ -26,12 +27,17 @@ struct GitHubStatsWidgetView: View {
     
     private var userInfo: some View {
         HStack {
-            iconImage(named: colorScheme == .dark ? "github-light" : "github-dark", width: 24, height: 24)
+            Image(colorScheme == .dark ? "github-light" : "github-dark")
+                .renderingMode(.original)
+                .resizable()
+                .scaledToFit()
+                .frame(width: 24, height: 24)
             Text(entry.username)
                 .font(.headline)
                 .minimumScaleFactor(0.5)
                 .lineLimit(4)
                 .frame(height: 24, alignment: .center)
+                .contentTransition(.numericText())
         }
     }
     
@@ -40,27 +46,46 @@ struct GitHubStatsWidgetView: View {
             Spacer()
             VStack {
                 if entry.configuration.useIcons as? Bool ?? true {
-                    iconAndText(for: "followers", currentCount: entry.followers, previousCount: entry.previousFollowers)
-                    iconAndText(for: "star", currentCount: entry.stars, previousCount: entry.previousStars)
+                    iconAndText(for: "person.2", currentCount: entry.followers, previousCount: entry.previousFollowers)
+                    iconAndText(for: "star.circle", currentCount: entry.stars, previousCount: entry.previousStars)
                  } else {
                      countText(prefix:"Followers: ", currentCount: entry.followers, previousCount: entry.previousFollowers)
+                         .contentTransition(.numericText())
                      countText(prefix:"Stars: ", currentCount: entry.stars, previousCount: entry.previousStars)
+                         .contentTransition(.numericText())
                 }
             }
-            .frame(maxWidth: entry.configuration.useIcons as? Bool ?? true ? 85 : .infinity)
+            .frame(maxWidth: entry.configuration.useIcons as? Bool ?? true ? 80 : .infinity)
             Spacer()
         }
     }
 
+    private var dateInfo: some View {
+        HStack {
+            Image(colorScheme == .dark ? "github-light" : "github-dark")
+                .renderingMode(.original)
+                .resizable()
+                .scaledToFit()
+                .frame(width: 24, height: 24)
+            Text(entry.username)
+                .font(.headline)
+                .minimumScaleFactor(0.5)
+                .lineLimit(4)
+                .frame(height: 24, alignment: .center)
+                .contentTransition(.numericText())
+        }
+    }
     
     // MARK: - Helper Functions
     
     private func iconAndText(for type: String, currentCount: Int, previousCount: Int) -> some View {
-        let iconName = "\(type)-\(colorScheme == .dark ? "light" : "dark")"
         return HStack {
-            iconImage(named: iconName, width: 16, height: 16)
+            Image(systemName: "\(type).fill")
+                .scaledToFit()
+                .frame(width: 16, height: 16)
             Spacer()
             countText(prefix: "", currentCount: currentCount, previousCount: previousCount)
+                .baselineOffset(type == "star.circle" ? -2: 0)
         }
     }
     
@@ -76,14 +101,6 @@ struct GitHubStatsWidgetView: View {
             let combinedText = Text(combinedLabel) + Text(arrow).foregroundColor(arrowColor)
             return combinedText
         }
-    }
-    
-    private func iconImage(named name: String, width: CGFloat, height: CGFloat) -> some View {
-        Image(name)
-            .renderingMode(.original)
-            .resizable()
-            .scaledToFit()
-            .frame(width: width, height: height)
     }
 }
 

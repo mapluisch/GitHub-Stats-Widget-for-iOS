@@ -15,7 +15,7 @@ struct GitHubStatsWidget: Widget {
         IntentConfiguration(kind: kind, intent: GitHubUserConfigurationIntent.self, provider: GitHubStatsTimelineProvider()) { entry in
             GitHubStatsWidgetView(entry: entry)
         }
-        .configurationDisplayName("GitHub Stats Widget")
+        .configurationDisplayName("GitHub Stats")
         .description("Displays GitHub followers and stars.")
     }
 }

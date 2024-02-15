@@ -28,7 +28,7 @@
 			<key>INIntentIneligibleForSuggestions</key>
 			<true/>
 			<key>INIntentLastParameterTag</key>
-			<integer>3</integer>
+			<integer>5</integer>
 			<key>INIntentName</key>
 			<string>GitHubUserConfiguration</string>
 			<key>INIntentParameters</key>
@@ -132,6 +132,56 @@
 					<true/>
 					<key>INIntentParameterTag</key>
 					<integer>3</integer>
+					<key>INIntentParameterType</key>
+					<string>Boolean</string>
+				</dict>
+				<dict>
+					<key>INIntentParameterConfigurable</key>
+					<true/>
+					<key>INIntentParameterDisplayName</key>
+					<string>Show Date</string>
+					<key>INIntentParameterDisplayNameID</key>
+					<string>hXfV17</string>
+					<key>INIntentParameterDisplayPriority</key>
+					<integer>3</integer>
+					<key>INIntentParameterMetadata</key>
+					<dict>
+						<key>INIntentParameterMetadataDefaultValue</key>
+						<true/>
+						<key>INIntentParameterMetadataFalseDisplayName</key>
+						<string>false</string>
+						<key>INIntentParameterMetadataFalseDisplayNameID</key>
+						<string>ZbK9pT</string>
+						<key>INIntentParameterMetadataTrueDisplayName</key>
+						<string>true</string>
+						<key>INIntentParameterMetadataTrueDisplayNameID</key>
+						<string>Soot2X</string>
+					</dict>
+					<key>INIntentParameterName</key>
+					<string>showDate</string>
+					<key>INIntentParameterPromptDialogs</key>
+					<array>
+						<dict>
+							<key>INIntentParameterPromptDialogCustom</key>
+							<true/>
+							<key>INIntentParameterPromptDialogType</key>
+							<string>Configuration</string>
+						</dict>
+						<dict>
+							<key>INIntentParameterPromptDialogCustom</key>
+							<true/>
+							<key>INIntentParameterPromptDialogFormatString</key>
+							<string>Show Date</string>
+							<key>INIntentParameterPromptDialogFormatStringID</key>
+							<string>1Y5Bym</string>
+							<key>INIntentParameterPromptDialogType</key>
+							<string>Primary</string>
+						</dict>
+					</array>
+					<key>INIntentParameterSupportsResolution</key>
+					<true/>
+					<key>INIntentParameterTag</key>
+					<integer>5</integer>
 					<key>INIntentParameterType</key>
 					<string>Boolean</string>
 				</dict>
