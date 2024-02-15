@@ -38,7 +38,48 @@ struct GitHubStatsWidgetView: View {
 
 struct GitHubStatsWidgetView_Previews: PreviewProvider {
     static var previews: some View {
-        GitHubStatsWidgetView(entry: GitHubUserStatsEntry(date: Date(), username: "mapluisch", followers: 2, stars: 15, configuration: GitHubUserConfigurationIntent(), previousFollowers: 0, previousStars: 0))
+        Group {
+            GitHubStatsWidgetView(
+                entry: GitHubUserStatsEntry(
+                    date: Date(),
+                    username: "mapluisch",
+                    followers: 2,
+                    stars: 15,
+                    configuration: GitHubUserConfigurationIntent(),
+                    previousFollowers: 0,
+                    previousStars: 0
+                )
+            )
             .previewContext(WidgetPreviewContext(family: .systemSmall))
+            .previewDisplayName("Small Widget")
+            
+            GitHubStatsWidgetView(
+                entry: GitHubUserStatsEntry(
+                    date: Date(),
+                    username: "mapluisch",
+                    followers: 2,
+                    stars: 15,
+                    configuration: GitHubUserConfigurationIntent(),
+                    previousFollowers: 0,
+                    previousStars: 0
+                )
+            )
+            .previewContext(WidgetPreviewContext(family: .systemMedium))
+            .previewDisplayName("Medium Widget")
+            
+            GitHubStatsWidgetView(
+                entry: GitHubUserStatsEntry(
+                    date: Date(),
+                    username: "mapluisch",
+                    followers: 2,
+                    stars: 15,
+                    configuration: GitHubUserConfigurationIntent(),
+                    previousFollowers: 0,
+                    previousStars: 0
+                )
+            )
+            .previewContext(WidgetPreviewContext(family: .systemLarge))
+            .previewDisplayName("Large Widget")
+        }
     }
 }
