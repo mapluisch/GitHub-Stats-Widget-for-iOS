@@ -12,7 +12,8 @@ struct Contribution {
     let count: Int
 }
 
-class ContributionFetcher {
+class ContributionFetcher : ObservableObject {
+    @Published var lastWeekContributions: [Contribution] = []
 
     func fetchContributions(username: String, completion: @escaping ([Contribution]) -> Void) {
         let urlString = "https://github.com/users/\(username)/contributions"
@@ -60,16 +61,15 @@ class ContributionFetcher {
 
         return contributions
     }
-}
-
-func printLastWeekContributions(username: String) {
-    let fetcher = ContributionFetcher()
-    fetcher.fetchContributions(username: username) { contributions in
-        let lastWeekDate = Calendar.current.date(byAdding: .day, value: -7, to: Date())!
-        let lastWeekContributions = contributions.filter { $0.date >= lastWeekDate }
-        
-        for contribution in lastWeekContributions.sorted(by: { $0.date < $1.date }) {
-            print("Date: \(contribution.date), Contributions: \(contribution.count)")
+    
+    func updateLastWeekContributions(username: String) {
+        fetchContributions(username: username) { contributions in
+            let lastWeekDate = Calendar.current.date(byAdding: .day, value: -7, to: Date())!
+            let sortedContributions = contributions.filter { $0.date >= lastWeekDate }.sorted(by: { $0.date < $1.date })
+            
+            DispatchQueue.main.async {
+                self.lastWeekContributions = sortedContributions
+            }
         }
     }
 }

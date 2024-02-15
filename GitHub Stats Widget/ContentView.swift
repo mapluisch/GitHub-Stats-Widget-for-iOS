@@ -11,11 +11,15 @@ struct ContentView: View {
     @State private var resultMessage: String = "Loading..."
 
     var body: some View {
-        Text(resultMessage)
-            .padding()
-            .onAppear {
-                fetchGitHubUserStats()
-            }
+        VStack {
+            Spacer()
+            Text(resultMessage)
+                .padding()
+                .onAppear {
+                    fetchGitHubUserStats()
+                }
+            Spacer()
+        }
     }
     
     private func fetchGitHubUserStats() {
