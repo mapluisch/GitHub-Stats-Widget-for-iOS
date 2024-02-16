@@ -50,7 +50,8 @@ struct GitHubStatsWidget2View: View {
 
     
 // MARK: - Previews
-let sampleContributions: [Contribution] = (0..<7).map { day in
+let sampleDays = 28
+let sampleContributions: [Contribution] = (0..<sampleDays).map { day in
     let date = Calendar.current.date(byAdding: .day, value: -day, to: Date())!
     let count = (day == 0) ? 4 : Int.random(in: 0...3)
     return Contribution(date: date, count: count)

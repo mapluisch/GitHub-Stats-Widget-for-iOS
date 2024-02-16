@@ -8,13 +8,13 @@
 import SwiftUI
 
 struct ContributionsView: View {
-    var contributions: [Contribution]
+    let contributions: [Contribution]
     let numberOfDays: Int
     let maxCirclesPerRow: Int = 7
 
     var filteredContributions: [Contribution] {
         let sortedContributions = contributions.sorted { $0.date < $1.date }
-    
+        
         if sortedContributions.count > numberOfDays {
             return Array(sortedContributions.suffix(numberOfDays))
         } else {
@@ -38,9 +38,10 @@ struct ContributionsView: View {
     }
 
     var body: some View {
-        VStack(alignment: .leading, spacing: 4) {
+        VStack(alignment: .center, spacing: 4) {
             ForEach(0..<numberOfRows, id: \.self) { rowIndex in
                 HStack(spacing: 4) {
+                    Spacer()
                     ForEach(0..<maxCirclesPerRow, id: \.self) { itemIndex in
                         let overallIndex = rowIndex * maxCirclesPerRow + itemIndex
                         if overallIndex < filteredContributions.count {
@@ -49,9 +50,10 @@ struct ContributionsView: View {
                                 .strokeBorder(.white.opacity(0.4), lineWidth: (overallIndex == filteredContributions.count - 1) ? 2.5 : 0)
                                 .frame(width: 12, height: 12)
                         } else {
-                            Spacer()
+                            EmptyView()
                         }
                     }
+                    Spacer()
                 }
             }
         }
