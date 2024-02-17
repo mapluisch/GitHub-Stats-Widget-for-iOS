@@ -43,7 +43,7 @@ struct LockscreenWidget: Widget {
             LockscreenWidgetView(entry: entry)
         }
         .configurationDisplayName("GitHub Stats")
-        .description("Displays GitHub followers and stars with this weeks contributions.")
+        .description("Displays GitHub followers and stars (setup via the Settings tab in the app).")
         .supportedFamilies([.accessoryRectangular])
     }
 }
