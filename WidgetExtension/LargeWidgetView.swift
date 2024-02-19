@@ -10,8 +10,6 @@ import WidgetKit
 
 struct LargeWidgetView: View {
     
-    // to be implemented
-    // right now it's just a copy of the small widget
     let entry: GitHubUserStatsEntry
     var colorScheme: ColorScheme
 
@@ -19,11 +17,13 @@ struct LargeWidgetView: View {
         VStack(alignment: .center, spacing: 16) {
             UserInfoView(username: entry.configuration.username ?? "mapluisch", showUsername: entry.configuration.showUsername as? Bool ?? true, colorScheme: colorScheme)
             StatsInfoView(entry: entry, colorScheme: colorScheme)
+            Divider()
+            ContributionsView(contributions: entry.contributions, numberOfDays: 7*18)
             if entry.configuration.showDate as? Bool ?? true {
+                Divider()
                 DateInfoView()
             }
         }
         .padding()
     }
 }
-
