@@ -54,7 +54,7 @@ let sampleDays = 28
 let sampleContributions: [Contribution] = (0..<sampleDays).map { day in
     let date = Calendar.current.date(byAdding: .day, value: -day, to: Date())!
     let count = day
-    return Contribution(date: date, count: count)
+    return Contribution(count: count, date: date)
 }.reversed()
 
 struct GitHubStatsWidgetView_Previews: PreviewProvider {

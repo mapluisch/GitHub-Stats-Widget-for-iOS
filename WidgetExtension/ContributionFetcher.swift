@@ -7,9 +7,10 @@
 
 import Foundation
 
-struct Contribution {
-    let date: Date
+struct Contribution: Identifiable {
+    let id = UUID()
     let count: Int
+    let date: Date
 }
 
 class ContributionFetcher : ObservableObject {
@@ -55,7 +56,7 @@ class ContributionFetcher : ObservableObject {
                let date = dateFormatter.date(from: datePart),
                let levelPart = line.slice(from: "data-level=\"", to: "\""),
                let level = Int(levelPart) {
-                    contributions.append(Contribution(date: date, count: level))
+                    contributions.append(Contribution(count: level, date: date))
             }
         }
 

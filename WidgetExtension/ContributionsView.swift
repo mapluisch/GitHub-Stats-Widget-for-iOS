@@ -10,67 +10,87 @@ import SwiftUI
 struct ContributionsView: View {
     let contributions: [Contribution]
     let numberOfDays: Int
-    let maxCirclesPerRow: Int = 7
     let circleSize: CGFloat = 12
     let spacing: CGFloat = 4
-    var showWeekdayInitials: Bool = false
-
-    var filteredContributions: [Contribution] {
-        contributions
-            .sorted { $0.date < $1.date }
-            .suffix(numberOfDays)
+    
+    private var calendar: Calendar {
+        var cal = Calendar.current
+        cal.firstWeekday = 2
+        return cal
     }
     
-    var contributionsThisMonth: [Contribution] {
-        let currentDate = Date()
-        let calendar = Calendar.current
+    private var dates: [Date] {
+        guard let startDate = calendar.date(byAdding: .day, value: -(numberOfDays - 1), to: Date()) else { return [] }
+        var dates = (0..<numberOfDays).compactMap { calendar.date(byAdding: .day, value: $0, to: startDate) }
         
-        let components = calendar.dateComponents([.year, .month], from: currentDate)
-        guard let startOfMonth = calendar.date(from: components) else { return [] }
+        if (numberOfDays == 7) {
+            return dates
+        }
         
-        return contributions.filter { $0.date >= startOfMonth && $0.date <= currentDate }
-            .sorted(by: { $0.date < $1.date })
-    }
-
-    private var numberOfRows: Int {
-        (filteredContributions.count + maxCirclesPerRow - 1) / maxCirclesPerRow
-    }
-
-    var body: some View {
-        VStack(alignment: .center, spacing: spacing) {
-            ForEach(0..<numberOfRows, id: \.self) { rowIndex in
-                HStack(spacing: spacing) {
-                    ForEach(0..<maxCirclesPerRow, id: \.self) { itemIndex in
-                        let overallIndex = rowIndex * maxCirclesPerRow + itemIndex
-                        if overallIndex < filteredContributions.count {
-                            Circle()
-                                .fill(colorForContribution(filteredContributions[overallIndex].count))
-                                .strokeBorder(.white.opacity(0.4), lineWidth: (overallIndex == filteredContributions.count - 1) ? 2.5 : 0)
-                                .frame(width: circleSize, height: circleSize)
-                        } else {
-                            EmptyView()
-                        }
+        var futureDatesCount = 0
+        
+        if let lastDate = dates.last {
+                let lastDateWeekday = calendar.component(.weekday, from: lastDate)
+                let saturday = 7
+                if lastDateWeekday != saturday {
+                    var nextDate = lastDate
+                    while calendar.component(.weekday, from: nextDate) != saturday {
+                        futureDatesCount += 1
+                        guard let nextDay = calendar.date(byAdding: .day, value: 1, to: nextDate) else { break }
+                        nextDate = nextDay
+                        dates.append(nextDate)
                     }
                 }
             }
+        
+        if futureDatesCount > 0 {
+            dates.removeFirst(min(futureDatesCount, dates.count))
         }
-        .padding(.vertical, 2)
+        
+        return dates
+    }
+    
+    private func contributionForDate(_ date: Date) -> Contribution? {
+        contributions.first { calendar.isDate($0.date, inSameDayAs: date) }
+    }
+    
+    private func colorForContribution(_ count: Int?) -> Color {
+        switch count {
+            case .none, 0: return Color(red: 242 / 255, green: 242 / 255, blue: 242 / 255)
+            case 1: return Color(red: 190 / 255, green: 216 / 255, blue: 253 / 255)
+            case 2: return Color(red: 132 / 255, green: 178 / 255, blue: 251 / 255)
+            case 3: return Color(red: 83 / 255, green: 142 / 255, blue: 250 / 255)
+            case 4: return Color(red: 56 / 255, green: 108 / 255, blue: 249 / 255)
+            default: return Color(red: 242 / 255, green: 242 / 255, blue: 242 / 255)
+        }
     }
 
-    private func colorForContribution(_ count: Int) -> Color {
-        switch count {
-            case 0:
-                return Color(red: 242 / 255, green: 242 / 255, blue: 242 / 255)
-            case 1:
-                return Color(red: 190 / 255, green: 216 / 255, blue: 253 / 255)
-            case 2:
-                return Color(red: 132 / 255, green: 178 / 255, blue: 251 / 255)
-            case 3:
-                return Color(red: 83 / 255, green: 142 / 255, blue: 250 / 255)
-            case 4:
-                return Color(red: 56 / 255, green: 108 / 255, blue: 249 / 255)
-            default:
-                return Color(red: 242 / 255, green: 242 / 255, blue: 242 / 255)
+    var body: some View {
+        if numberOfDays <= 7 {
+            HStack(spacing: spacing) {
+                ForEach(dates, id: \.self) { date in
+                    if let contribution = contributionForDate(date) {
+                        Circle()
+                            .fill(colorForContribution(contribution.count))
+                            .frame(width: circleSize, height: circleSize)
+                    }
+                }
+            }
+        } else {
+            let rows = Array(repeating: GridItem(.fixed(circleSize), spacing: spacing), count: 7)
+            LazyHGrid(rows: rows, spacing: spacing) {
+                ForEach(dates, id: \.self) { date in
+                    if let contribution = contributionForDate(date) {
+                        Circle()
+                            .fill(colorForContribution(contribution.count))
+                            .frame(width: circleSize, height: circleSize)
+                    } else {
+                        Circle()
+                            .fill(Color.clear)
+                            .frame(width: circleSize, height: circleSize)
+                    }
+                }
+            }
         }
     }
 }
