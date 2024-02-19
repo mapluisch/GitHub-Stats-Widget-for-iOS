@@ -78,6 +78,10 @@ struct ContributionsView: View {
                         Circle()
                             .fill(colorForContribution(contribution.count))
                             .frame(width: circleSize, height: circleSize)
+                            .overlay(
+                                Circle()
+                                    .strokeBorder(Date().isSameDay(as: date) ? Color.white.opacity(0.4) : Color.clear, lineWidth: 3)
+                            )
                     }
                 }
             }
@@ -89,6 +93,10 @@ struct ContributionsView: View {
                         Circle()
                             .fill(colorForContribution(contribution.count))
                             .frame(width: circleSize, height: circleSize)
+                            .overlay(
+                                Circle()
+                                    .strokeBorder(Date().isSameDay(as: date) ? Color.white.opacity(0.4) : Color.clear, lineWidth: 3)
+                            )
                     } else {
                         Circle()
                             .fill(Color.clear)

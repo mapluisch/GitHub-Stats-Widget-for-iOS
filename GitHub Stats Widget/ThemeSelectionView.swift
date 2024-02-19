@@ -40,14 +40,25 @@ struct ThemeSelectionView: View {
             Section(header: Text("Customize Colors")) {
                 ForEach(0..<5) { count in
                     HStack {
-                        Text("Contribution Level \(count)")
-                        Spacer()
-                        ColorPicker("Select Color", selection: binding(for: count))
+                        Text("\(contributionCountToString(count: count)) contributions")
+                            .fixedSize(horizontal: true, vertical: false)
+                        ColorPicker("", selection: binding(for: count))
                     }
                 }
             }
         }
         .navigationTitle("Theme Colors")
+    }
+    
+    private func contributionCountToString(count: Int) -> String {
+        switch(count) {
+        case 0: return "No"
+        case 1: return "Low"
+        case 2: return "Medium"
+        case 3: return "Medium-High"
+        case 4: return "High"
+        default: return ""
+        }
     }
     
     private func binding(for count: Int) -> Binding<Color> {
