@@ -20,18 +20,26 @@ struct GitHubUserStatsEntry: TimelineEntry {
 }
 
 struct UserDefaultsKeys {
-    static let previousFollowers = "previousFollowers"
-    static let previousStars = "previousStars"
+    static func previousFollowersKey(forUsername username: String) -> String {
+        "previousFollowers_\(username)"
+    }
+    static func previousStarsKey(forUsername username: String) -> String {
+        "previousStars_\(username)"
+    }
 }
 
-func updatePreviousValues(followers: Int, stars: Int) {
-    UserDefaults.standard.set(followers, forKey: UserDefaultsKeys.previousFollowers)
-    UserDefaults.standard.set(stars, forKey: UserDefaultsKeys.previousStars)
+func updatePreviousValues(followers: Int, stars: Int, forUsername username: String) {
+    let followersKey = UserDefaultsKeys.previousFollowersKey(forUsername: username)
+    let starsKey = UserDefaultsKeys.previousStarsKey(forUsername: username)
+    UserDefaults.standard.set(followers, forKey: followersKey)
+    UserDefaults.standard.set(stars, forKey: starsKey)
 }
 
-func getPreviousValues() -> (followers: Int, stars: Int) {
-    let followers = UserDefaults.standard.integer(forKey: UserDefaultsKeys.previousFollowers)
-    let stars = UserDefaults.standard.integer(forKey: UserDefaultsKeys.previousStars)
+func getPreviousValues(forUsername username: String) -> (followers: Int, stars: Int) {
+    let followersKey = UserDefaultsKeys.previousFollowersKey(forUsername: username)
+    let starsKey = UserDefaultsKeys.previousStarsKey(forUsername: username)
+    let followers = UserDefaults.standard.integer(forKey: followersKey)
+    let stars = UserDefaults.standard.integer(forKey: starsKey)
     return (followers, stars)
 }
 
@@ -65,29 +73,29 @@ struct GitHubStatsTimelineProvider: IntentTimelineProvider {
 
         GitHubAPIManager.shared.fetchGitHubUserStats(username: username) { statsResult in
             switch statsResult {
-            case .success(let (user, totalStars)):
-                ContributionFetcher().fetchContributions(username: username) { contributions in
-                    let currentDate = Date()
-                    let refreshDate = Calendar.current.date(byAdding: .hour, value: 1, to: currentDate)!
-                    
-                    let previousValues = getPreviousValues()
-                    
-                    let entry = GitHubUserStatsEntry(date: currentDate, username: username, followers: user.followers, stars: totalStars, configuration: configuration, previousFollowers: previousValues.followers, previousStars: previousValues.stars, contributions: contributions)
-                    
-                    updatePreviousValues(followers: user.followers, stars: totalStars)
-                    
-                    let timeline = Timeline(entries: [entry], policy: .after(refreshDate))
+                case .success(let (user, totalStars)):
+                    ContributionFetcher().fetchContributions(username: username) { contributions in
+                        let currentDate = Date()
+                        let refreshDate = Calendar.current.date(byAdding: .minute, value: 5, to: currentDate)!
+                        
+                        let previousValues = getPreviousValues(forUsername: username)
+                        
+                        let entry = GitHubUserStatsEntry(date: currentDate, username: username, followers: user.followers, stars: totalStars, configuration: configuration, previousFollowers: previousValues.followers, previousStars: previousValues.stars, contributions: contributions)
+                        
+                        updatePreviousValues(followers: user.followers, stars: totalStars, forUsername: username)
+                        
+                        let timeline = Timeline(entries: [entry], policy: .after(refreshDate))
+                        completion(timeline)
+                    }
+                case .failure(let error):
+                    print("Error fetching GitHub stats: \(error)")
+
+                    let previousValues = getPreviousValues(forUsername: username)
+
+                    let fallbackEntry = GitHubUserStatsEntry(date: Date(), username: username, followers: previousValues.followers, stars: previousValues.stars, configuration: configuration, previousFollowers: previousValues.followers, previousStars: previousValues.stars, contributions: [])
+                    let timeline = Timeline(entries: [fallbackEntry], policy: .after(Date()))
                     completion(timeline)
                 }
-            case .failure(let error):
-                print("Error fetching GitHub stats: \(error)")
-
-                let previousValues = getPreviousValues()
-
-                let fallbackEntry = GitHubUserStatsEntry(date: Date(), username: username, followers: previousValues.followers, stars: previousValues.stars, configuration: configuration, previousFollowers: previousValues.followers, previousStars: previousValues.stars, contributions: [])
-                let timeline = Timeline(entries: [fallbackEntry], policy: .after(Date()))
-                completion(timeline)
-            }
         }
     }
 }

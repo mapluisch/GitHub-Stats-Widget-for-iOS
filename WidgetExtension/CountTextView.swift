@@ -27,7 +27,6 @@ struct CountTextView: View {
     var body: some View {
         HStack {
             Text("\(prefix)\(formattedCount)")
-                .minimumScaleFactor(0.8)
             if !arrow.isEmpty {
                 Text(arrow)
                     .foregroundColor(arrowColor)

@@ -33,7 +33,7 @@ struct StatsInfoView: View {
                     Spacer()
                 }
             }
-            .frame(maxWidth: entry.configuration.useIcons as? Bool ?? true ? 80 : .infinity)
+            .frame(maxWidth: entry.configuration.useIcons as? Bool ?? true ? 85 : .infinity)
         }
     }
 }
