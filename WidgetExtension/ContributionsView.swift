@@ -56,12 +56,12 @@ struct ContributionsView: View {
     
     private func colorForContribution(_ count: Int?) -> Color {
         switch count {
-            case .none, 0: return Color(red: 242 / 255, green: 242 / 255, blue: 242 / 255)
+        case .none, 0: return Color.gray.opacity(0.15)
             case 1: return Color(red: 190 / 255, green: 216 / 255, blue: 253 / 255)
             case 2: return Color(red: 132 / 255, green: 178 / 255, blue: 251 / 255)
             case 3: return Color(red: 83 / 255, green: 142 / 255, blue: 250 / 255)
             case 4: return Color(red: 56 / 255, green: 108 / 255, blue: 249 / 255)
-            default: return Color(red: 242 / 255, green: 242 / 255, blue: 242 / 255)
+            default: return Color.gray.opacity(0.15)
         }
     }
 
