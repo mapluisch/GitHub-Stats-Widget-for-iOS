@@ -53,7 +53,7 @@ struct GitHubStatsWidget2View: View {
 let sampleDays = 28
 let sampleContributions: [Contribution] = (0..<sampleDays).map { day in
     let date = Calendar.current.date(byAdding: .day, value: -day, to: Date())!
-    let count = (day == 0) ? 4 : Int.random(in: 0...3)
+    let count = day
     return Contribution(date: date, count: count)
 }.reversed()
 

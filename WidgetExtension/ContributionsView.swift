@@ -11,15 +11,14 @@ struct ContributionsView: View {
     let contributions: [Contribution]
     let numberOfDays: Int
     let maxCirclesPerRow: Int = 7
+    let circleSize: CGFloat = 12
+    let spacing: CGFloat = 4
+    var showWeekdayInitials: Bool = false
 
     var filteredContributions: [Contribution] {
-        let sortedContributions = contributions.sorted { $0.date < $1.date }
-        
-        if sortedContributions.count > numberOfDays {
-            return Array(sortedContributions.suffix(numberOfDays))
-        } else {
-            return sortedContributions
-        }
+        contributions
+            .sorted { $0.date < $1.date }
+            .suffix(numberOfDays)
     }
     
     var contributionsThisMonth: [Contribution] {
@@ -34,51 +33,44 @@ struct ContributionsView: View {
     }
 
     private var numberOfRows: Int {
-        (contributions.count + maxCirclesPerRow - 1) / maxCirclesPerRow
+        (filteredContributions.count + maxCirclesPerRow - 1) / maxCirclesPerRow
     }
 
     var body: some View {
-        VStack(alignment: .center, spacing: 4) {
+        VStack(alignment: .center, spacing: spacing) {
             ForEach(0..<numberOfRows, id: \.self) { rowIndex in
-                HStack(spacing: 4) {
-                    Spacer()
+                HStack(spacing: spacing) {
                     ForEach(0..<maxCirclesPerRow, id: \.self) { itemIndex in
                         let overallIndex = rowIndex * maxCirclesPerRow + itemIndex
                         if overallIndex < filteredContributions.count {
                             Circle()
                                 .fill(colorForContribution(filteredContributions[overallIndex].count))
                                 .strokeBorder(.white.opacity(0.4), lineWidth: (overallIndex == filteredContributions.count - 1) ? 2.5 : 0)
-                                .frame(width: 12, height: 12)
+                                .frame(width: circleSize, height: circleSize)
                         } else {
                             EmptyView()
                         }
                     }
-                    Spacer()
                 }
             }
         }
+        .padding(.vertical, 2)
     }
 
     private func colorForContribution(_ count: Int) -> Color {
-        let baseColor = Color.blue
         switch count {
-        case 0:
-            // no contribs
-            return Color.gray.opacity(0.1)
-        case 1:
-            // low contribs
-            return baseColor.opacity(0.25)
-        case 2:
-            // medium contribs
-            return baseColor.opacity(0.5)
-        case 3:
-            // med-high contribs
-            return baseColor.opacity(0.75)
-        case 4:
-            // high contribs
-            return baseColor
-        default:
-            return Color.gray.opacity(0.1)
+            case 0:
+                return Color(red: 242 / 255, green: 242 / 255, blue: 242 / 255)
+            case 1:
+                return Color(red: 190 / 255, green: 216 / 255, blue: 253 / 255)
+            case 2:
+                return Color(red: 132 / 255, green: 178 / 255, blue: 251 / 255)
+            case 3:
+                return Color(red: 83 / 255, green: 142 / 255, blue: 250 / 255)
+            case 4:
+                return Color(red: 56 / 255, green: 108 / 255, blue: 249 / 255)
+            default:
+                return Color(red: 242 / 255, green: 242 / 255, blue: 242 / 255)
         }
     }
 }

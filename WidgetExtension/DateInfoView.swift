@@ -10,12 +10,9 @@ import WidgetKit
 
 struct DateInfoView: View {
     var body: some View {
-        HStack {
-            Text(currentDateTimeString())
-                .font(.system(size: 14, weight: .light))
-                .minimumScaleFactor(0.5)
-                .lineLimit(1)
-        }
+        Text(currentDateTimeString())
+            .font(.system(size: 8, weight: .light))
+            .lineLimit(1)
     }
     
     private func currentDateTimeString() -> String {

@@ -14,21 +14,26 @@ struct StatsInfoView: View {
 
     var body: some View {
         HStack {
-            Spacer()
             VStack {
                 if entry.configuration.useIcons as? Bool ?? true {
+                    Spacer()
                     IconAndTextView(type: "person.2", currentCount: entry.followers, previousCount: entry.previousFollowers)
-                        .foregroundColor(.primary) // Apply any necessary styling here
-                    Divider().padding(.top, -3)
+                        .foregroundColor(.primary)
+                    Spacer()
+                    Divider()
+                    Spacer()
                     IconAndTextView(type: "star.circle", currentCount: entry.stars, previousCount: entry.previousStars)
                         .foregroundColor(.primary)
+                    Spacer()
                 } else {
+                    Spacer()
                     CountTextView(prefix: "Followers: ", currentCount: entry.followers, previousCount: entry.previousFollowers)
+                    Spacer()
                     CountTextView(prefix: "Stars: ", currentCount: entry.stars, previousCount: entry.previousStars)
+                    Spacer()
                 }
             }
             .frame(maxWidth: entry.configuration.useIcons as? Bool ?? true ? 80 : .infinity)
-            Spacer()
         }
     }
 }
