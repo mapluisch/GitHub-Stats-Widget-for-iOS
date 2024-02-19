@@ -16,11 +16,16 @@ struct LargeWidgetView: View {
     var body: some View {
         VStack(alignment: .center, spacing: 16) {
             UserInfoView(username: entry.configuration.username ?? "mapluisch", showUsername: entry.configuration.showUsername as? Bool ?? true, colorScheme: colorScheme)
+            
             StatsInfoView(entry: entry, colorScheme: colorScheme)
+            
             Divider()
+            
             ContributionsView(contributions: entry.contributions, numberOfDays: 7*18)
+            
             if entry.configuration.showDate as? Bool ?? true {
                 Divider()
+                
                 DateInfoView()
             }
         }

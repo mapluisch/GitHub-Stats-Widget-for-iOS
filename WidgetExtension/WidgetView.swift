@@ -34,26 +34,12 @@ struct GitHubStatsWidgetView: View {
     }
 }
 
-struct GitHubStatsWidget2View: View {
-    let entry: GitHubUserStatsEntry
-    @Environment(\.widgetFamily) var widgetFamily
-    @Environment(\.colorScheme) var colorScheme
-    
-    var body: some View {
-        Group {
-            SmallWidgetWithContribsView(entry: entry, colorScheme:   colorScheme)
-                .containerBackground(Color(UIColor.systemBackground), for: .widget)
-        }
-    }
-}
-
-
     
 // MARK: - Previews
-let sampleDays = 28
+let sampleDays = 365
 let sampleContributions: [Contribution] = (0..<sampleDays).map { day in
     let date = Calendar.current.date(byAdding: .day, value: -day, to: Date())!
-    let count = day
+    let count = Int.random(in: 0...4)
     return Contribution(count: count, date: date)
 }.reversed()
 
@@ -75,7 +61,7 @@ struct GitHubStatsWidgetView_Previews: PreviewProvider {
             .previewContext(WidgetPreviewContext(family: .systemSmall))
             .previewDisplayName("Small Widget")
             
-            GitHubStatsWidget2View(
+            ContributionsWidgetView(
                 entry: GitHubUserStatsEntry(
                     date: Date(),
                     username: "mapluisch",

@@ -21,15 +21,15 @@ struct GitHubStatsWidget: Widget {
     }
 }
 
-struct GitHubStatsWidget2: Widget {
-    let kind: String = "GitHubStatsWidget2"
+struct GitHubStatsContributionWidget: Widget {
+    let kind: String = "ContributionsWidgetView"
 
     var body: some WidgetConfiguration {
         IntentConfiguration(kind: kind, intent: GitHubUserConfigurationIntent.self, provider: GitHubStatsTimelineProvider()) { entry in
-            GitHubStatsWidget2View(entry: entry)
+            ContributionsWidgetView(entry: entry)
         }
         .configurationDisplayName("GitHub Stats")
-        .description("Displays GitHub followers and stars.")
+        .description("Displays GitHub followers and stars with this weeks contributions.")
         .supportedFamilies([.systemSmall])
     }
 }

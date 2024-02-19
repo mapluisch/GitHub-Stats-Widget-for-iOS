@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		EC5939282B8398AE002212FD /* ContributionsWidgetView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC5939272B8398AE002212FD /* ContributionsWidgetView.swift */; };
+		EC5939292B8398AE002212FD /* ContributionsWidgetView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC5939272B8398AE002212FD /* ContributionsWidgetView.swift */; };
 		EC75C4222B7BF90B0095D708 /* GitHub_Stats_WidgetApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC75C4212B7BF90B0095D708 /* GitHub_Stats_WidgetApp.swift */; };
 		EC75C4242B7BF90B0095D708 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC75C4232B7BF90B0095D708 /* ContentView.swift */; };
 		EC75C4262B7BF90C0095D708 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = EC75C4252B7BF90C0095D708 /* Assets.xcassets */; };
@@ -75,6 +77,7 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		EC5939272B8398AE002212FD /* ContributionsWidgetView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContributionsWidgetView.swift; sourceTree = "<group>"; };
 		EC75C41E2B7BF90B0095D708 /* GitHub Stats Widget.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "GitHub Stats Widget.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		EC75C4212B7BF90B0095D708 /* GitHub_Stats_WidgetApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GitHub_Stats_WidgetApp.swift; sourceTree = "<group>"; };
 		EC75C4232B7BF90B0095D708 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -197,6 +200,7 @@
 				ECB4B8D42B7E9507009DF428 /* ContributionFetcher.swift */,
 				ECB4B8D72B7E9E76009DF428 /* ContributionsView.swift */,
 				ECB4B8DA2B7EAA2B009DF428 /* SmallWidgetWithContribsView.swift */,
+				EC5939272B8398AE002212FD /* ContributionsWidgetView.swift */,
 			);
 			path = WidgetExtension;
 			sourceTree = "<group>";
@@ -312,6 +316,7 @@
 				ECB4B8CC2B7E8B9D009DF428 /* SmallWidgetView.swift in Sources */,
 				EC75C4512B7C021C0095D708 /* GitHubConfigurationIntent.intentdefinition in Sources */,
 				EC75C4242B7BF90B0095D708 /* ContentView.swift in Sources */,
+				EC5939282B8398AE002212FD /* ContributionsWidgetView.swift in Sources */,
 				ECB4B8C02B7E3F8A009DF428 /* StatsInfoView.swift in Sources */,
 				EC75C4222B7BF90B0095D708 /* GitHub_Stats_WidgetApp.swift in Sources */,
 				ECB4B8D22B7E8F5C009DF428 /* LargeWidgetView.swift in Sources */,
@@ -339,6 +344,7 @@
 				EC75C44C2B7BFA930095D708 /* GitHubAPIManager.swift in Sources */,
 				ECB4B8D02B7E8F3C009DF428 /* MediumWidgetView.swift in Sources */,
 				EC75C43D2B7BF98E0095D708 /* WidgetExtension.swift in Sources */,
+				EC5939292B8398AE002212FD /* ContributionsWidgetView.swift in Sources */,
 				ECB4B8D92B7E9E76009DF428 /* ContributionsView.swift in Sources */,
 				ECB4B8DC2B7EAA2B009DF428 /* SmallWidgetWithContribsView.swift in Sources */,
 				EC75C44F2B7C00B30095D708 /* TimelineProvider.swift in Sources */,
