@@ -7,6 +7,17 @@
 
 import SwiftUI
 
+struct ContributionColors {
+    static let defaults: [Int: Color] = [
+        0: .gray.opacity(0.15),
+        1: Color(red: 190 / 255, green: 216 / 255, blue: 253 / 255),
+        2: Color(red: 132 / 255, green: 178 / 255, blue: 251 / 255),
+        3: Color(red: 83 / 255, green: 142 / 255, blue: 250 / 255),
+        4: Color(red: 56 / 255, green: 108 / 255, blue: 249 / 255)
+    ]
+}
+
+
 struct ContributionsView: View {
     let contributions: [Contribution]
     let numberOfDays: Int
@@ -55,14 +66,8 @@ struct ContributionsView: View {
     }
     
     private func colorForContribution(_ count: Int?) -> Color {
-        switch count {
-        case .none, 0: return Color.gray.opacity(0.15)
-            case 1: return Color(red: 190 / 255, green: 216 / 255, blue: 253 / 255)
-            case 2: return Color(red: 132 / 255, green: 178 / 255, blue: 251 / 255)
-            case 3: return Color(red: 83 / 255, green: 142 / 255, blue: 250 / 255)
-            case 4: return Color(red: 56 / 255, green: 108 / 255, blue: 249 / 255)
-            default: return Color.gray.opacity(0.15)
-        }
+        let currentTheme = ColorTheme.currentTheme
+        return currentTheme.colors[count ?? 0, default: Color.gray.opacity(0.15)]
     }
 
     var body: some View {

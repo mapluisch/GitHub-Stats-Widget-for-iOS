@@ -9,6 +9,12 @@
 /* Begin PBXBuildFile section */
 		EC5939282B8398AE002212FD /* ContributionsWidgetView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC5939272B8398AE002212FD /* ContributionsWidgetView.swift */; };
 		EC5939292B8398AE002212FD /* ContributionsWidgetView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC5939272B8398AE002212FD /* ContributionsWidgetView.swift */; };
+		EC59392B2B83A43E002212FD /* ColorTheme.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC59392A2B83A43E002212FD /* ColorTheme.swift */; };
+		EC59392C2B83A43E002212FD /* ColorTheme.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC59392A2B83A43E002212FD /* ColorTheme.swift */; };
+		EC59392E2B83A6FE002212FD /* ThemeSelectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC59392D2B83A6FE002212FD /* ThemeSelectionView.swift */; };
+		EC59392F2B83A6FE002212FD /* ThemeSelectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC59392D2B83A6FE002212FD /* ThemeSelectionView.swift */; };
+		EC5939312B83A71B002212FD /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC5939302B83A71B002212FD /* SettingsView.swift */; };
+		EC5939322B83A71B002212FD /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC5939302B83A71B002212FD /* SettingsView.swift */; };
 		EC75C4222B7BF90B0095D708 /* GitHub_Stats_WidgetApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC75C4212B7BF90B0095D708 /* GitHub_Stats_WidgetApp.swift */; };
 		EC75C4242B7BF90B0095D708 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC75C4232B7BF90B0095D708 /* ContentView.swift */; };
 		EC75C4262B7BF90C0095D708 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = EC75C4252B7BF90C0095D708 /* Assets.xcassets */; };
@@ -78,6 +84,9 @@
 
 /* Begin PBXFileReference section */
 		EC5939272B8398AE002212FD /* ContributionsWidgetView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContributionsWidgetView.swift; sourceTree = "<group>"; };
+		EC59392A2B83A43E002212FD /* ColorTheme.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorTheme.swift; sourceTree = "<group>"; };
+		EC59392D2B83A6FE002212FD /* ThemeSelectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThemeSelectionView.swift; sourceTree = "<group>"; };
+		EC5939302B83A71B002212FD /* SettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
 		EC75C41E2B7BF90B0095D708 /* GitHub Stats Widget.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "GitHub Stats Widget.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		EC75C4212B7BF90B0095D708 /* GitHub_Stats_WidgetApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GitHub_Stats_WidgetApp.swift; sourceTree = "<group>"; };
 		EC75C4232B7BF90B0095D708 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -159,6 +168,8 @@
 				EC75C44A2B7BFA930095D708 /* GitHubAPIManager.swift */,
 				EC75C44D2B7C00B30095D708 /* TimelineProvider.swift */,
 				EC75C4502B7C021C0095D708 /* GitHubConfigurationIntent.intentdefinition */,
+				EC59392D2B83A6FE002212FD /* ThemeSelectionView.swift */,
+				EC5939302B83A71B002212FD /* SettingsView.swift */,
 			);
 			path = "GitHub Stats Widget";
 			sourceTree = "<group>";
@@ -201,6 +212,7 @@
 				ECB4B8D72B7E9E76009DF428 /* ContributionsView.swift */,
 				ECB4B8DA2B7EAA2B009DF428 /* SmallWidgetWithContribsView.swift */,
 				EC5939272B8398AE002212FD /* ContributionsWidgetView.swift */,
+				EC59392A2B83A43E002212FD /* ColorTheme.swift */,
 			);
 			path = WidgetExtension;
 			sourceTree = "<group>";
@@ -306,12 +318,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				EC5939312B83A71B002212FD /* SettingsView.swift in Sources */,
 				ECB4B8D82B7E9E76009DF428 /* ContributionsView.swift in Sources */,
 				ECB4B8C62B7E4015009DF428 /* DateInfoView.swift in Sources */,
 				ECB4B8BA2B7E3E50009DF428 /* WidgetViewHelpers.swift in Sources */,
 				ECB4B8DB2B7EAA2B009DF428 /* SmallWidgetWithContribsView.swift in Sources */,
 				ECB4B8BD2B7E3F43009DF428 /* UserInfoView.swift in Sources */,
 				ECB4B8CF2B7E8F3C009DF428 /* MediumWidgetView.swift in Sources */,
+				EC59392B2B83A43E002212FD /* ColorTheme.swift in Sources */,
 				ECB4B8C92B7E407C009DF428 /* CountTextView.swift in Sources */,
 				ECB4B8CC2B7E8B9D009DF428 /* SmallWidgetView.swift in Sources */,
 				EC75C4512B7C021C0095D708 /* GitHubConfigurationIntent.intentdefinition in Sources */,
@@ -320,6 +334,7 @@
 				ECB4B8C02B7E3F8A009DF428 /* StatsInfoView.swift in Sources */,
 				EC75C4222B7BF90B0095D708 /* GitHub_Stats_WidgetApp.swift in Sources */,
 				ECB4B8D22B7E8F5C009DF428 /* LargeWidgetView.swift in Sources */,
+				EC59392E2B83A6FE002212FD /* ThemeSelectionView.swift in Sources */,
 				ECB4B8C32B7E3FF1009DF428 /* IconWithTextView.swift in Sources */,
 				EC75C44B2B7BFA930095D708 /* GitHubAPIManager.swift in Sources */,
 				EC75C44E2B7C00B30095D708 /* TimelineProvider.swift in Sources */,
@@ -332,7 +347,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				ECB4B8C42B7E3FF1009DF428 /* IconWithTextView.swift in Sources */,
+				EC59392C2B83A43E002212FD /* ColorTheme.swift in Sources */,
 				ECB4B8CD2B7E8B9D009DF428 /* SmallWidgetView.swift in Sources */,
+				EC59392F2B83A6FE002212FD /* ThemeSelectionView.swift in Sources */,
 				ECB4B8BB2B7E3E50009DF428 /* WidgetViewHelpers.swift in Sources */,
 				EC75C4522B7C021C0095D708 /* GitHubConfigurationIntent.intentdefinition in Sources */,
 				ECB4B8D32B7E8F5C009DF428 /* LargeWidgetView.swift in Sources */,
@@ -350,6 +367,7 @@
 				EC75C44F2B7C00B30095D708 /* TimelineProvider.swift in Sources */,
 				ECB4B8C12B7E3F8A009DF428 /* StatsInfoView.swift in Sources */,
 				ECB4B8CA2B7E407C009DF428 /* CountTextView.swift in Sources */,
+				EC5939322B83A71B002212FD /* SettingsView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

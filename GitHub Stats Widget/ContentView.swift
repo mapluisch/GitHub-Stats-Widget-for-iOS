@@ -7,6 +7,22 @@
 
 import SwiftUI
 
+struct MainView: View {
+    var body: some View {
+        TabView {
+            ContentView()
+                .tabItem {
+                    Label("Overview", systemImage: "chart.bar.xaxis")
+                }
+            
+            SettingsView()
+                .tabItem {
+                    Label("Settings", systemImage: "gear")
+                }
+        }
+    }
+}
+
 struct ContentView: View {
     @State private var resultMessage: String = "Loading..."
 
@@ -39,6 +55,6 @@ struct ContentView: View {
 
 struct ContentView_Previews: PreviewProvider {
     static var previews: some View {
-        ContentView()
+        MainView()
     }
 }
