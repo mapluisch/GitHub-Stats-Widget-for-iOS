@@ -46,7 +46,7 @@ struct ContentView: View {
                 case .success(let (user, totalStars)):
                     self.resultMessage = "Followers: \(user.followers), Total Stars: \(totalStars)"
                 case .failure(let error):
-                    self.resultMessage = "Error: \(error.localizedDescription)"
+                    self.resultMessage = "\(error.localizedDescription)"
                 }
             }
         }

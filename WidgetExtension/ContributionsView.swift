@@ -7,17 +7,6 @@
 
 import SwiftUI
 
-struct ContributionColors {
-    static let defaults: [Int: Color] = [
-        0: .gray.opacity(0.15),
-        1: Color(red: 190 / 255, green: 216 / 255, blue: 253 / 255),
-        2: Color(red: 132 / 255, green: 178 / 255, blue: 251 / 255),
-        3: Color(red: 83 / 255, green: 142 / 255, blue: 250 / 255),
-        4: Color(red: 56 / 255, green: 108 / 255, blue: 249 / 255)
-    ]
-}
-
-
 struct ContributionsView: View {
     let contributions: [Contribution]
     let numberOfDays: Int
@@ -71,36 +60,44 @@ struct ContributionsView: View {
     }
 
     var body: some View {
-        if numberOfDays <= 7 {
-            HStack(spacing: spacing) {
-                ForEach(dates, id: \.self) { date in
-                    if let contribution = contributionForDate(date) {
-                        Circle()
-                            .fill(colorForContribution(contribution.count))
-                            .frame(width: circleSize, height: circleSize)
-                            .overlay(
-                                Circle()
-                                    .strokeBorder(Date().isSameDay(as: date) ? Color.white.opacity(0.4) : Color.clear, lineWidth: 3)
-                            )
+        if (contributions.isEmpty) {
+            Text("Error fetching contributions.")
+                .minimumScaleFactor(0.5)
+                .scaledToFit()
+        } else {
+            // create a single row of commit circles for one week
+            if numberOfDays <= 7 {
+                HStack(spacing: spacing) {
+                    ForEach(dates, id: \.self) { date in
+                        if let contribution = contributionForDate(date) {
+                            Circle()
+                                .fill(colorForContribution(contribution.count))
+                                .frame(width: circleSize, height: circleSize)
+                                .overlay(
+                                    Circle()
+                                        .strokeBorder(Date().isSameDay(as: date) ? Color.white.opacity(0.4) : Color.clear, lineWidth: 3)
+                                )
+                        }
                     }
                 }
-            }
-        } else {
-            let rows = Array(repeating: GridItem(.fixed(circleSize), spacing: spacing), count: 7)
-            LazyHGrid(rows: rows, spacing: spacing) {
-                ForEach(dates, id: \.self) { date in
-                    if let contribution = contributionForDate(date) {
-                        Circle()
-                            .fill(colorForContribution(contribution.count))
-                            .frame(width: circleSize, height: circleSize)
-                            .overlay(
-                                Circle()
-                                    .strokeBorder(Date().isSameDay(as: date) ? Color.white.opacity(0.4) : Color.clear, lineWidth: 3)
-                            )
-                    } else {
-                        Circle()
-                            .fill(Color.clear)
-                            .frame(width: circleSize, height: circleSize)
+            } else {
+                // otherwise, create a grid of circles w/ 7 circles per column (aka the way GitHub is presenting commits)
+                let rows = Array(repeating: GridItem(.fixed(circleSize), spacing: spacing), count: 7)
+                LazyHGrid(rows: rows, spacing: spacing) {
+                    ForEach(dates, id: \.self) { date in
+                        if let contribution = contributionForDate(date) {
+                            Circle()
+                                .fill(colorForContribution(contribution.count))
+                                .frame(width: circleSize, height: circleSize)
+                                .overlay(
+                                    Circle()
+                                        .strokeBorder(Date().isSameDay(as: date) ? Color.white.opacity(0.4) : Color.clear, lineWidth: 3)
+                                )
+                        } else {
+                            Circle()
+                                .fill(Color.clear)
+                                .frame(width: circleSize, height: circleSize)
+                        }
                     }
                 }
             }

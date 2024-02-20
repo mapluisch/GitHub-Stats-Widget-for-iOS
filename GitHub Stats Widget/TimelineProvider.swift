@@ -76,7 +76,7 @@ struct GitHubStatsTimelineProvider: IntentTimelineProvider {
                 case .success(let (user, totalStars)):
                     ContributionFetcher().fetchContributions(username: username) { contributions in
                         let currentDate = Date()
-                        let refreshDate = Calendar.current.date(byAdding: .minute, value: 5, to: currentDate)!
+                        let refreshDate = Calendar.current.date(byAdding: .minute, value: 15, to: currentDate)!
                         
                         let previousValues = getPreviousValues(forUsername: username)
                         

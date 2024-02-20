@@ -116,6 +116,8 @@
 		ECB4B8D42B7E9507009DF428 /* ContributionFetcher.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContributionFetcher.swift; sourceTree = "<group>"; };
 		ECB4B8D72B7E9E76009DF428 /* ContributionsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContributionsView.swift; sourceTree = "<group>"; };
 		ECB4B8DA2B7EAA2B009DF428 /* SmallWidgetWithContribsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SmallWidgetWithContribsView.swift; sourceTree = "<group>"; };
+		ECB4EA852B84A1C20090FA68 /* GitHub Stats Widget.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = "GitHub Stats Widget.entitlements"; sourceTree = "<group>"; };
+		ECB4EA862B84A1E10090FA68 /* WidgetExtensionExtension.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = WidgetExtensionExtension.entitlements; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -141,6 +143,7 @@
 		EC75C4152B7BF90B0095D708 = {
 			isa = PBXGroup;
 			children = (
+				ECB4EA862B84A1E10090FA68 /* WidgetExtensionExtension.entitlements */,
 				EC75C4202B7BF90B0095D708 /* GitHub Stats Widget */,
 				EC75C4392B7BF98E0095D708 /* WidgetExtension */,
 				EC75C4342B7BF98E0095D708 /* Frameworks */,
@@ -160,6 +163,7 @@
 		EC75C4202B7BF90B0095D708 /* GitHub Stats Widget */ = {
 			isa = PBXGroup;
 			children = (
+				ECB4EA852B84A1C20090FA68 /* GitHub Stats Widget.entitlements */,
 				EC75C4532B7C02290095D708 /* GitHub-Stats-Widget-Info.plist */,
 				EC75C4212B7BF90B0095D708 /* GitHub_Stats_WidgetApp.swift */,
 				EC75C4232B7BF90B0095D708 /* ContentView.swift */,
@@ -507,6 +511,7 @@
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = "GitHub Stats Widget/GitHub Stats Widget.entitlements";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"GitHub Stats Widget/Preview Content\"";
@@ -539,6 +544,7 @@
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = "GitHub Stats Widget/GitHub Stats Widget.entitlements";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"GitHub Stats Widget/Preview Content\"";
@@ -570,6 +576,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				ASSETCATALOG_COMPILER_WIDGET_BACKGROUND_COLOR_NAME = WidgetBackground;
+				CODE_SIGN_ENTITLEMENTS = WidgetExtensionExtension.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = 9VMK88D954;
@@ -597,6 +604,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				ASSETCATALOG_COMPILER_WIDGET_BACKGROUND_COLOR_NAME = WidgetBackground;
+				CODE_SIGN_ENTITLEMENTS = WidgetExtensionExtension.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = 9VMK88D954;

@@ -6,9 +6,10 @@
 //
 
 import SwiftUI
+import WidgetKit
 
 struct ThemeSelectionView: View {
-    @State private var selectedColors: [Int: Color] = UserDefaults.standard.colorDict(forKey: "widgetColors") ?? ContributionColors.defaults
+    @State private var selectedColors: [Int: Color] = UserDefaults.colorDict(forKey: "widgetColors") ?? ColorTheme.defaults
     
     private func isSelectedTheme(_ theme: ColorTheme) -> Bool {
         theme.colors == selectedColors
@@ -27,7 +28,7 @@ struct ThemeSelectionView: View {
                                 .frame(width: 18, height: 18)
                                 .onTapGesture {
                                     selectedColors = theme.colors
-                                    UserDefaults.standard.setColorDict(selectedColors, forKey: "widgetColors")
+                                    UserDefaults.setColorDict(selectedColors, forKey: "widgetColors")
                                 }
                         }
                         if isSelectedTheme(theme) {
@@ -52,21 +53,21 @@ struct ThemeSelectionView: View {
     
     private func contributionCountToString(count: Int) -> String {
         switch(count) {
-        case 0: return "No"
-        case 1: return "Low"
-        case 2: return "Medium"
-        case 3: return "Medium-High"
-        case 4: return "High"
-        default: return ""
+            case 0: return "No"
+            case 1: return "Low"
+            case 2: return "Medium"
+            case 3: return "Medium-High"
+            case 4: return "High"
+            default: return ""
         }
     }
     
     private func binding(for count: Int) -> Binding<Color> {
         Binding<Color>(
-            get: { self.selectedColors[count, default: ContributionColors.defaults[count, default: .gray.opacity(0.15)]] },
+            get: { self.selectedColors[count, default: ColorTheme.defaults[count, default: .gray.opacity(0.15)]] },
             set: {
                 self.selectedColors[count] = $0
-                UserDefaults.standard.setColorDict(self.selectedColors, forKey: "widgetColors")
+                UserDefaults.setColorDict(self.selectedColors, forKey: "widgetColors")
             }
         )
     }

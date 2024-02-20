@@ -31,25 +31,61 @@ extension String {
 }
 
 extension UserDefaults {
-    func setColorDict(_ value: [Int: Color], forKey key: String) {
-        let uiColorDict = value.mapValues { UIColor($0) }
+    static var shared: UserDefaults? {
+        return UserDefaults(suiteName: "group.com.martinpluisch.githubstatswidget")
+    }
+
+    static func setColorDict(_ value: [Int: Color], forKey key: String) {
+        let hexColorDict = value.mapValues { $0.toHexString() }
         do {
-            let data = try NSKeyedArchiver.archivedData(withRootObject: uiColorDict, requiringSecureCoding: true)
-            set(data, forKey: key)
+            let encodedColors = try JSONEncoder().encode(hexColorDict)
+            UserDefaults.shared?.set(encodedColors, forKey: key)
+            WidgetCenter.shared.reloadAllTimelines()
         } catch {
-            print("Error saving colors: \(error)")
+            print("Failed to encode and save colors: \(error)")
         }
     }
     
-    func colorDict(forKey key: String) -> [Int: Color]? {
-        guard let data = data(forKey: key) else { return nil }
-        do {
-            let decoded = try NSKeyedUnarchiver.unarchivedObject(ofClasses: [NSDictionary.self, UIColor.self], from: data) as? [Int: UIColor]
-            return decoded?.mapValues(Color.init)
-        } catch {
-            print("Error retrieving colors: \(error)")
+    static func colorDict(forKey key: String) -> [Int: Color]? {
+        guard let data = UserDefaults.shared?.data(forKey: key),
+              let decodedHexColors = try? JSONDecoder().decode([Int: String].self, from: data) else {
             return nil
         }
+        return decodedHexColors.mapValues { Color(hex: $0) }
+    }
+}
+
+extension UIColor {
+    var toHexString: String {
+        var r: CGFloat = 0, g: CGFloat = 0, b: CGFloat = 0, a: CGFloat = 0
+        getRed(&r, green: &g, blue: &b, alpha: &a)
+        return String(format: "%02X%02X%02X%02X", Int(r * 255), Int(g * 255), Int(b * 255), Int(a * 255))
+    }
+    
+    convenience init?(hex: String) {
+        var hexSanitized = hex.trimmingCharacters(in: .whitespacesAndNewlines)
+        hexSanitized = hexSanitized.replacingOccurrences(of: "#", with: "")
+        
+        var rgba: UInt64 = 0
+        
+        Scanner(string: hexSanitized).scanHexInt64(&rgba)
+        
+        let r = CGFloat((rgba & 0xFF000000) >> 24) / 255.0
+        let g = CGFloat((rgba & 0x00FF0000) >> 16) / 255.0
+        let b = CGFloat((rgba & 0x0000FF00) >> 8) / 255.0
+        let a = CGFloat(rgba & 0x000000FF) / 255.0
+        
+        self.init(red: r, green: g, blue: b, alpha: a)
+    }
+}
+
+extension Color {
+    func toHexString() -> String {
+        return UIColor(self).toHexString
+    }
+    
+    init(hex: String) {
+        self = Color(UIColor(hex: hex) ?? .clear)
     }
 }
 
