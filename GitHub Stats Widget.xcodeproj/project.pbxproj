@@ -201,28 +201,52 @@
 		EC75C4392B7BF98E0095D708 /* WidgetExtension */ = {
 			isa = PBXGroup;
 			children = (
+				ECB4EA8C2B84EBD00090FA68 /* Helpers */,
 				EC75C43A2B7BF98E0095D708 /* WidgetExtensionBundle.swift */,
 				EC75C43C2B7BF98E0095D708 /* WidgetExtension.swift */,
 				EC75C4542B7C03DB0095D708 /* WidgetView.swift */,
 				EC75C4402B7BF98E0095D708 /* Assets.xcassets */,
 				EC75C4422B7BF98E0095D708 /* Info.plist */,
-				ECB4B8B92B7E3E50009DF428 /* WidgetViewHelpers.swift */,
+				ECB4EA8B2B84EBBD0090FA68 /* Subviews */,
+				ECB4EA8A2B84EBA90090FA68 /* Widgets */,
+			);
+			path = WidgetExtension;
+			sourceTree = "<group>";
+		};
+		ECB4EA8A2B84EBA90090FA68 /* Widgets */ = {
+			isa = PBXGroup;
+			children = (
+				ECB4B8CB2B7E8B9D009DF428 /* SmallWidgetView.swift */,
+				ECB4B8CE2B7E8F3C009DF428 /* MediumWidgetView.swift */,
+				ECB4B8D12B7E8F5C009DF428 /* LargeWidgetView.swift */,
+				ECB4B8DA2B7EAA2B009DF428 /* SmallWidgetWithContribsView.swift */,
+			);
+			path = Widgets;
+			sourceTree = "<group>";
+		};
+		ECB4EA8B2B84EBBD0090FA68 /* Subviews */ = {
+			isa = PBXGroup;
+			children = (
 				ECB4B8BC2B7E3F43009DF428 /* UserInfoView.swift */,
 				ECB4B8BF2B7E3F8A009DF428 /* StatsInfoView.swift */,
 				ECB4B8C22B7E3FF1009DF428 /* IconWithTextView.swift */,
 				ECB4B8C52B7E4015009DF428 /* DateInfoView.swift */,
 				ECB4B8C82B7E407C009DF428 /* CountTextView.swift */,
-				ECB4B8CB2B7E8B9D009DF428 /* SmallWidgetView.swift */,
-				ECB4B8CE2B7E8F3C009DF428 /* MediumWidgetView.swift */,
-				ECB4B8D12B7E8F5C009DF428 /* LargeWidgetView.swift */,
-				ECB4B8D42B7E9507009DF428 /* ContributionFetcher.swift */,
-				ECB4B8D72B7E9E76009DF428 /* ContributionsView.swift */,
-				ECB4B8DA2B7EAA2B009DF428 /* SmallWidgetWithContribsView.swift */,
 				EC5939272B8398AE002212FD /* ContributionsWidgetView.swift */,
-				EC59392A2B83A43E002212FD /* ColorTheme.swift */,
+				ECB4B8D72B7E9E76009DF428 /* ContributionsView.swift */,
 				ECB4EA872B84DA090090FA68 /* UserAvatarView.swift */,
 			);
-			path = WidgetExtension;
+			path = Subviews;
+			sourceTree = "<group>";
+		};
+		ECB4EA8C2B84EBD00090FA68 /* Helpers */ = {
+			isa = PBXGroup;
+			children = (
+				ECB4B8B92B7E3E50009DF428 /* WidgetViewHelpers.swift */,
+				ECB4B8D42B7E9507009DF428 /* ContributionFetcher.swift */,
+				EC59392A2B83A43E002212FD /* ColorTheme.swift */,
+			);
+			path = Helpers;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
