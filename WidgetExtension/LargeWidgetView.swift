@@ -14,31 +14,35 @@ struct LargeWidgetView: View {
     var colorScheme: ColorScheme
 
     var body: some View {
-        VStack(alignment: .center, spacing: 16) {
-            UserInfoView(username: entry.configuration.username ?? "mapluisch", showUsername: entry.configuration.showUsername as? Bool ?? true, colorScheme: colorScheme)
-            
-            HStack {
-    
-                StatsInfoView(entry: entry, colorScheme: colorScheme)
-                    .frame(maxWidth: .infinity)
+        let linkColor = colorScheme == .dark ? Color.white : Color.black
+
+        Link(destination: URL(string: "githubstatswidget://user/\(entry.configuration.username ?? "mapluisch")")!) {
+            VStack(alignment: .center, spacing: 16) {
+                UserInfoView(username: entry.configuration.username ?? "mapluisch", showUsername: entry.configuration.showUsername as? Bool ?? true, colorScheme: colorScheme)
+                
+                HStack {
+                    
+                    StatsInfoView(entry: entry, colorScheme: colorScheme)
+                        .frame(maxWidth: .infinity)
+                    
+                    Divider()
+                    
+                    UserAvatarView(imageData: entry.avatarImageData)
+                        .frame(maxWidth: .infinity)
+                }
+                
                 
                 Divider()
                 
-                UserAvatarView(imageData: entry.avatarImageData)
-                    .frame(maxWidth: .infinity)
-            }
-            
-            
-            Divider()
-            
-            ContributionsView(contributions: entry.contributions, numberOfDays: 7*18)
-            
-            if entry.configuration.showDate as? Bool ?? true {
-                Divider()
+                ContributionsView(contributions: entry.contributions, numberOfDays: 7*18)
                 
-                DateInfoView()
+                if entry.configuration.showDate as? Bool ?? true {
+                    Divider()
+                    
+                    DateInfoView()
+                }
             }
-        }
-        .padding()
+            .padding()
+        }.foregroundColor(linkColor)
     }
 }

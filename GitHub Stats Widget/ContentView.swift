@@ -28,8 +28,6 @@ struct MainView: View {
                let username = url.pathComponents.last {
                 let userURL = URL(string: "https://github.com/\(username)")!
                 UIApplication.shared.open(userURL)
-            } else {
-                print("\(url): Redirect is \(shouldRedirectToGitHub)")
             }
         }
     }

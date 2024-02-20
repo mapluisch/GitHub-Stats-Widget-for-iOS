@@ -13,25 +13,27 @@ struct MediumWidgetView: View {
     var colorScheme: ColorScheme
 
     var body: some View {
-        HStack {
-            
-            VStack(alignment: .center, spacing: 16) {
-                UserInfoView(username: entry.configuration.username ?? "mapluisch", showUsername: entry.configuration.showUsername as? Bool ?? true, colorScheme: colorScheme)
-                StatsInfoView(entry: entry, colorScheme: colorScheme)
-                if entry.configuration.showDate as? Bool ?? true {
-                    DateInfoView()
+        let linkColor = colorScheme == .dark ? Color.white : Color.black
+
+        Link(destination: URL(string: "githubstatswidget://user/\(entry.configuration.username ?? "mapluisch")")!) {
+            HStack {
+                VStack(alignment: .center, spacing: 16) {
+                    UserInfoView(username: entry.configuration.username ?? "mapluisch", showUsername: entry.configuration.showUsername as? Bool ?? true, colorScheme: colorScheme)
+                    StatsInfoView(entry: entry, colorScheme: colorScheme)
+                    if entry.configuration.showDate as? Bool ?? true {
+                        DateInfoView()
+                    }
                 }
+                .frame(maxWidth: .infinity)
+                
+                Divider()
+                
+                VStack(alignment: .leading, spacing: 16) {
+                    ContributionsView(contributions: entry.contributions, numberOfDays: 49)
+                }
+                .frame(maxWidth: .infinity)
+                
             }
-            .frame(maxWidth: .infinity)
-            
-            Divider()
-            
-            VStack(alignment: .leading, spacing: 16) {
-                ContributionsView(contributions: entry.contributions, numberOfDays: 49)
-            }
-            .frame(maxWidth: .infinity)
-            
-        }
-        
+        }.foregroundColor(linkColor)
     }
 }

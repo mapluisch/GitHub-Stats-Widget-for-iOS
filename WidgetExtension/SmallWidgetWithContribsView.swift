@@ -13,22 +13,26 @@ struct SmallWidgetWithContribsView: View {
     var colorScheme: ColorScheme
 
     var body: some View {
-        VStack(alignment: .center, spacing: 0) {
-            UserInfoView(username: entry.configuration.username ?? "mapluisch", showUsername: entry.configuration.showUsername as? Bool ?? true, colorScheme: colorScheme)
-            
-            StatsInfoView(entry: entry, colorScheme: colorScheme)
-            
-            Divider()
-            
-            Spacer()
-            
-            ContributionsView(contributions: entry.contributions, numberOfDays: 7)
-            
-            Spacer()
-            
-            if entry.configuration.showDate as? Bool ?? true {
-                DateInfoView()
+        let linkColor = colorScheme == .dark ? Color.white : Color.black
+
+        Link(destination: URL(string: "githubstatswidget://user/\(entry.configuration.username ?? "mapluisch")")!) {
+            VStack(alignment: .center, spacing: 0) {
+                UserInfoView(username: entry.configuration.username ?? "mapluisch", showUsername: entry.configuration.showUsername as? Bool ?? true, colorScheme: colorScheme)
+                
+                StatsInfoView(entry: entry, colorScheme: colorScheme)
+                
+                Divider()
+                
+                Spacer()
+                
+                ContributionsView(contributions: entry.contributions, numberOfDays: 7)
+                
+                Spacer()
+                
+                if entry.configuration.showDate as? Bool ?? true {
+                    DateInfoView()
+                }
             }
-        }
+        }.foregroundColor(linkColor)
     }
 }

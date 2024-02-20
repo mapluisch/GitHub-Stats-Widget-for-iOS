@@ -13,6 +13,8 @@ struct SmallWidgetView: View {
     var colorScheme: ColorScheme
 
     var body: some View {
+        let linkColor = colorScheme == .dark ? Color.white : Color.black
+
         Link(destination: URL(string: "githubstatswidget://user/\(entry.configuration.username ?? "mapluisch")")!) {
             VStack(alignment: .center, spacing: 10) {
                 UserInfoView(username: entry.configuration.username ?? "mapluisch", showUsername: entry.configuration.showUsername as? Bool ?? true, colorScheme: colorScheme)
@@ -21,6 +23,6 @@ struct SmallWidgetView: View {
                     DateInfoView()
                 }
             }
-        }
+        }.foregroundColor(linkColor)
     }
 }
