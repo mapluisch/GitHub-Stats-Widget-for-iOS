@@ -103,3 +103,14 @@ extension Date {
         return calendar.isDate(self, inSameDayAs: otherDate)
     }
 }
+
+extension View {
+    @ViewBuilder
+    func conditionalWidgetBackground<T: View>(color: Color, fallbackView: T) -> some View {
+        if #available(iOS 17, *) {
+            self.containerBackground(color, for: .widget)
+        } else {
+            fallbackView.background(color)
+        }
+    }
+}

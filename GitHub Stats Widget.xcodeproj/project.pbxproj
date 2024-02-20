@@ -145,6 +145,26 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		EC0F3FFE2B850CFE003C9734 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				EC75C4232B7BF90B0095D708 /* MainView.swift */,
+				EC59392D2B83A6FE002212FD /* ThemeSelectionView.swift */,
+				EC5939302B83A71B002212FD /* SettingsView.swift */,
+				EC0F3FFC2B84FADC003C9734 /* HowToView.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		EC0F3FFF2B850D0D003C9734 /* Helpers */ = {
+			isa = PBXGroup;
+			children = (
+				EC75C44A2B7BFA930095D708 /* GitHubAPIManager.swift */,
+				EC75C44D2B7C00B30095D708 /* TimelineProvider.swift */,
+			);
+			path = Helpers;
+			sourceTree = "<group>";
+		};
 		EC75C4152B7BF90B0095D708 = {
 			isa = PBXGroup;
 			children = (
@@ -171,15 +191,11 @@
 				ECB4EA852B84A1C20090FA68 /* GitHub Stats Widget.entitlements */,
 				EC75C4532B7C02290095D708 /* GitHub-Stats-Widget-Info.plist */,
 				EC75C4212B7BF90B0095D708 /* GitHub_Stats_WidgetApp.swift */,
-				EC75C4232B7BF90B0095D708 /* MainView.swift */,
-				EC75C4252B7BF90C0095D708 /* Assets.xcassets */,
-				EC75C4272B7BF90C0095D708 /* Preview Content */,
-				EC75C44A2B7BFA930095D708 /* GitHubAPIManager.swift */,
-				EC75C44D2B7C00B30095D708 /* TimelineProvider.swift */,
 				EC75C4502B7C021C0095D708 /* GitHubConfigurationIntent.intentdefinition */,
-				EC59392D2B83A6FE002212FD /* ThemeSelectionView.swift */,
-				EC5939302B83A71B002212FD /* SettingsView.swift */,
-				EC0F3FFC2B84FADC003C9734 /* HowToView.swift */,
+				EC75C4252B7BF90C0095D708 /* Assets.xcassets */,
+				EC0F3FFE2B850CFE003C9734 /* Views */,
+				EC0F3FFF2B850D0D003C9734 /* Helpers */,
+				EC75C4272B7BF90C0095D708 /* Preview Content */,
 			);
 			path = "GitHub Stats Widget";
 			sourceTree = "<group>";
@@ -204,14 +220,14 @@
 		EC75C4392B7BF98E0095D708 /* WidgetExtension */ = {
 			isa = PBXGroup;
 			children = (
-				ECB4EA8C2B84EBD00090FA68 /* Helpers */,
 				EC75C43A2B7BF98E0095D708 /* WidgetExtensionBundle.swift */,
 				EC75C43C2B7BF98E0095D708 /* WidgetExtension.swift */,
 				EC75C4542B7C03DB0095D708 /* WidgetView.swift */,
 				EC75C4402B7BF98E0095D708 /* Assets.xcassets */,
 				EC75C4422B7BF98E0095D708 /* Info.plist */,
-				ECB4EA8B2B84EBBD0090FA68 /* Subviews */,
 				ECB4EA8A2B84EBA90090FA68 /* Widgets */,
+				ECB4EA8B2B84EBBD0090FA68 /* Subviews */,
+				ECB4EA8C2B84EBD00090FA68 /* Helpers */,
 			);
 			path = WidgetExtension;
 			sourceTree = "<group>";
@@ -557,7 +573,8 @@
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
-				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
+				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -589,7 +606,8 @@
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
-				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
+				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",

@@ -37,7 +37,7 @@ struct SettingsView: View {
                         }
                     }
                     Toggle("Redirect to GitHub", isOn: $shouldRedirectToGitHub)
-                        .onChange(of: shouldRedirectToGitHub) { oldValue, newValue in
+                        .onChange(of: shouldRedirectToGitHub) { newValue in
                             UserDefaults.setShouldRedirectToGitHub(newValue)
                     }.toggleStyle(SwitchToggleStyle(tint: colorTheme.colors[circleColorThemeIndex]!))
                 }
