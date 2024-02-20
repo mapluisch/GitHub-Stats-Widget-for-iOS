@@ -26,7 +26,9 @@ struct CountTextView: View {
 
     var body: some View {
         HStack {
+            Spacer()
             Text("\(prefix)\(formattedCount)")
+                .lineLimit(1)
             if !arrow.isEmpty {
                 Text(arrow)
                     .foregroundColor(arrowColor)

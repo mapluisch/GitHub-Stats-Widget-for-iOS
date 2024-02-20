@@ -15,10 +15,10 @@ struct IconAndTextView: View {
     
     var body: some View {
         HStack {
+            Spacer()
             Image(systemName: "\(type).fill")
                 .scaledToFit()
                 .frame(width: 16, height: 16)
-            Spacer()
             CountTextView(prefix: "", currentCount: currentCount, previousCount: previousCount)
         }
     }

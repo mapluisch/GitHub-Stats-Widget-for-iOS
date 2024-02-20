@@ -11,9 +11,16 @@ import WidgetKit
 // MARK: - Helper Functions
 extension Int {
     func formatToK() -> String {
-        if self >= 1000 {
-            let divided = Double(self) / 1000.0
-            return String(format: "%.1fk", divided).replacingOccurrences(of: ".0", with: "")
+        if self >= 1_000_000 {
+            let divided = Double(self) / 1_000_000.0
+            return "\(Int(divided))M"
+        } else if self >= 100_000 {
+            let divided = Double(self) / 1_000.0
+            return "\(Int(round(divided)))k"
+        } else if self >= 1_000 {
+            let divided = Double(self) / 1_000.0
+            let formattedString = String(format: "%.1fk", divided)
+            return formattedString.replacingOccurrences(of: ".0", with: "k")
         } else {
             return "\(self)"
         }
