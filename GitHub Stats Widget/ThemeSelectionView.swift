@@ -26,14 +26,14 @@ struct ThemeSelectionView: View {
                             Circle()
                                 .fill(theme.colors[count, default: .gray.opacity(0.15)])
                                 .frame(width: 18, height: 18)
-                                .onTapGesture {
-                                    selectedColors = theme.colors
-                                    UserDefaults.setColorDict(selectedColors, forKey: "widgetColors")
-                                }
                         }
                         if isSelectedTheme(theme) {
                             Image(systemName: "checkmark.circle")
                         }
+                    }
+                    .onTapGesture {
+                        selectedColors = theme.colors
+                        UserDefaults.setColorDict(selectedColors, forKey: "widgetColors")
                     }
                 }
             }

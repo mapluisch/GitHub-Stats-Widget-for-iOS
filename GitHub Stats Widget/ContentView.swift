@@ -19,6 +19,8 @@ struct MainView: View {
                 .tabItem {
                     Label("Settings", systemImage: "gear")
                 }
+        }.onOpenURL { url in
+            print("Opened URL: \(url)")
         }
     }
 }
