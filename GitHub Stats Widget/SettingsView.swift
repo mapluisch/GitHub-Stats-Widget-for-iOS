@@ -17,13 +17,22 @@ struct SettingsView: View {
                             Label("Theme", systemImage: "paintbrush")
                         }
                     }
-                    Label("Rate", systemImage: "star.leadinghalf.fill")
-                    Label("Feedback", systemImage: "envelope")
+                    Link(destination: URL(string: "https://apps.apple.com/app/6477889134?action=write-review")!) {
+                        Label("Rate", systemImage: "star.circle")
+                    }
+                    
+                    let email = "hello@martinpluisch.com"
+                    let subject = "GitHub Stats Widget Feedback"
+                    let encodedSubject = subject.addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed) ?? ""
+                        
+                    Link(destination: URL(string: "mailto:\(email)?subject=\(encodedSubject)")!) {
+                        Label("Feedback", systemImage: "envelope.circle")
+                    }
                 }
                 
                 Section(header: Text("About")) {
-                    Link(destination: URL(string: "https://github.com/mapluisch")!) {
-                        Label("GitHub Repo", systemImage: "link")
+                    Link(destination: URL(string: "https://github.com/mapluisch/GitHub-Stats-Widget-for-iOS")!) {
+                        Label("GitHub Repo", systemImage: "link.circle")
                     }
                 }
             }
