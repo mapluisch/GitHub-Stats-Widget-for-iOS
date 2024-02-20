@@ -16,6 +16,7 @@ struct SettingsView: View {
     
     @State var colorTheme: ColorTheme = ColorTheme.currentTheme
     @AppStorage("shouldRedirectToGitHub") private var shouldRedirectToGitHub: Bool = false
+    @AppStorage("notifyOnStatsChange") private var notifyOnStatsChange: Bool = false
 
     var body: some View {
         let linkColor = colorScheme == .dark ? Color.white : Color.black
@@ -36,10 +37,31 @@ struct SettingsView: View {
                                 )
                         }
                     }
+                    
                     Toggle("Redirect to GitHub", isOn: $shouldRedirectToGitHub)
                         .onChange(of: shouldRedirectToGitHub) { newValue in
                             UserDefaults.setShouldRedirectToGitHub(newValue)
-                    }.toggleStyle(SwitchToggleStyle(tint: colorTheme.colors[circleColorThemeIndex]!))
+                        }
+                        .toggleStyle(SwitchToggleStyle(tint: colorTheme.colors[circleColorThemeIndex]!))
+                    
+                    Toggle("Notify on stats change", isOn: $notifyOnStatsChange)
+                        .onChange(of: notifyOnStatsChange) { newValue in
+                            if newValue {
+                                UNUserNotificationCenter.current().requestAuthorization(options: [.alert, .badge, .sound]) { granted, _ in
+                                    if granted {
+                                        DispatchQueue.main.async {
+                                            UserDefaults.standard.set(true, forKey: "notifyOnStatsChange")
+                                        }
+                                    } else {
+                                        DispatchQueue.main.async {
+                                            self.notifyOnStatsChange = false
+                                            UserDefaults.standard.set(false, forKey: "notifyOnStatsChange")
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                        .toggleStyle(SwitchToggleStyle(tint: colorTheme.colors[circleColorThemeIndex]!))
                 }
                 
                 Section(header: Text("About")) {

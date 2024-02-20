@@ -19,16 +19,16 @@ struct GitHubStatsWidgetView: View {
         Group {
             if widgetFamily == .systemSmall {
                 SmallWidgetView(entry: entry, colorScheme: colorScheme)
-                    .containerBackground(Color(UIColor.systemBackground), for: .widget)
+                    .conditionalWidgetBackground(color: Color(UIColor.systemBackground), fallbackView: Group {})
             } else if widgetFamily == .systemMedium {
                 MediumWidgetView(entry: entry, colorScheme: colorScheme)
-                    .containerBackground(Color(UIColor.systemBackground), for: .widget)
+                    .conditionalWidgetBackground(color: Color(UIColor.systemBackground), fallbackView: Group {})
             } else if widgetFamily == .systemLarge {
                 LargeWidgetView(entry: entry, colorScheme: colorScheme)
-                    .containerBackground(Color(UIColor.systemBackground), for: .widget)
+                    .conditionalWidgetBackground(color: Color(UIColor.systemBackground), fallbackView: Group {})
             } else {
                 SmallWidgetView(entry: entry, colorScheme: colorScheme)
-                    .containerBackground(Color(UIColor.systemBackground), for: .widget)
+                    .conditionalWidgetBackground(color: Color(UIColor.systemBackground), fallbackView: Group {})
             }
         }
     }

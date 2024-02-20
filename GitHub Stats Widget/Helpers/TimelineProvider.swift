@@ -7,6 +7,7 @@
 
 import WidgetKit
 import SwiftUI
+import UserNotifications
 
 struct GitHubUserStatsEntry: TimelineEntry {
     let date: Date
@@ -44,6 +45,22 @@ func getPreviousValues(forUsername username: String) -> (followers: Int, stars: 
     return (followers, stars)
 }
 
+func scheduleNotification(title: String, body: String) {
+    let notifyOnStatsChange = UserDefaults.standard.bool(forKey: "notifyOnStatsChange")
+    if !notifyOnStatsChange {
+        return
+    }
+    let content = UNMutableNotificationContent()
+    content.title = title
+    content.body = body
+    content.sound = UNNotificationSound.default
+
+    let trigger = UNTimeIntervalNotificationTrigger(timeInterval: 1, repeats: false)
+    let request = UNNotificationRequest(identifier: UUID().uuidString, content: content, trigger: trigger)
+
+    UNUserNotificationCenter.current().add(request)
+}
+
 struct GitHubStatsTimelineProvider: IntentTimelineProvider {
     typealias Entry = GitHubUserStatsEntry
     typealias Intent = GitHubUserConfigurationIntent
@@ -55,7 +72,7 @@ struct GitHubStatsTimelineProvider: IntentTimelineProvider {
             let count = Int.random(in: 0...4)
             return Contribution(count: count, date: date)
         }.reversed()
-        return GitHubUserStatsEntry(date: Date(), username: "mapluisch", followers: 2, stars: 15, avatarImageData: nil, configuration: GitHubUserConfigurationIntent(), previousFollowers: 0, previousStars: 0, contributions: sampleContributions)
+        return GitHubUserStatsEntry(date: Date(), username: "mapluisch", followers: 2, stars: 17, avatarImageData: nil, configuration: GitHubUserConfigurationIntent(), previousFollowers: 0, previousStars: 0, contributions: sampleContributions)
     }
 
     func getSnapshot(for configuration: GitHubUserConfigurationIntent, in context: Context, completion: @escaping (GitHubUserStatsEntry) -> ()) {
@@ -65,7 +82,7 @@ struct GitHubStatsTimelineProvider: IntentTimelineProvider {
             let count = Int.random(in: 0...4)
             return Contribution(count: count, date: date)
         }.reversed()
-        let entry = GitHubUserStatsEntry(date: Date(), username: "mapluisch", followers: 2, stars: 15, avatarImageData: nil, configuration: configuration, previousFollowers: 0, previousStars: 0, contributions: sampleContributions)
+        let entry = GitHubUserStatsEntry(date: Date(), username: "mapluisch", followers: 2, stars: 17, avatarImageData: nil, configuration: configuration, previousFollowers: 0, previousStars: 0, contributions: sampleContributions)
         completion(entry)
     }
 
@@ -80,7 +97,7 @@ struct GitHubStatsTimelineProvider: IntentTimelineProvider {
                         URLSession.shared.dataTask(with: avatarURL) { imageData, response, error in
                             guard let imageData = imageData, error == nil else {
                                 print("Failed to download avatar image")
-                                return // Here, handle the error as you see fit
+                                return
                             }
                             
                             DispatchQueue.main.async {
@@ -88,6 +105,14 @@ struct GitHubStatsTimelineProvider: IntentTimelineProvider {
                                 let refreshDate = Calendar.current.date(byAdding: .minute, value: 15, to: currentDate)!
                                 
                                 let previousValues = getPreviousValues(forUsername: username)
+                                
+                                if user.followers > previousValues.followers {
+                                    scheduleNotification(title: "GitHub Stats", body: "You've gained a new GitHub follower!")
+                                }
+                                
+                                if totalStars > previousValues.stars {
+                                    scheduleNotification(title: "GitHub Stats", body: "One of your GitHub repos got starred!")
+                                }
                                 
                                 let entry = GitHubUserStatsEntry(
                                     date: currentDate,

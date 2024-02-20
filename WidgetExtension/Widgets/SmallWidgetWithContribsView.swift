@@ -18,6 +18,9 @@ struct SmallWidgetWithContribsView: View {
         Link(destination: URL(string: "githubstatswidget://user/\(entry.configuration.username ?? "mapluisch")")!) {
             VStack(alignment: .center, spacing: 0) {
                 UserInfoView(username: entry.configuration.username ?? "mapluisch", showUsername: entry.configuration.showUsername as? Bool ?? true, useProfilePicture: entry.configuration.useProfilePicture as? Bool ?? true, colorScheme: colorScheme, imageData: entry.avatarImageData,  miniatureImage: true)
+                Spacer()
+                
+                Divider()
                 
                 StatsInfoView(entry: entry, colorScheme: colorScheme)
                 
