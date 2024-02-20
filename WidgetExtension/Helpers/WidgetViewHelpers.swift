@@ -20,7 +20,7 @@ extension Int {
         } else if self >= 1_000 {
             let divided = Double(self) / 1_000.0
             let formattedString = String(format: "%.1fk", divided)
-            return formattedString.replacingOccurrences(of: ".0", with: "k")
+            return formattedString.replacingOccurrences(of: ".0", with: "")
         } else {
             return "\(self)"
         }

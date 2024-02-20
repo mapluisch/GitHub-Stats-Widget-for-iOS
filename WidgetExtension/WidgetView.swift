@@ -50,8 +50,8 @@ struct GitHubStatsWidgetView_Previews: PreviewProvider {
                 entry: GitHubUserStatsEntry(
                     date: Date(),
                     username: "mapluisch",
-                    followers: 17,
-                    stars: 2,
+                    followers: 2,
+                    stars: 17,
                     avatarImageData: nil,
                     configuration: GitHubUserConfigurationIntent(),
                     previousFollowers: 0,
