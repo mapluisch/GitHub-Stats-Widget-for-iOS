@@ -9,23 +9,41 @@ import SwiftUI
 
 struct UserAvatarView: View {
     var imageData: Data?
+    var miniatureImage: Bool = false
 
     var body: some View {
-        Group {
-            if let imageData = imageData, let uiImage = UIImage(data: imageData) {
-                Image(uiImage: uiImage)
-                    .resizable()
-                    .aspectRatio(contentMode: .fill)
-            } else {
-                Image("placeholder")
-                    .resizable()
-                    .aspectRatio(contentMode: .fill)
-                    .foregroundColor(.gray)
+        if (miniatureImage) {
+            Group {
+                if let imageData = imageData, let uiImage = UIImage(data: imageData) {
+                    Image(uiImage: uiImage)
+                        .resizable()
+                        .aspectRatio(contentMode: .fill)
+                } else {
+                    Image("placeholder")
+                        .resizable()
+                        .aspectRatio(contentMode: .fill)
+                        .foregroundColor(.gray)
+                }
             }
+            .clipShape(Circle())
+            .shadow(radius: 1)
+        } else {
+            Group {
+                if let imageData = imageData, let uiImage = UIImage(data: imageData) {
+                    Image(uiImage: uiImage)
+                        .resizable()
+                        .aspectRatio(contentMode: .fill)
+                } else {
+                    Image("placeholder")
+                        .resizable()
+                        .aspectRatio(contentMode: .fill)
+                        .foregroundColor(.gray)
+                }
+            }
+            .frame(width: 100, height: 100)
+            .clipShape(Circle())
+            .shadow(radius: 5)
         }
-        .frame(width: 100, height: 100)
-        .clipShape(Circle())
-        .shadow(radius: 5)
     }
 }
 

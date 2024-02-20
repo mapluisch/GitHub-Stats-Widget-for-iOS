@@ -17,7 +17,7 @@ struct SmallWidgetView: View {
 
         Link(destination: URL(string: "githubstatswidget://user/\(entry.configuration.username ?? "mapluisch")")!) {
             VStack(alignment: .center, spacing: 10) {
-                UserInfoView(username: entry.configuration.username ?? "mapluisch", showUsername: entry.configuration.showUsername as? Bool ?? true, colorScheme: colorScheme)
+                UserInfoView(username: entry.configuration.username ?? "mapluisch", showUsername: entry.configuration.showUsername as? Bool ?? true, useProfilePicture: entry.configuration.useProfilePicture as? Bool ?? true, colorScheme: colorScheme, imageData: entry.avatarImageData, miniatureImage: true)
                 StatsInfoView(entry: entry, colorScheme: colorScheme)
                 if entry.configuration.showDate as? Bool ?? true {
                     DateInfoView()

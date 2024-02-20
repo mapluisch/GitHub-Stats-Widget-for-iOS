@@ -18,7 +18,7 @@ struct LargeWidgetView: View {
 
         Link(destination: URL(string: "githubstatswidget://user/\(entry.configuration.username ?? "mapluisch")")!) {
             VStack(alignment: .center, spacing: 16) {
-                UserInfoView(username: entry.configuration.username ?? "mapluisch", showUsername: entry.configuration.showUsername as? Bool ?? true, colorScheme: colorScheme)
+                UserInfoView(username: entry.configuration.username ?? "mapluisch", showUsername: entry.configuration.showUsername as? Bool ?? true, useProfilePicture: false, colorScheme: colorScheme, imageData: entry.avatarImageData)
                 
                 HStack {
                     
