@@ -53,6 +53,15 @@ extension UserDefaults {
         }
         return decodedHexColors.mapValues { Color(hex: $0) }
     }
+    
+    static func setShouldRedirectToGitHub(_ value: Bool) {
+        print("Setting new val \(value)")
+        UserDefaults.shared?.set(value, forKey: "shouldRedirectToGitHub")
+    }
+
+    static func shouldRedirectToGitHub() -> Bool {
+        return UserDefaults.shared?.bool(forKey: "shouldRedirectToGitHub") ?? false
+    }
 }
 
 extension UIColor {

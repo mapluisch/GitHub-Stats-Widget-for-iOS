@@ -15,6 +15,7 @@ struct SettingsView: View {
     let circleColorThemeIndex: Int = 3
     
     @State var colorTheme: ColorTheme = ColorTheme.currentTheme
+    @AppStorage("shouldRedirectToGitHub") private var shouldRedirectToGitHub: Bool = false
 
     var body: some View {
         let linkColor = colorScheme == .dark ? Color.white : Color.black
@@ -35,7 +36,14 @@ struct SettingsView: View {
                                 )
                         }
                     }
-
+                    Toggle("Redirect to GitHub", isOn: $shouldRedirectToGitHub)
+                        .onChange(of: shouldRedirectToGitHub) { oldValue, newValue in
+                            UserDefaults.setShouldRedirectToGitHub(newValue)
+                    }.toggleStyle(SwitchToggleStyle(tint: colorTheme.colors[circleColorThemeIndex]!))
+                }
+                
+                Section(header: Text("About")) {
+                    
                     Link(destination: URL(string: "https://apps.apple.com/app/6477889134?action=write-review")!) {
                         Label {
                             Text("Rate App").foregroundColor(linkColor)
@@ -49,9 +57,7 @@ struct SettingsView: View {
                                 )
                         }
                     }
-                }
-                
-                Section(header: Text("About")) {
+                    
                     let email = "hello@martinpluisch.com"
                     let subject = "GitHub Stats Widget Feedback"
                     let encodedSubject = subject.addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed) ?? ""
