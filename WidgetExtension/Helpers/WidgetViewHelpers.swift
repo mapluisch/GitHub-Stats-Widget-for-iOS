@@ -55,7 +55,6 @@ extension UserDefaults {
     }
     
     static func setShouldRedirectToGitHub(_ value: Bool) {
-        print("Setting new val \(value)")
         UserDefaults.shared?.set(value, forKey: "shouldRedirectToGitHub")
     }
 

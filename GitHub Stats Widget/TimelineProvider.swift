@@ -86,7 +86,6 @@ struct GitHubStatsTimelineProvider: IntentTimelineProvider {
                             DispatchQueue.main.async {
                                 let currentDate = Date()
                                 let refreshDate = Calendar.current.date(byAdding: .minute, value: 15, to: currentDate)!
-                                print(imageData)
                                 
                                 let previousValues = getPreviousValues(forUsername: username)
                                 
