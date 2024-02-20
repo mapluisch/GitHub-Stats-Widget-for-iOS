@@ -13,6 +13,7 @@ struct GitHubUserStatsEntry: TimelineEntry {
     let username: String
     let followers: Int
     let stars: Int
+    let avatarImageData: Data?
     let configuration: GitHubUserConfigurationIntent
     let previousFollowers: Int
     let previousStars: Int
@@ -54,7 +55,7 @@ struct GitHubStatsTimelineProvider: IntentTimelineProvider {
             let count = Int.random(in: 0...4)
             return Contribution(count: count, date: date)
         }.reversed()
-        return GitHubUserStatsEntry(date: Date(), username: "mapluisch", followers: 2, stars: 15, configuration: GitHubUserConfigurationIntent(), previousFollowers: 0, previousStars: 0, contributions: sampleContributions)
+        return GitHubUserStatsEntry(date: Date(), username: "mapluisch", followers: 2, stars: 15, avatarImageData: nil, configuration: GitHubUserConfigurationIntent(), previousFollowers: 0, previousStars: 0, contributions: sampleContributions)
     }
 
     func getSnapshot(for configuration: GitHubUserConfigurationIntent, in context: Context, completion: @escaping (GitHubUserStatsEntry) -> ()) {
@@ -64,7 +65,7 @@ struct GitHubStatsTimelineProvider: IntentTimelineProvider {
             let count = Int.random(in: 0...4)
             return Contribution(count: count, date: date)
         }.reversed()
-        let entry = GitHubUserStatsEntry(date: Date(), username: "mapluisch", followers: 2, stars: 15, configuration: configuration, previousFollowers: 0, previousStars: 0, contributions: sampleContributions)
+        let entry = GitHubUserStatsEntry(date: Date(), username: "mapluisch", followers: 2, stars: 15, avatarImageData: nil, configuration: configuration, previousFollowers: 0, previousStars: 0, contributions: sampleContributions)
         completion(entry)
     }
 
@@ -75,24 +76,45 @@ struct GitHubStatsTimelineProvider: IntentTimelineProvider {
             switch statsResult {
                 case .success(let (user, totalStars)):
                     ContributionFetcher().fetchContributions(username: username) { contributions in
-                        let currentDate = Date()
-                        let refreshDate = Calendar.current.date(byAdding: .minute, value: 15, to: currentDate)!
-                        
-                        let previousValues = getPreviousValues(forUsername: username)
-                        
-                        let entry = GitHubUserStatsEntry(date: currentDate, username: username, followers: user.followers, stars: totalStars, configuration: configuration, previousFollowers: previousValues.followers, previousStars: previousValues.stars, contributions: contributions)
-                        
-                        updatePreviousValues(followers: user.followers, stars: totalStars, forUsername: username)
-                        
-                        let timeline = Timeline(entries: [entry], policy: .after(refreshDate))
-                        completion(timeline)
+                        let avatarURL = URL(string: user.avatar_url)!
+                        URLSession.shared.dataTask(with: avatarURL) { imageData, response, error in
+                            guard let imageData = imageData, error == nil else {
+                                print("Failed to download avatar image")
+                                return // Here, handle the error as you see fit
+                            }
+                            
+                            DispatchQueue.main.async {
+                                let currentDate = Date()
+                                let refreshDate = Calendar.current.date(byAdding: .minute, value: 15, to: currentDate)!
+                                print(imageData)
+                                
+                                let previousValues = getPreviousValues(forUsername: username)
+                                
+                                let entry = GitHubUserStatsEntry(
+                                    date: currentDate,
+                                    username: username,
+                                    followers: user.followers,
+                                    stars: totalStars,
+                                    avatarImageData: imageData,
+                                    configuration: configuration,
+                                    previousFollowers: previousValues.followers,
+                                    previousStars: previousValues.stars,
+                                    contributions: contributions
+                                )
+                                
+                                updatePreviousValues(followers: user.followers, stars: totalStars, forUsername: username)
+                                
+                                let timeline = Timeline(entries: [entry], policy: .after(refreshDate))
+                                completion(timeline)
+                            }
+                        }.resume()
                     }
                 case .failure(let error):
                     print("Error fetching GitHub stats: \(error)")
 
                     let previousValues = getPreviousValues(forUsername: username)
 
-                    let fallbackEntry = GitHubUserStatsEntry(date: Date(), username: username, followers: previousValues.followers, stars: previousValues.stars, configuration: configuration, previousFollowers: previousValues.followers, previousStars: previousValues.stars, contributions: [])
+                    let fallbackEntry = GitHubUserStatsEntry(date: Date(), username: username, followers: previousValues.followers, stars: previousValues.stars, avatarImageData: nil, configuration: configuration, previousFollowers: previousValues.followers, previousStars: previousValues.stars, contributions: [])
                     let timeline = Timeline(entries: [fallbackEntry], policy: .after(Date()))
                     completion(timeline)
                 }

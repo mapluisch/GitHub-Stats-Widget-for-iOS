@@ -10,6 +10,7 @@ import Foundation
 struct GitHubUser: Codable {
     let login: String
     let followers: Int
+    let avatar_url: String
 }
 
 struct Repository: Codable {
@@ -81,4 +82,5 @@ class GitHubAPIManager {
             }
         }
     }
+    
 }

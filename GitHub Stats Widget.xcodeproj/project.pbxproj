@@ -56,6 +56,8 @@
 		ECB4B8D92B7E9E76009DF428 /* ContributionsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECB4B8D72B7E9E76009DF428 /* ContributionsView.swift */; };
 		ECB4B8DB2B7EAA2B009DF428 /* SmallWidgetWithContribsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECB4B8DA2B7EAA2B009DF428 /* SmallWidgetWithContribsView.swift */; };
 		ECB4B8DC2B7EAA2B009DF428 /* SmallWidgetWithContribsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECB4B8DA2B7EAA2B009DF428 /* SmallWidgetWithContribsView.swift */; };
+		ECB4EA882B84DA090090FA68 /* UserAvatarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECB4EA872B84DA090090FA68 /* UserAvatarView.swift */; };
+		ECB4EA892B84DA090090FA68 /* UserAvatarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECB4EA872B84DA090090FA68 /* UserAvatarView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -118,6 +120,7 @@
 		ECB4B8DA2B7EAA2B009DF428 /* SmallWidgetWithContribsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SmallWidgetWithContribsView.swift; sourceTree = "<group>"; };
 		ECB4EA852B84A1C20090FA68 /* GitHub Stats Widget.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = "GitHub Stats Widget.entitlements"; sourceTree = "<group>"; };
 		ECB4EA862B84A1E10090FA68 /* WidgetExtensionExtension.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = WidgetExtensionExtension.entitlements; sourceTree = "<group>"; };
+		ECB4EA872B84DA090090FA68 /* UserAvatarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserAvatarView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -217,6 +220,7 @@
 				ECB4B8DA2B7EAA2B009DF428 /* SmallWidgetWithContribsView.swift */,
 				EC5939272B8398AE002212FD /* ContributionsWidgetView.swift */,
 				EC59392A2B83A43E002212FD /* ColorTheme.swift */,
+				ECB4EA872B84DA090090FA68 /* UserAvatarView.swift */,
 			);
 			path = WidgetExtension;
 			sourceTree = "<group>";
@@ -326,6 +330,7 @@
 				ECB4B8D82B7E9E76009DF428 /* ContributionsView.swift in Sources */,
 				ECB4B8C62B7E4015009DF428 /* DateInfoView.swift in Sources */,
 				ECB4B8BA2B7E3E50009DF428 /* WidgetViewHelpers.swift in Sources */,
+				ECB4EA882B84DA090090FA68 /* UserAvatarView.swift in Sources */,
 				ECB4B8DB2B7EAA2B009DF428 /* SmallWidgetWithContribsView.swift in Sources */,
 				ECB4B8BD2B7E3F43009DF428 /* UserInfoView.swift in Sources */,
 				ECB4B8CF2B7E8F3C009DF428 /* MediumWidgetView.swift in Sources */,
@@ -353,6 +358,7 @@
 				ECB4B8C42B7E3FF1009DF428 /* IconWithTextView.swift in Sources */,
 				EC59392C2B83A43E002212FD /* ColorTheme.swift in Sources */,
 				ECB4B8CD2B7E8B9D009DF428 /* SmallWidgetView.swift in Sources */,
+				ECB4EA892B84DA090090FA68 /* UserAvatarView.swift in Sources */,
 				EC59392F2B83A6FE002212FD /* ThemeSelectionView.swift in Sources */,
 				ECB4B8BB2B7E3E50009DF428 /* WidgetViewHelpers.swift in Sources */,
 				EC75C4522B7C021C0095D708 /* GitHubConfigurationIntent.intentdefinition in Sources */,

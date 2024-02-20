@@ -13,7 +13,7 @@ struct SmallWidgetView: View {
     var colorScheme: ColorScheme
 
     var body: some View {
-        Link(destination: URL(string: "githubstatswidget://user/\(entry.configuration.username!)")!) {
+        Link(destination: URL(string: "githubstatswidget://user/\(entry.configuration.username ?? "mapluisch")")!) {
             VStack(alignment: .center, spacing: 10) {
                 UserInfoView(username: entry.configuration.username ?? "mapluisch", showUsername: entry.configuration.showUsername as? Bool ?? true, colorScheme: colorScheme)
                 StatsInfoView(entry: entry, colorScheme: colorScheme)
@@ -24,4 +24,3 @@ struct SmallWidgetView: View {
         }
     }
 }
-

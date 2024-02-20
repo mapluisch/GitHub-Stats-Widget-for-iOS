@@ -17,7 +17,17 @@ struct LargeWidgetView: View {
         VStack(alignment: .center, spacing: 16) {
             UserInfoView(username: entry.configuration.username ?? "mapluisch", showUsername: entry.configuration.showUsername as? Bool ?? true, colorScheme: colorScheme)
             
-            StatsInfoView(entry: entry, colorScheme: colorScheme)
+            HStack {
+    
+                StatsInfoView(entry: entry, colorScheme: colorScheme)
+                    .frame(maxWidth: .infinity)
+                
+                Divider()
+                
+                UserAvatarView(imageData: entry.avatarImageData)
+                    .frame(maxWidth: .infinity)
+            }
+            
             
             Divider()
             
