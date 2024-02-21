@@ -118,5 +118,6 @@ struct SettingsView: View {
                 self.colorTheme = ColorTheme.currentTheme
             }
         }
+        .navigationViewStyle(StackNavigationViewStyle())
     }
 }

@@ -25,6 +25,7 @@ struct HowToView: View {
             .navigationTitle("How-To")
             .listStyle(InsetGroupedListStyle())
         }
+        .navigationViewStyle(StackNavigationViewStyle())
     }
 }
 

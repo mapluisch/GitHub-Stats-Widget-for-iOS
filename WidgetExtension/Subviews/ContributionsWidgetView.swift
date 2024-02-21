@@ -15,6 +15,7 @@ struct ContributionsWidgetView: View {
     var body: some View {
         Group {
             SmallWidgetWithContribsView(entry: entry, colorScheme: colorScheme)
-        }.conditionalWidgetBackground(color: Color(UIColor.systemBackground), fallbackView: Group {})
+        }
+        .conditionalWidgetBackground(color: Color(UIColor.systemBackground), fallbackView: Group {})
     }
 }
