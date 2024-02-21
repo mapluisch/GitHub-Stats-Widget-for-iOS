@@ -1,11 +1,19 @@
 <h1 align="center">GitHub Stats Widget</h1>
-<hr>
+
 <div align="center">
     <a href="https://apps.apple.com/app/6477889134">
-        <img src="https://upload.wikimedia.org/wikipedia/commons/3/3c/Download_on_the_App_Store_Badge.svg" width="25%" height="25%">
+        <img src="https://github.com/mapluisch/GitHub-Stats-Widget-for-iOS/assets/31780571/a6bee210-b3e6-4bda-bc3f-2bb4127f608c" width="20%" height="20%">
     </a>
 </div>
-<br>
+<div align="center">
+    <a href="https://apps.apple.com/app/6477889134">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/3/3c/Download_on_the_App_Store_Badge.svg" width="20%" height="20%">
+    </a>
+</div>
+
+<hr>
+
+## Overview
 
 <p align="center">
   <img src="https://github.com/mapluisch/GitHub-Stats-Widget-for-iOS/assets/31780571/3e48c5f5-e4ac-4ad5-98f0-e77cbaad63b9" alt="GitHub Stats Widget Screenshot 1" style="width: 20%; margin-right: 10px;">
