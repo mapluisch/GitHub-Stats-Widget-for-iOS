@@ -9,6 +9,12 @@
 /* Begin PBXBuildFile section */
 		EC0F3FFD2B84FADC003C9734 /* HowToView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC0F3FFC2B84FADC003C9734 /* HowToView.swift */; };
 		EC3C9AFB2B88E8E000CB11C3 /* WidgetExtension.appex in Embed Foundation Extensions */ = {isa = PBXBuildFile; fileRef = EC75C4332B7BF98E0095D708 /* WidgetExtension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+		EC3C9B002B895AF200CB11C3 /* GitHubUserStatsEntry.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC3C9AFF2B895AF200CB11C3 /* GitHubUserStatsEntry.swift */; };
+		EC3C9B022B895B6600CB11C3 /* NotificationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC3C9B012B895B6600CB11C3 /* NotificationManager.swift */; };
+		EC3C9B032B895C2000CB11C3 /* GitHubUserStatsEntry.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC3C9AFF2B895AF200CB11C3 /* GitHubUserStatsEntry.swift */; };
+		EC3C9B042B895C7900CB11C3 /* NotificationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC3C9B012B895B6600CB11C3 /* NotificationManager.swift */; };
+		EC3C9B062B895D4000CB11C3 /* GitHubStatsLockscreenTimelineProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC3C9B052B895D4000CB11C3 /* GitHubStatsLockscreenTimelineProvider.swift */; };
+		EC3C9B072B895D4000CB11C3 /* GitHubStatsLockscreenTimelineProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC3C9B052B895D4000CB11C3 /* GitHubStatsLockscreenTimelineProvider.swift */; };
 		EC5939292B8398AE002212FD /* ContributionsWidgetView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC5939272B8398AE002212FD /* ContributionsWidgetView.swift */; };
 		EC59392B2B83A43E002212FD /* ColorTheme.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC59392A2B83A43E002212FD /* ColorTheme.swift */; };
 		EC59392C2B83A43E002212FD /* ColorTheme.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC59392A2B83A43E002212FD /* ColorTheme.swift */; };
@@ -27,8 +33,8 @@
 		EC75C4412B7BF98E0095D708 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = EC75C4402B7BF98E0095D708 /* Assets.xcassets */; };
 		EC75C44B2B7BFA930095D708 /* GitHubAPIManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC75C44A2B7BFA930095D708 /* GitHubAPIManager.swift */; };
 		EC75C44C2B7BFA930095D708 /* GitHubAPIManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC75C44A2B7BFA930095D708 /* GitHubAPIManager.swift */; };
-		EC75C44E2B7C00B30095D708 /* TimelineProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC75C44D2B7C00B30095D708 /* TimelineProvider.swift */; };
-		EC75C44F2B7C00B30095D708 /* TimelineProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC75C44D2B7C00B30095D708 /* TimelineProvider.swift */; };
+		EC75C44E2B7C00B30095D708 /* GitHubStatsTimelineProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC75C44D2B7C00B30095D708 /* GitHubStatsTimelineProvider.swift */; };
+		EC75C44F2B7C00B30095D708 /* GitHubStatsTimelineProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC75C44D2B7C00B30095D708 /* GitHubStatsTimelineProvider.swift */; };
 		EC75C4512B7C021C0095D708 /* GitHubConfigurationIntent.intentdefinition in Sources */ = {isa = PBXBuildFile; fileRef = EC75C4502B7C021C0095D708 /* GitHubConfigurationIntent.intentdefinition */; };
 		EC75C4522B7C021C0095D708 /* GitHubConfigurationIntent.intentdefinition in Sources */ = {isa = PBXBuildFile; fileRef = EC75C4502B7C021C0095D708 /* GitHubConfigurationIntent.intentdefinition */; };
 		EC75C4562B7C03DB0095D708 /* WidgetView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC75C4542B7C03DB0095D708 /* WidgetView.swift */; };
@@ -88,6 +94,9 @@
 
 /* Begin PBXFileReference section */
 		EC0F3FFC2B84FADC003C9734 /* HowToView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HowToView.swift; sourceTree = "<group>"; };
+		EC3C9AFF2B895AF200CB11C3 /* GitHubUserStatsEntry.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GitHubUserStatsEntry.swift; sourceTree = "<group>"; };
+		EC3C9B012B895B6600CB11C3 /* NotificationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationManager.swift; sourceTree = "<group>"; };
+		EC3C9B052B895D4000CB11C3 /* GitHubStatsLockscreenTimelineProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GitHubStatsLockscreenTimelineProvider.swift; sourceTree = "<group>"; };
 		EC5939272B8398AE002212FD /* ContributionsWidgetView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContributionsWidgetView.swift; sourceTree = "<group>"; };
 		EC59392A2B83A43E002212FD /* ColorTheme.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorTheme.swift; sourceTree = "<group>"; };
 		EC59392D2B83A6FE002212FD /* ThemeSelectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThemeSelectionView.swift; sourceTree = "<group>"; };
@@ -105,7 +114,7 @@
 		EC75C4402B7BF98E0095D708 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		EC75C4422B7BF98E0095D708 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		EC75C44A2B7BFA930095D708 /* GitHubAPIManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GitHubAPIManager.swift; sourceTree = "<group>"; };
-		EC75C44D2B7C00B30095D708 /* TimelineProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimelineProvider.swift; sourceTree = "<group>"; };
+		EC75C44D2B7C00B30095D708 /* GitHubStatsTimelineProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GitHubStatsTimelineProvider.swift; sourceTree = "<group>"; };
 		EC75C4502B7C021C0095D708 /* GitHubConfigurationIntent.intentdefinition */ = {isa = PBXFileReference; lastKnownFileType = file.intentdefinition; path = GitHubConfigurationIntent.intentdefinition; sourceTree = "<group>"; };
 		EC75C4532B7C02290095D708 /* GitHub-Stats-Widget-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = "GitHub-Stats-Widget-Info.plist"; sourceTree = SOURCE_ROOT; };
 		EC75C4542B7C03DB0095D708 /* WidgetView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WidgetView.swift; sourceTree = "<group>"; };
@@ -162,7 +171,10 @@
 			isa = PBXGroup;
 			children = (
 				EC75C44A2B7BFA930095D708 /* GitHubAPIManager.swift */,
-				EC75C44D2B7C00B30095D708 /* TimelineProvider.swift */,
+				EC75C44D2B7C00B30095D708 /* GitHubStatsTimelineProvider.swift */,
+				EC3C9AFF2B895AF200CB11C3 /* GitHubUserStatsEntry.swift */,
+				EC3C9B012B895B6600CB11C3 /* NotificationManager.swift */,
+				EC3C9B052B895D4000CB11C3 /* GitHubStatsLockscreenTimelineProvider.swift */,
 			);
 			path = Helpers;
 			sourceTree = "<group>";
@@ -388,13 +400,16 @@
 				EC75C4242B7BF90B0095D708 /* MainView.swift in Sources */,
 				ECB4B8C02B7E3F8A009DF428 /* StatsInfoView.swift in Sources */,
 				EC75C4222B7BF90B0095D708 /* GitHub_Stats_WidgetApp.swift in Sources */,
+				EC3C9B002B895AF200CB11C3 /* GitHubUserStatsEntry.swift in Sources */,
 				ECB4B8D22B7E8F5C009DF428 /* LargeWidgetView.swift in Sources */,
 				EC59392E2B83A6FE002212FD /* ThemeSelectionView.swift in Sources */,
 				ECF8A5662B88E79A00732E0A /* LockscreenWidgetView.swift in Sources */,
 				ECB4B8C32B7E3FF1009DF428 /* IconWithTextView.swift in Sources */,
 				EC75C44B2B7BFA930095D708 /* GitHubAPIManager.swift in Sources */,
-				EC75C44E2B7C00B30095D708 /* TimelineProvider.swift in Sources */,
+				EC3C9B022B895B6600CB11C3 /* NotificationManager.swift in Sources */,
+				EC75C44E2B7C00B30095D708 /* GitHubStatsTimelineProvider.swift in Sources */,
 				ECB4B8D52B7E9507009DF428 /* ContributionFetcher.swift in Sources */,
+				EC3C9B062B895D4000CB11C3 /* GitHubStatsLockscreenTimelineProvider.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -408,11 +423,13 @@
 				ECB4EA892B84DA090090FA68 /* UserAvatarView.swift in Sources */,
 				EC59392F2B83A6FE002212FD /* ThemeSelectionView.swift in Sources */,
 				ECF8A5672B88E79A00732E0A /* LockscreenWidgetView.swift in Sources */,
+				EC3C9B042B895C7900CB11C3 /* NotificationManager.swift in Sources */,
 				ECB4B8BB2B7E3E50009DF428 /* WidgetViewHelpers.swift in Sources */,
 				EC75C4522B7C021C0095D708 /* GitHubConfigurationIntent.intentdefinition in Sources */,
 				ECB4B8D32B7E8F5C009DF428 /* LargeWidgetView.swift in Sources */,
 				ECB4B8D62B7E9507009DF428 /* ContributionFetcher.swift in Sources */,
 				EC75C43B2B7BF98E0095D708 /* WidgetExtensionBundle.swift in Sources */,
+				EC3C9B032B895C2000CB11C3 /* GitHubUserStatsEntry.swift in Sources */,
 				ECB4B8BE2B7E3F43009DF428 /* UserInfoView.swift in Sources */,
 				EC75C4562B7C03DB0095D708 /* WidgetView.swift in Sources */,
 				ECB4B8C72B7E4015009DF428 /* DateInfoView.swift in Sources */,
@@ -422,7 +439,8 @@
 				EC5939292B8398AE002212FD /* ContributionsWidgetView.swift in Sources */,
 				ECB4B8D92B7E9E76009DF428 /* ContributionsView.swift in Sources */,
 				ECB4B8DC2B7EAA2B009DF428 /* SmallWidgetWithContribsView.swift in Sources */,
-				EC75C44F2B7C00B30095D708 /* TimelineProvider.swift in Sources */,
+				EC3C9B072B895D4000CB11C3 /* GitHubStatsLockscreenTimelineProvider.swift in Sources */,
+				EC75C44F2B7C00B30095D708 /* GitHubStatsTimelineProvider.swift in Sources */,
 				ECB4B8C12B7E3F8A009DF428 /* StatsInfoView.swift in Sources */,
 				ECB4B8CA2B7E407C009DF428 /* CountTextView.swift in Sources */,
 				EC5939322B83A71B002212FD /* SettingsView.swift in Sources */,

@@ -72,6 +72,24 @@ extension UserDefaults {
     static func setLockscreenWidgetUsername(lockscreenUsername: String) {
         UserDefaults.shared?.set(lockscreenUsername, forKey: "lockscreenWidgetUsername")
     }
+    
+    static func previousFollowersKey(forUsername username: String) -> String {
+        "previousFollowers_\(username)"
+    }
+
+    static func previousStarsKey(forUsername username: String) -> String {
+        "previousStars_\(username)"
+    }
+
+    static func updatePreviousValues(followers: Int, stars: Int, forUsername username: String) {
+        UserDefaults.standard.set(followers, forKey: UserDefaults.previousFollowersKey(forUsername: username))
+        UserDefaults.standard.set(stars, forKey: UserDefaults.previousStarsKey(forUsername: username))
+    }
+
+    static func getPreviousValues(forUsername username: String) -> (followers: Int, stars: Int) {
+        (followers: UserDefaults.standard.integer(forKey: UserDefaults.previousFollowersKey(forUsername: username)),
+         stars: UserDefaults.standard.integer(forKey: UserDefaults.previousStarsKey(forUsername: username)))
+    }
 }
 
 extension UIColor {
