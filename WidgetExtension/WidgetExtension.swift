@@ -39,7 +39,7 @@ struct LockscreenWidget: Widget {
     let kind: String = "LockscreenWidgetView"
 
     var body: some WidgetConfiguration {
-        IntentConfiguration(kind: kind, intent: GitHubUserConfigurationIntent.self, provider: GitHubStatsTimelineProvider()) { entry in
+        IntentConfiguration(kind: kind, intent: GitHubUserConfigurationIntent.self, provider: GitHubStatsLockscreenTimelineProvider()) { entry in
             LockscreenWidgetView(entry: entry)
         }
         .configurationDisplayName("GitHub Stats")

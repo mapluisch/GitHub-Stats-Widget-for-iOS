@@ -17,6 +17,7 @@ struct SettingsView: View {
     @State var colorTheme: ColorTheme = ColorTheme.currentTheme
     @AppStorage("shouldRedirectToGitHub") private var shouldRedirectToGitHub: Bool = false
     @AppStorage("notifyOnStatsChange") private var notifyOnStatsChange: Bool = false
+    @State private var lockscreenWidgetUsername: String = ""
 
     var body: some View {
         let linkColor = colorScheme == .dark ? Color.white : Color.black
@@ -35,6 +36,22 @@ struct SettingsView: View {
                                     Circle().fill(colorTheme.colors[circleColorThemeIndex]!)
                                         .frame(width: circleSize, height: circleSize)
                                 )
+                        }
+                    }
+                    if #available(iOS 16.0, *) {
+                        HStack {
+                            Text("Lockscreen  Username")
+                                .lineLimit(1)
+                                .fixedSize(horizontal: true, vertical: false)
+                            Spacer()
+                            Spacer()
+                            Spacer()
+                            TextField("", text: $lockscreenWidgetUsername)
+                                .textFieldStyle(RoundedBorderTextFieldStyle())
+                                .frame(minWidth: 100, idealWidth: 150, maxWidth: .infinity)
+                                .onChange(of: lockscreenWidgetUsername) { newValue in
+                                    UserDefaults.setLockscreenWidgetUsername(lockscreenUsername: newValue)
+                            }
                         }
                     }
                     

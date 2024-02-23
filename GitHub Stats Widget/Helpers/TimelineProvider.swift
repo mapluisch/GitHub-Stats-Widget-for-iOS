@@ -19,6 +19,7 @@ struct GitHubUserStatsEntry: TimelineEntry {
     let previousFollowers: Int
     let previousStars: Int
     let contributions: [Contribution]
+    let lockscreenUsername: String
 }
 
 struct UserDefaultsKeys {
@@ -74,22 +75,24 @@ struct GitHubStatsTimelineProvider: IntentTimelineProvider {
             let count = Int.random(in: 0...4)
             return Contribution(count: count, date: date)
         }.reversed()
-        return GitHubUserStatsEntry(date: Date(), username: "mapluisch", followers: 2, stars: 17, avatarImageData: nil, configuration: GitHubUserConfigurationIntent(), previousFollowers: 0, previousStars: 0, contributions: sampleContributions)
+        return GitHubUserStatsEntry(date: Date(), username: "mapluisch", followers: 2, stars: 17, avatarImageData: nil, configuration: GitHubUserConfigurationIntent(), previousFollowers: 0, previousStars: 0, contributions: sampleContributions, lockscreenUsername: "mapluisch")
     }
 
     func getSnapshot(for configuration: GitHubUserConfigurationIntent, in context: Context, completion: @escaping (GitHubUserStatsEntry) -> ()) {
         let sampleDays = 365
+        let lockscreenUsername = UserDefaults.standard.string(forKey: "lockscreenWidgetUsername") ?? "mapluisch"
         let sampleContributions: [Contribution] = (0..<sampleDays).map { day in
             let date = Calendar.current.date(byAdding: .day, value: -day, to: Date())!
             let count = Int.random(in: 0...4)
             return Contribution(count: count, date: date)
         }.reversed()
-        let entry = GitHubUserStatsEntry(date: Date(), username: "mapluisch", followers: 2, stars: 17, avatarImageData: nil, configuration: configuration, previousFollowers: 0, previousStars: 0, contributions: sampleContributions)
+        let entry = GitHubUserStatsEntry(date: Date(), username: "mapluisch", followers: 2, stars: 17, avatarImageData: nil, configuration: configuration, previousFollowers: 0, previousStars: 0, contributions: sampleContributions, lockscreenUsername: lockscreenUsername)
         completion(entry)
     }
 
     func getTimeline(for configuration: GitHubUserConfigurationIntent, in context: Context, completion: @escaping (Timeline<GitHubUserStatsEntry>) -> ()) {
         let username = configuration.username ?? "mapluisch"
+        let lockscreenUsername = (UserDefaults.standard.string(forKey: "lockscreenWidgetUsername") ?? configuration.username) ?? ""
 
         GitHubAPIManager.shared.fetchGitHubUserStats(username: username) { statsResult in
             switch statsResult {
@@ -125,7 +128,8 @@ struct GitHubStatsTimelineProvider: IntentTimelineProvider {
                                     configuration: configuration,
                                     previousFollowers: previousValues.followers,
                                     previousStars: previousValues.stars,
-                                    contributions: contributions
+                                    contributions: contributions,
+                                    lockscreenUsername: lockscreenUsername
                                 )
                                 
                                 updatePreviousValues(followers: user.followers, stars: totalStars, forUsername: username)
@@ -140,10 +144,93 @@ struct GitHubStatsTimelineProvider: IntentTimelineProvider {
 
                     let previousValues = getPreviousValues(forUsername: username)
 
-                    let fallbackEntry = GitHubUserStatsEntry(date: Date(), username: username, followers: previousValues.followers, stars: previousValues.stars, avatarImageData: nil, configuration: configuration, previousFollowers: previousValues.followers, previousStars: previousValues.stars, contributions: [])
+                    let fallbackEntry = GitHubUserStatsEntry(date: Date(), username: username, followers: previousValues.followers, stars: previousValues.stars, avatarImageData: nil, configuration: configuration, previousFollowers: previousValues.followers, previousStars: previousValues.stars, contributions: [], lockscreenUsername: lockscreenUsername)
                     let timeline = Timeline(entries: [fallbackEntry], policy: .after(Date()))
                     completion(timeline)
                 }
+            
+        }
+    }
+}
+
+
+struct GitHubStatsLockscreenTimelineProvider: IntentTimelineProvider {
+    typealias Entry = GitHubUserStatsEntry
+    typealias Intent = GitHubUserConfigurationIntent
+    
+    func placeholder(in context: Context) -> GitHubUserStatsEntry {
+        let sampleDays = 365
+        let sampleContributions: [Contribution] = (0..<sampleDays).map { day in
+            let date = Calendar.current.date(byAdding: .day, value: -day, to: Date())!
+            let count = Int.random(in: 0...4)
+            return Contribution(count: count, date: date)
+        }.reversed()
+        return GitHubUserStatsEntry(date: Date(), username: "mapluisch", followers: 2, stars: 17, avatarImageData: nil, configuration: GitHubUserConfigurationIntent(), previousFollowers: 0, previousStars: 0, contributions: sampleContributions, lockscreenUsername: "mapluisch")
+    }
+
+    func getSnapshot(for configuration: GitHubUserConfigurationIntent, in context: Context, completion: @escaping (GitHubUserStatsEntry) -> ()) {
+        let sampleDays = 365
+        let lockscreenUsername = UserDefaults.standard.string(forKey: "lockscreenWidgetUsername") ?? ""
+        let sampleContributions: [Contribution] = (0..<sampleDays).map { day in
+            let date = Calendar.current.date(byAdding: .day, value: -day, to: Date())!
+            let count = Int.random(in: 0...4)
+            return Contribution(count: count, date: date)
+        }.reversed()
+        let entry = GitHubUserStatsEntry(date: Date(), username: lockscreenUsername, followers: 2, stars: 17, avatarImageData: nil, configuration: configuration, previousFollowers: 0, previousStars: 0, contributions: sampleContributions, lockscreenUsername: lockscreenUsername)
+        completion(entry)
+    }
+
+    func getTimeline(for configuration: GitHubUserConfigurationIntent, in context: Context, completion: @escaping (Timeline<GitHubUserStatsEntry>) -> ()) {
+        let userDefaults = UserDefaults(suiteName: "group.com.martinpluisch.githubstatswidget")
+        let lockscreenUsername = userDefaults?.string(forKey: "lockscreenWidgetUsername") ?? configuration.username ?? ""
+
+        GitHubAPIManager.shared.fetchGitHubUserStats(username: lockscreenUsername) { statsResult in
+            switch statsResult {
+                case .success(let (user, totalStars)):
+                    ContributionFetcher().fetchContributions(username: lockscreenUsername) { contributions in
+                        let avatarURL = URL(string: user.avatar_url)!
+                        URLSession.shared.dataTask(with: avatarURL) { imageData, response, error in
+                            guard let imageData = imageData, error == nil else {
+                                print("Failed to download avatar image")
+                                return
+                            }
+                            
+                            DispatchQueue.main.async {
+                                let currentDate = Date()
+                                let refreshDate = Calendar.current.date(byAdding: .minute, value: 15, to: currentDate)!
+                                
+                                let previousValues = getPreviousValues(forUsername: lockscreenUsername)
+                                
+                                let entry = GitHubUserStatsEntry(
+                                    date: currentDate,
+                                    username: lockscreenUsername,
+                                    followers: user.followers,
+                                    stars: totalStars,
+                                    avatarImageData: imageData,
+                                    configuration: configuration,
+                                    previousFollowers: previousValues.followers,
+                                    previousStars: previousValues.stars,
+                                    contributions: contributions,
+                                    lockscreenUsername: lockscreenUsername
+                                )
+                                
+                                updatePreviousValues(followers: user.followers, stars: totalStars, forUsername: lockscreenUsername)
+                                
+                                let timeline = Timeline(entries: [entry], policy: .after(refreshDate))
+                                completion(timeline)
+                            }
+                        }.resume()
+                    }
+                case .failure(let error):
+                    print("Error fetching GitHub stats: \(error)")
+
+                    let previousValues = getPreviousValues(forUsername: lockscreenUsername)
+
+                    let fallbackEntry = GitHubUserStatsEntry(date: Date(), username: lockscreenUsername, followers: previousValues.followers, stars: previousValues.stars, avatarImageData: nil, configuration: configuration, previousFollowers: previousValues.followers, previousStars: previousValues.stars, contributions: [], lockscreenUsername: lockscreenUsername)
+                    let timeline = Timeline(entries: [fallbackEntry], policy: .after(Date()))
+                    completion(timeline)
+                }
+            
         }
     }
 }

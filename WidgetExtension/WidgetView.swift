@@ -56,7 +56,8 @@ struct GitHubStatsWidgetView_Previews: PreviewProvider {
                     configuration: GitHubUserConfigurationIntent(),
                     previousFollowers: 0,
                     previousStars: 0,
-                    contributions: sampleContributions
+                    contributions: sampleContributions,
+                    lockscreenUsername: "mapluisch"
                 )
             )
             .previewContext(WidgetPreviewContext(family: .systemSmall))
@@ -72,7 +73,8 @@ struct GitHubStatsWidgetView_Previews: PreviewProvider {
                     configuration: GitHubUserConfigurationIntent(),
                     previousFollowers: 0,
                     previousStars: 0,
-                    contributions: sampleContributions
+                    contributions: sampleContributions,
+                    lockscreenUsername: "mapluisch"
                 )
             )
             .previewContext(WidgetPreviewContext(family: .systemSmall))
@@ -88,7 +90,8 @@ struct GitHubStatsWidgetView_Previews: PreviewProvider {
                     configuration: GitHubUserConfigurationIntent(),
                     previousFollowers: 0,
                     previousStars: 0,
-                    contributions: sampleContributions
+                    contributions: sampleContributions,
+                    lockscreenUsername: "mapluisch"
                 )
             )
             .previewContext(WidgetPreviewContext(family: .systemMedium))
@@ -104,7 +107,8 @@ struct GitHubStatsWidgetView_Previews: PreviewProvider {
                     configuration: GitHubUserConfigurationIntent(),
                     previousFollowers: 0,
                     previousStars: 0,
-                    contributions: sampleContributions
+                    contributions: sampleContributions,
+                    lockscreenUsername: "mapluisch"
                 )
             )
             .previewContext(WidgetPreviewContext(family: .systemLarge))

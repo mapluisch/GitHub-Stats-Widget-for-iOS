@@ -37,7 +37,7 @@ struct RectangularWidgetView: View {
                 .frame(width: 24, height: 24)
             Divider()
             VStack {
-                Link(destination: URL(string: "githubstatswidget://user/\(entry.configuration.username ?? "mapluisch")")!) {
+                Link(destination: URL(string: "githubstatswidget://user/\(entry.lockscreenUsername )")!) {
                     VStack(alignment: .center, spacing: 2) {
                         StatsInfoView(entry: entry, colorScheme: colorScheme)
                     }

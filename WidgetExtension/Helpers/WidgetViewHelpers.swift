@@ -68,6 +68,10 @@ extension UserDefaults {
     static func shouldRedirectToGitHub() -> Bool {
         return UserDefaults.shared?.bool(forKey: "shouldRedirectToGitHub") ?? false
     }
+    
+    static func setLockscreenWidgetUsername(lockscreenUsername: String) {
+        UserDefaults.shared?.set(lockscreenUsername, forKey: "lockscreenWidgetUsername")
+    }
 }
 
 extension UIColor {
