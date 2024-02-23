@@ -46,19 +46,21 @@ func getPreviousValues(forUsername username: String) -> (followers: Int, stars: 
 }
 
 func scheduleNotification(title: String, body: String) {
-    let notifyOnStatsChange = UserDefaults.standard.bool(forKey: "notifyOnStatsChange")
-    if !notifyOnStatsChange {
-        return
+    DispatchQueue.main.async {
+        let notifyOnStatsChange = UserDefaults.standard.bool(forKey: "notifyOnStatsChange")
+        if !notifyOnStatsChange {
+            return
+        }
+        let content = UNMutableNotificationContent()
+        content.title = title
+        content.body = body
+        content.sound = UNNotificationSound.default
+        
+        let trigger = UNTimeIntervalNotificationTrigger(timeInterval: 1, repeats: false)
+        let request = UNNotificationRequest(identifier: UUID().uuidString, content: content, trigger: trigger)
+        
+        UNUserNotificationCenter.current().add(request)
     }
-    let content = UNMutableNotificationContent()
-    content.title = title
-    content.body = body
-    content.sound = UNNotificationSound.default
-
-    let trigger = UNTimeIntervalNotificationTrigger(timeInterval: 1, repeats: false)
-    let request = UNNotificationRequest(identifier: UUID().uuidString, content: content, trigger: trigger)
-
-    UNUserNotificationCenter.current().add(request)
 }
 
 struct GitHubStatsTimelineProvider: IntentTimelineProvider {
@@ -107,11 +109,11 @@ struct GitHubStatsTimelineProvider: IntentTimelineProvider {
                                 let previousValues = getPreviousValues(forUsername: username)
                                 
                                 if user.followers > previousValues.followers {
-                                    scheduleNotification(title: "GitHub Stats", body: "You've gained a new GitHub follower!")
+                                    scheduleNotification(title: "GitHub Stats - @\(username)" , body: "You've gained a new GitHub follower!")
                                 }
                                 
                                 if totalStars > previousValues.stars {
-                                    scheduleNotification(title: "GitHub Stats", body: "One of your GitHub repos got starred!")
+                                    scheduleNotification(title: "GitHub Stats - @\(username)", body: "One of your GitHub repos got starred!")
                                 }
                                 
                                 let entry = GitHubUserStatsEntry(

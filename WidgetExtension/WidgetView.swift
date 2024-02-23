@@ -108,7 +108,7 @@ struct GitHubStatsWidgetView_Previews: PreviewProvider {
                 )
             )
             .previewContext(WidgetPreviewContext(family: .systemLarge))
-            .previewDisplayName("Large Widget")
+            .previewDisplayName("Large Widget")            
         }
     }
 }

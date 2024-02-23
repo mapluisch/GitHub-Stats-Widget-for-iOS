@@ -8,7 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		EC0F3FFD2B84FADC003C9734 /* HowToView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC0F3FFC2B84FADC003C9734 /* HowToView.swift */; };
-		EC5939282B8398AE002212FD /* ContributionsWidgetView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC5939272B8398AE002212FD /* ContributionsWidgetView.swift */; };
+		EC3C9AFB2B88E8E000CB11C3 /* WidgetExtension.appex in Embed Foundation Extensions */ = {isa = PBXBuildFile; fileRef = EC75C4332B7BF98E0095D708 /* WidgetExtension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		EC5939292B8398AE002212FD /* ContributionsWidgetView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC5939272B8398AE002212FD /* ContributionsWidgetView.swift */; };
 		EC59392B2B83A43E002212FD /* ColorTheme.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC59392A2B83A43E002212FD /* ColorTheme.swift */; };
 		EC59392C2B83A43E002212FD /* ColorTheme.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC59392A2B83A43E002212FD /* ColorTheme.swift */; };
@@ -25,7 +25,6 @@
 		EC75C43B2B7BF98E0095D708 /* WidgetExtensionBundle.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC75C43A2B7BF98E0095D708 /* WidgetExtensionBundle.swift */; };
 		EC75C43D2B7BF98E0095D708 /* WidgetExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC75C43C2B7BF98E0095D708 /* WidgetExtension.swift */; };
 		EC75C4412B7BF98E0095D708 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = EC75C4402B7BF98E0095D708 /* Assets.xcassets */; };
-		EC75C4452B7BF98E0095D708 /* WidgetExtensionExtension.appex in Embed Foundation Extensions */ = {isa = PBXBuildFile; fileRef = EC75C4332B7BF98E0095D708 /* WidgetExtensionExtension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		EC75C44B2B7BFA930095D708 /* GitHubAPIManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC75C44A2B7BFA930095D708 /* GitHubAPIManager.swift */; };
 		EC75C44C2B7BFA930095D708 /* GitHubAPIManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC75C44A2B7BFA930095D708 /* GitHubAPIManager.swift */; };
 		EC75C44E2B7C00B30095D708 /* TimelineProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC75C44D2B7C00B30095D708 /* TimelineProvider.swift */; };
@@ -59,26 +58,28 @@
 		ECB4B8DC2B7EAA2B009DF428 /* SmallWidgetWithContribsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECB4B8DA2B7EAA2B009DF428 /* SmallWidgetWithContribsView.swift */; };
 		ECB4EA882B84DA090090FA68 /* UserAvatarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECB4EA872B84DA090090FA68 /* UserAvatarView.swift */; };
 		ECB4EA892B84DA090090FA68 /* UserAvatarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECB4EA872B84DA090090FA68 /* UserAvatarView.swift */; };
+		ECF8A5662B88E79A00732E0A /* LockscreenWidgetView.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECF8A5652B88E79A00732E0A /* LockscreenWidgetView.swift */; };
+		ECF8A5672B88E79A00732E0A /* LockscreenWidgetView.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECF8A5652B88E79A00732E0A /* LockscreenWidgetView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
-		EC75C4432B7BF98E0095D708 /* PBXContainerItemProxy */ = {
+		EC3C9AFC2B88E8E000CB11C3 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = EC75C4162B7BF90B0095D708 /* Project object */;
 			proxyType = 1;
 			remoteGlobalIDString = EC75C4322B7BF98E0095D708;
-			remoteInfo = WidgetExtensionExtension;
+			remoteInfo = WidgetExtension;
 		};
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXCopyFilesBuildPhase section */
-		EC75C4492B7BF98E0095D708 /* Embed Foundation Extensions */ = {
+		EC3C9AFE2B88E8E100CB11C3 /* Embed Foundation Extensions */ = {
 			isa = PBXCopyFilesBuildPhase;
 			buildActionMask = 2147483647;
 			dstPath = "";
 			dstSubfolderSpec = 13;
 			files = (
-				EC75C4452B7BF98E0095D708 /* WidgetExtensionExtension.appex in Embed Foundation Extensions */,
+				EC3C9AFB2B88E8E000CB11C3 /* WidgetExtension.appex in Embed Foundation Extensions */,
 			);
 			name = "Embed Foundation Extensions";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -96,7 +97,7 @@
 		EC75C4232B7BF90B0095D708 /* MainView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainView.swift; sourceTree = "<group>"; };
 		EC75C4252B7BF90C0095D708 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		EC75C4282B7BF90C0095D708 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
-		EC75C4332B7BF98E0095D708 /* WidgetExtensionExtension.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = WidgetExtensionExtension.appex; sourceTree = BUILT_PRODUCTS_DIR; };
+		EC75C4332B7BF98E0095D708 /* WidgetExtension.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = WidgetExtension.appex; sourceTree = BUILT_PRODUCTS_DIR; };
 		EC75C4352B7BF98E0095D708 /* WidgetKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = WidgetKit.framework; path = System/Library/Frameworks/WidgetKit.framework; sourceTree = SDKROOT; };
 		EC75C4372B7BF98E0095D708 /* SwiftUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SwiftUI.framework; path = System/Library/Frameworks/SwiftUI.framework; sourceTree = SDKROOT; };
 		EC75C43A2B7BF98E0095D708 /* WidgetExtensionBundle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WidgetExtensionBundle.swift; sourceTree = "<group>"; };
@@ -121,8 +122,9 @@
 		ECB4B8D72B7E9E76009DF428 /* ContributionsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContributionsView.swift; sourceTree = "<group>"; };
 		ECB4B8DA2B7EAA2B009DF428 /* SmallWidgetWithContribsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SmallWidgetWithContribsView.swift; sourceTree = "<group>"; };
 		ECB4EA852B84A1C20090FA68 /* GitHub Stats Widget.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = "GitHub Stats Widget.entitlements"; sourceTree = "<group>"; };
-		ECB4EA862B84A1E10090FA68 /* WidgetExtensionExtension.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = WidgetExtensionExtension.entitlements; sourceTree = "<group>"; };
+		ECB4EA862B84A1E10090FA68 /* WidgetExtension.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = WidgetExtension.entitlements; sourceTree = "<group>"; };
 		ECB4EA872B84DA090090FA68 /* UserAvatarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserAvatarView.swift; sourceTree = "<group>"; };
+		ECF8A5652B88E79A00732E0A /* LockscreenWidgetView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LockscreenWidgetView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -168,7 +170,7 @@
 		EC75C4152B7BF90B0095D708 = {
 			isa = PBXGroup;
 			children = (
-				ECB4EA862B84A1E10090FA68 /* WidgetExtensionExtension.entitlements */,
+				ECB4EA862B84A1E10090FA68 /* WidgetExtension.entitlements */,
 				EC75C4202B7BF90B0095D708 /* GitHub Stats Widget */,
 				EC75C4392B7BF98E0095D708 /* WidgetExtension */,
 				EC75C4342B7BF98E0095D708 /* Frameworks */,
@@ -180,7 +182,7 @@
 			isa = PBXGroup;
 			children = (
 				EC75C41E2B7BF90B0095D708 /* GitHub Stats Widget.app */,
-				EC75C4332B7BF98E0095D708 /* WidgetExtensionExtension.appex */,
+				EC75C4332B7BF98E0095D708 /* WidgetExtension.appex */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -223,11 +225,13 @@
 				EC75C43A2B7BF98E0095D708 /* WidgetExtensionBundle.swift */,
 				EC75C43C2B7BF98E0095D708 /* WidgetExtension.swift */,
 				EC75C4542B7C03DB0095D708 /* WidgetView.swift */,
+				EC5939272B8398AE002212FD /* ContributionsWidgetView.swift */,
 				EC75C4402B7BF98E0095D708 /* Assets.xcassets */,
 				EC75C4422B7BF98E0095D708 /* Info.plist */,
 				ECB4EA8A2B84EBA90090FA68 /* Widgets */,
 				ECB4EA8B2B84EBBD0090FA68 /* Subviews */,
 				ECB4EA8C2B84EBD00090FA68 /* Helpers */,
+				ECF8A5652B88E79A00732E0A /* LockscreenWidgetView.swift */,
 			);
 			path = WidgetExtension;
 			sourceTree = "<group>";
@@ -251,7 +255,6 @@
 				ECB4B8C22B7E3FF1009DF428 /* IconWithTextView.swift */,
 				ECB4B8C52B7E4015009DF428 /* DateInfoView.swift */,
 				ECB4B8C82B7E407C009DF428 /* CountTextView.swift */,
-				EC5939272B8398AE002212FD /* ContributionsWidgetView.swift */,
 				ECB4B8D72B7E9E76009DF428 /* ContributionsView.swift */,
 				ECB4EA872B84DA090090FA68 /* UserAvatarView.swift */,
 			);
@@ -278,21 +281,21 @@
 				EC75C41A2B7BF90B0095D708 /* Sources */,
 				EC75C41B2B7BF90B0095D708 /* Frameworks */,
 				EC75C41C2B7BF90B0095D708 /* Resources */,
-				EC75C4492B7BF98E0095D708 /* Embed Foundation Extensions */,
+				EC3C9AFE2B88E8E100CB11C3 /* Embed Foundation Extensions */,
 			);
 			buildRules = (
 			);
 			dependencies = (
-				EC75C4442B7BF98E0095D708 /* PBXTargetDependency */,
+				EC3C9AFD2B88E8E000CB11C3 /* PBXTargetDependency */,
 			);
 			name = "GitHub Stats Widget";
 			productName = "GitHub Stats Widget";
 			productReference = EC75C41E2B7BF90B0095D708 /* GitHub Stats Widget.app */;
 			productType = "com.apple.product-type.application";
 		};
-		EC75C4322B7BF98E0095D708 /* WidgetExtensionExtension */ = {
+		EC75C4322B7BF98E0095D708 /* WidgetExtension */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = EC75C4462B7BF98E0095D708 /* Build configuration list for PBXNativeTarget "WidgetExtensionExtension" */;
+			buildConfigurationList = EC75C4462B7BF98E0095D708 /* Build configuration list for PBXNativeTarget "WidgetExtension" */;
 			buildPhases = (
 				EC75C42F2B7BF98E0095D708 /* Sources */,
 				EC75C4302B7BF98E0095D708 /* Frameworks */,
@@ -302,9 +305,9 @@
 			);
 			dependencies = (
 			);
-			name = WidgetExtensionExtension;
+			name = WidgetExtension;
 			productName = WidgetExtensionExtension;
-			productReference = EC75C4332B7BF98E0095D708 /* WidgetExtensionExtension.appex */;
+			productReference = EC75C4332B7BF98E0095D708 /* WidgetExtension.appex */;
 			productType = "com.apple.product-type.app-extension";
 		};
 /* End PBXNativeTarget section */
@@ -339,7 +342,7 @@
 			projectRoot = "";
 			targets = (
 				EC75C41D2B7BF90B0095D708 /* GitHub Stats Widget */,
-				EC75C4322B7BF98E0095D708 /* WidgetExtensionExtension */,
+				EC75C4322B7BF98E0095D708 /* WidgetExtension */,
 			);
 		};
 /* End PBXProject section */
@@ -383,11 +386,11 @@
 				ECB4B8CC2B7E8B9D009DF428 /* SmallWidgetView.swift in Sources */,
 				EC75C4512B7C021C0095D708 /* GitHubConfigurationIntent.intentdefinition in Sources */,
 				EC75C4242B7BF90B0095D708 /* MainView.swift in Sources */,
-				EC5939282B8398AE002212FD /* ContributionsWidgetView.swift in Sources */,
 				ECB4B8C02B7E3F8A009DF428 /* StatsInfoView.swift in Sources */,
 				EC75C4222B7BF90B0095D708 /* GitHub_Stats_WidgetApp.swift in Sources */,
 				ECB4B8D22B7E8F5C009DF428 /* LargeWidgetView.swift in Sources */,
 				EC59392E2B83A6FE002212FD /* ThemeSelectionView.swift in Sources */,
+				ECF8A5662B88E79A00732E0A /* LockscreenWidgetView.swift in Sources */,
 				ECB4B8C32B7E3FF1009DF428 /* IconWithTextView.swift in Sources */,
 				EC75C44B2B7BFA930095D708 /* GitHubAPIManager.swift in Sources */,
 				EC75C44E2B7C00B30095D708 /* TimelineProvider.swift in Sources */,
@@ -404,6 +407,7 @@
 				ECB4B8CD2B7E8B9D009DF428 /* SmallWidgetView.swift in Sources */,
 				ECB4EA892B84DA090090FA68 /* UserAvatarView.swift in Sources */,
 				EC59392F2B83A6FE002212FD /* ThemeSelectionView.swift in Sources */,
+				ECF8A5672B88E79A00732E0A /* LockscreenWidgetView.swift in Sources */,
 				ECB4B8BB2B7E3E50009DF428 /* WidgetViewHelpers.swift in Sources */,
 				EC75C4522B7C021C0095D708 /* GitHubConfigurationIntent.intentdefinition in Sources */,
 				ECB4B8D32B7E8F5C009DF428 /* LargeWidgetView.swift in Sources */,
@@ -428,10 +432,10 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
-		EC75C4442B7BF98E0095D708 /* PBXTargetDependency */ = {
+		EC3C9AFD2B88E8E000CB11C3 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = EC75C4322B7BF98E0095D708 /* WidgetExtensionExtension */;
-			targetProxy = EC75C4432B7BF98E0095D708 /* PBXContainerItemProxy */;
+			target = EC75C4322B7BF98E0095D708 /* WidgetExtension */;
+			targetProxy = EC3C9AFC2B88E8E000CB11C3 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
@@ -558,7 +562,6 @@
 		EC75C42D2B7BF90C0095D708 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_ENTITLEMENTS = "GitHub Stats Widget/GitHub Stats Widget.entitlements";
@@ -580,7 +583,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.0;
+				MARKETING_VERSION = 1.0.1;
 				PRODUCT_BUNDLE_IDENTIFIER = com.martinpluisch.githubstatswidget;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
@@ -592,7 +595,6 @@
 		EC75C42E2B7BF90C0095D708 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_ENTITLEMENTS = "GitHub Stats Widget/GitHub Stats Widget.entitlements";
@@ -614,7 +616,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.0;
+				MARKETING_VERSION = 1.0.1;
 				PRODUCT_BUNDLE_IDENTIFIER = com.martinpluisch.githubstatswidget;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
@@ -628,7 +630,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				ASSETCATALOG_COMPILER_WIDGET_BACKGROUND_COLOR_NAME = WidgetBackground;
-				CODE_SIGN_ENTITLEMENTS = WidgetExtensionExtension.entitlements;
+				CODE_SIGN_ENTITLEMENTS = WidgetExtension.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = 9VMK88D954;
@@ -657,7 +659,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				ASSETCATALOG_COMPILER_WIDGET_BACKGROUND_COLOR_NAME = WidgetBackground;
-				CODE_SIGN_ENTITLEMENTS = WidgetExtensionExtension.entitlements;
+				CODE_SIGN_ENTITLEMENTS = WidgetExtension.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = 9VMK88D954;
@@ -702,7 +704,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		EC75C4462B7BF98E0095D708 /* Build configuration list for PBXNativeTarget "WidgetExtensionExtension" */ = {
+		EC75C4462B7BF98E0095D708 /* Build configuration list for PBXNativeTarget "WidgetExtension" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				EC75C4472B7BF98E0095D708 /* Debug */,

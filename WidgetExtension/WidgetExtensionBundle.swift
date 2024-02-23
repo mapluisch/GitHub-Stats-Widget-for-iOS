@@ -13,5 +13,8 @@ struct WidgetExtensionBundle: WidgetBundle {
     var body: some Widget {
         GitHubStatsWidget()
         GitHubStatsContributionWidget()
+        if #available(iOS 16.0, *) {
+            LockscreenWidget()
+        }
     }
 }
