@@ -23,26 +23,3 @@ struct LockscreenWidgetView: View {
         }
     }
 }
-
-struct RectangularWidgetView: View {
-    let entry: GitHubUserStatsEntry
-    var colorScheme: ColorScheme
-
-    var body: some View {
-        let linkColor = colorScheme == .dark ? Color.white : Color.black
-        HStack {
-            Image(colorScheme == .dark ? "github-light" : "github-dark")
-                .resizable()
-                .scaledToFit()
-                .frame(width: 24, height: 24)
-            Divider()
-            VStack {
-                Link(destination: URL(string: "githubstatswidget://user/\(entry.lockscreenUsername )")!) {
-                    VStack(alignment: .center, spacing: 2) {
-                        StatsInfoView(entry: entry, colorScheme: colorScheme)
-                    }
-                }.foregroundColor(linkColor)
-            }
-        }
-    }
-}

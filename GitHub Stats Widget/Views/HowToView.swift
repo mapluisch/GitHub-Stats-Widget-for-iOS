@@ -38,7 +38,6 @@ enum HowToStep: Int, CaseIterable, Identifiable {
     case placeWidget
     case editWidget
     case editTheme
-    case editLockscreen
     
     var id: Int {
         return self.rawValue
@@ -59,11 +58,9 @@ enum HowToStep: Int, CaseIterable, Identifiable {
         case .placeWidget:
             return "Position the widget on your home screen, then press 'Done' in the upper-right corner."
         case .editWidget:
-            return "To adjust widget settings, enter ‘jiggle mode’, tap the widget, then select ‘Edit Widget’. Enter your GitHub username."
+            return "To adjust widget settings, enter ‘jiggle mode’, tap the widget, then select ‘Edit Widget’. Enter your username and change the settings to your liking."
         case .editTheme:
             return "To change the widget's color theme, navigate to Settings in this app and select your desired theme."
-        case .editLockscreen:
-            return "For iOS 16 and up: edit the 'Lockscreen Username' in the Settings tab to set the username for the lockscreen widget."
        }
     }
 }

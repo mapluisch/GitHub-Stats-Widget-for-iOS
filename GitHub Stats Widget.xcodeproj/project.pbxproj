@@ -13,8 +13,6 @@
 		EC3C9B022B895B6600CB11C3 /* NotificationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC3C9B012B895B6600CB11C3 /* NotificationManager.swift */; };
 		EC3C9B032B895C2000CB11C3 /* GitHubUserStatsEntry.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC3C9AFF2B895AF200CB11C3 /* GitHubUserStatsEntry.swift */; };
 		EC3C9B042B895C7900CB11C3 /* NotificationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC3C9B012B895B6600CB11C3 /* NotificationManager.swift */; };
-		EC3C9B062B895D4000CB11C3 /* GitHubStatsLockscreenTimelineProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC3C9B052B895D4000CB11C3 /* GitHubStatsLockscreenTimelineProvider.swift */; };
-		EC3C9B072B895D4000CB11C3 /* GitHubStatsLockscreenTimelineProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC3C9B052B895D4000CB11C3 /* GitHubStatsLockscreenTimelineProvider.swift */; };
 		EC5939292B8398AE002212FD /* ContributionsWidgetView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC5939272B8398AE002212FD /* ContributionsWidgetView.swift */; };
 		EC59392B2B83A43E002212FD /* ColorTheme.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC59392A2B83A43E002212FD /* ColorTheme.swift */; };
 		EC59392C2B83A43E002212FD /* ColorTheme.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC59392A2B83A43E002212FD /* ColorTheme.swift */; };
@@ -64,7 +62,8 @@
 		ECB4B8DC2B7EAA2B009DF428 /* SmallWidgetWithContribsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECB4B8DA2B7EAA2B009DF428 /* SmallWidgetWithContribsView.swift */; };
 		ECB4EA882B84DA090090FA68 /* UserAvatarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECB4EA872B84DA090090FA68 /* UserAvatarView.swift */; };
 		ECB4EA892B84DA090090FA68 /* UserAvatarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECB4EA872B84DA090090FA68 /* UserAvatarView.swift */; };
-		ECF8A5662B88E79A00732E0A /* LockscreenWidgetView.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECF8A5652B88E79A00732E0A /* LockscreenWidgetView.swift */; };
+		ECC2678B2B8E32FB000DAEF6 /* RectangularWidgetView.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECC2678A2B8E32FB000DAEF6 /* RectangularWidgetView.swift */; };
+		ECC2678C2B8E32FB000DAEF6 /* RectangularWidgetView.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECC2678A2B8E32FB000DAEF6 /* RectangularWidgetView.swift */; };
 		ECF8A5672B88E79A00732E0A /* LockscreenWidgetView.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECF8A5652B88E79A00732E0A /* LockscreenWidgetView.swift */; };
 /* End PBXBuildFile section */
 
@@ -96,7 +95,6 @@
 		EC0F3FFC2B84FADC003C9734 /* HowToView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HowToView.swift; sourceTree = "<group>"; };
 		EC3C9AFF2B895AF200CB11C3 /* GitHubUserStatsEntry.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GitHubUserStatsEntry.swift; sourceTree = "<group>"; };
 		EC3C9B012B895B6600CB11C3 /* NotificationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationManager.swift; sourceTree = "<group>"; };
-		EC3C9B052B895D4000CB11C3 /* GitHubStatsLockscreenTimelineProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GitHubStatsLockscreenTimelineProvider.swift; sourceTree = "<group>"; };
 		EC5939272B8398AE002212FD /* ContributionsWidgetView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContributionsWidgetView.swift; sourceTree = "<group>"; };
 		EC59392A2B83A43E002212FD /* ColorTheme.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorTheme.swift; sourceTree = "<group>"; };
 		EC59392D2B83A6FE002212FD /* ThemeSelectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThemeSelectionView.swift; sourceTree = "<group>"; };
@@ -133,6 +131,7 @@
 		ECB4EA852B84A1C20090FA68 /* GitHub Stats Widget.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = "GitHub Stats Widget.entitlements"; sourceTree = "<group>"; };
 		ECB4EA862B84A1E10090FA68 /* WidgetExtension.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = WidgetExtension.entitlements; sourceTree = "<group>"; };
 		ECB4EA872B84DA090090FA68 /* UserAvatarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserAvatarView.swift; sourceTree = "<group>"; };
+		ECC2678A2B8E32FB000DAEF6 /* RectangularWidgetView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RectangularWidgetView.swift; sourceTree = "<group>"; };
 		ECF8A5652B88E79A00732E0A /* LockscreenWidgetView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LockscreenWidgetView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -174,7 +173,6 @@
 				EC75C44D2B7C00B30095D708 /* GitHubStatsTimelineProvider.swift */,
 				EC3C9AFF2B895AF200CB11C3 /* GitHubUserStatsEntry.swift */,
 				EC3C9B012B895B6600CB11C3 /* NotificationManager.swift */,
-				EC3C9B052B895D4000CB11C3 /* GitHubStatsLockscreenTimelineProvider.swift */,
 			);
 			path = Helpers;
 			sourceTree = "<group>";
@@ -238,12 +236,12 @@
 				EC75C43C2B7BF98E0095D708 /* WidgetExtension.swift */,
 				EC75C4542B7C03DB0095D708 /* WidgetView.swift */,
 				EC5939272B8398AE002212FD /* ContributionsWidgetView.swift */,
+				ECF8A5652B88E79A00732E0A /* LockscreenWidgetView.swift */,
 				EC75C4402B7BF98E0095D708 /* Assets.xcassets */,
 				EC75C4422B7BF98E0095D708 /* Info.plist */,
 				ECB4EA8A2B84EBA90090FA68 /* Widgets */,
 				ECB4EA8B2B84EBBD0090FA68 /* Subviews */,
 				ECB4EA8C2B84EBD00090FA68 /* Helpers */,
-				ECF8A5652B88E79A00732E0A /* LockscreenWidgetView.swift */,
 			);
 			path = WidgetExtension;
 			sourceTree = "<group>";
@@ -255,6 +253,7 @@
 				ECB4B8CE2B7E8F3C009DF428 /* MediumWidgetView.swift */,
 				ECB4B8D12B7E8F5C009DF428 /* LargeWidgetView.swift */,
 				ECB4B8DA2B7EAA2B009DF428 /* SmallWidgetWithContribsView.swift */,
+				ECC2678A2B8E32FB000DAEF6 /* RectangularWidgetView.swift */,
 			);
 			path = Widgets;
 			sourceTree = "<group>";
@@ -401,15 +400,14 @@
 				ECB4B8C02B7E3F8A009DF428 /* StatsInfoView.swift in Sources */,
 				EC75C4222B7BF90B0095D708 /* GitHub_Stats_WidgetApp.swift in Sources */,
 				EC3C9B002B895AF200CB11C3 /* GitHubUserStatsEntry.swift in Sources */,
+				ECC2678B2B8E32FB000DAEF6 /* RectangularWidgetView.swift in Sources */,
 				ECB4B8D22B7E8F5C009DF428 /* LargeWidgetView.swift in Sources */,
 				EC59392E2B83A6FE002212FD /* ThemeSelectionView.swift in Sources */,
-				ECF8A5662B88E79A00732E0A /* LockscreenWidgetView.swift in Sources */,
 				ECB4B8C32B7E3FF1009DF428 /* IconWithTextView.swift in Sources */,
 				EC75C44B2B7BFA930095D708 /* GitHubAPIManager.swift in Sources */,
 				EC3C9B022B895B6600CB11C3 /* NotificationManager.swift in Sources */,
 				EC75C44E2B7C00B30095D708 /* GitHubStatsTimelineProvider.swift in Sources */,
 				ECB4B8D52B7E9507009DF428 /* ContributionFetcher.swift in Sources */,
-				EC3C9B062B895D4000CB11C3 /* GitHubStatsLockscreenTimelineProvider.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -425,6 +423,7 @@
 				ECF8A5672B88E79A00732E0A /* LockscreenWidgetView.swift in Sources */,
 				EC3C9B042B895C7900CB11C3 /* NotificationManager.swift in Sources */,
 				ECB4B8BB2B7E3E50009DF428 /* WidgetViewHelpers.swift in Sources */,
+				ECC2678C2B8E32FB000DAEF6 /* RectangularWidgetView.swift in Sources */,
 				EC75C4522B7C021C0095D708 /* GitHubConfigurationIntent.intentdefinition in Sources */,
 				ECB4B8D32B7E8F5C009DF428 /* LargeWidgetView.swift in Sources */,
 				ECB4B8D62B7E9507009DF428 /* ContributionFetcher.swift in Sources */,
@@ -439,7 +438,6 @@
 				EC5939292B8398AE002212FD /* ContributionsWidgetView.swift in Sources */,
 				ECB4B8D92B7E9E76009DF428 /* ContributionsView.swift in Sources */,
 				ECB4B8DC2B7EAA2B009DF428 /* SmallWidgetWithContribsView.swift in Sources */,
-				EC3C9B072B895D4000CB11C3 /* GitHubStatsLockscreenTimelineProvider.swift in Sources */,
 				EC75C44F2B7C00B30095D708 /* GitHubStatsTimelineProvider.swift in Sources */,
 				ECB4B8C12B7E3F8A009DF428 /* StatsInfoView.swift in Sources */,
 				ECB4B8CA2B7E407C009DF428 /* CountTextView.swift in Sources */,
@@ -584,7 +582,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_ENTITLEMENTS = "GitHub Stats Widget/GitHub Stats Widget.entitlements";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 5;
+				CURRENT_PROJECT_VERSION = 0;
 				DEVELOPMENT_ASSET_PATHS = "\"GitHub Stats Widget/Preview Content\"";
 				DEVELOPMENT_TEAM = 9VMK88D954;
 				ENABLE_PREVIEWS = YES;
@@ -601,7 +599,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.0.1;
+				MARKETING_VERSION = 1.0.2;
 				PRODUCT_BUNDLE_IDENTIFIER = com.martinpluisch.githubstatswidget;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
@@ -617,7 +615,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_ENTITLEMENTS = "GitHub Stats Widget/GitHub Stats Widget.entitlements";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 5;
+				CURRENT_PROJECT_VERSION = 0;
 				DEVELOPMENT_ASSET_PATHS = "\"GitHub Stats Widget/Preview Content\"";
 				DEVELOPMENT_TEAM = 9VMK88D954;
 				ENABLE_PREVIEWS = YES;
@@ -634,7 +632,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.0.1;
+				MARKETING_VERSION = 1.0.2;
 				PRODUCT_BUNDLE_IDENTIFIER = com.martinpluisch.githubstatswidget;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;

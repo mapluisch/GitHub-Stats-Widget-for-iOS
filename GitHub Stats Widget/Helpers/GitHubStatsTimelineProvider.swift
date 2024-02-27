@@ -14,11 +14,11 @@ struct GitHubStatsTimelineProvider: IntentTimelineProvider {
     typealias Intent = GitHubUserConfigurationIntent
 
     func placeholder(in context: Context) -> GitHubUserStatsEntry {
-        GitHubUserStatsEntry(date: Date(), username: "mapluisch", followers: 2, stars: 17, avatarImageData: nil, configuration: GitHubUserConfigurationIntent(), previousFollowers: 0, previousStars: 0, contributions: sampleContributions(days: 365), lockscreenUsername: "mapluisch")
+        GitHubUserStatsEntry(date: Date(), username: "mapluisch", followers: 2, stars: 17, avatarImageData: nil, configuration: GitHubUserConfigurationIntent(), previousFollowers: 0, previousStars: 0, contributions: sampleContributions(days: 365))
     }
 
     func getSnapshot(for configuration: GitHubUserConfigurationIntent, in context: Context, completion: @escaping (GitHubUserStatsEntry) -> Void) {
-        completion(GitHubUserStatsEntry(date: Date(), username: "mapluisch", followers: 2, stars: 17, avatarImageData: nil, configuration: configuration, previousFollowers: 0, previousStars: 0, contributions: sampleContributions(days: 365), lockscreenUsername: UserDefaults.standard.string(forKey: "lockscreenWidgetUsername") ?? "mapluisch"))
+        completion(GitHubUserStatsEntry(date: Date(), username: "mapluisch", followers: 2, stars: 17, avatarImageData: nil, configuration: configuration, previousFollowers: 0, previousStars: 0, contributions: sampleContributions(days: 365)))
     }
 
     func getTimeline(for configuration: GitHubUserConfigurationIntent, in context: Context, completion: @escaping (Timeline<GitHubUserStatsEntry>) -> Void) {
@@ -43,7 +43,7 @@ struct GitHubStatsTimelineProvider: IntentTimelineProvider {
                             let refreshDate = Calendar.current.date(byAdding: .minute, value: 15, to: currentDate)!
                             let previousValues = UserDefaults.getPreviousValues(forUsername: username)
                             notifyIfStatsChanged(user: user, totalStars: totalStars, previousValues: previousValues, username: username)
-                            let entry = GitHubUserStatsEntry(date: currentDate, username: username, followers: user.followers, stars: totalStars, avatarImageData: imageData, configuration: configuration, previousFollowers: previousValues.followers, previousStars: previousValues.stars, contributions: contributions, lockscreenUsername: UserDefaults.standard.string(forKey: "lockscreenWidgetUsername") ?? username)
+                            let entry = GitHubUserStatsEntry(date: currentDate, username: username, followers: user.followers, stars: totalStars, avatarImageData: imageData, configuration: configuration, previousFollowers: previousValues.followers, previousStars: previousValues.stars, contributions: contributions)
                             UserDefaults.updatePreviousValues(followers: user.followers, stars: totalStars, forUsername: username)
                             completion(Timeline(entries: [entry], policy: .after(refreshDate)))
                         }
@@ -67,7 +67,7 @@ struct GitHubStatsTimelineProvider: IntentTimelineProvider {
 
     private func fallbackTimeline(username: String, configuration: GitHubUserConfigurationIntent, completion: @escaping (Timeline<GitHubUserStatsEntry>) -> Void) {
         let previousValues = UserDefaults.getPreviousValues(forUsername: username)
-        let fallbackEntry = GitHubUserStatsEntry(date: Date(), username: username, followers: previousValues.followers, stars: previousValues.stars, avatarImageData: nil, configuration: configuration, previousFollowers: previousValues.followers, previousStars: previousValues.stars, contributions: [], lockscreenUsername: UserDefaults.standard.string(forKey: "lockscreenWidgetUsername") ?? username)
+        let fallbackEntry = GitHubUserStatsEntry(date: Date(), username: username, followers: previousValues.followers, stars: previousValues.stars, avatarImageData: nil, configuration: configuration, previousFollowers: previousValues.followers, previousStars: previousValues.stars, contributions: [])
         completion(Timeline(entries: [fallbackEntry], policy: .after(Date())))
     }
 }

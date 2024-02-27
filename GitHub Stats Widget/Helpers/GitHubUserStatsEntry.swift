@@ -17,5 +17,4 @@ struct GitHubUserStatsEntry: TimelineEntry {
     let previousFollowers: Int
     let previousStars: Int
     let contributions: [Contribution]
-    let lockscreenUsername: String
 }

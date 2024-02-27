@@ -39,11 +39,11 @@ struct LockscreenWidget: Widget {
     let kind: String = "LockscreenWidgetView"
 
     var body: some WidgetConfiguration {
-        IntentConfiguration(kind: kind, intent: GitHubUserConfigurationIntent.self, provider: GitHubStatsLockscreenTimelineProvider()) { entry in
+        IntentConfiguration(kind: kind, intent: GitHubUserConfigurationIntent.self, provider: GitHubStatsTimelineProvider()) { entry in
             LockscreenWidgetView(entry: entry)
         }
         .configurationDisplayName("GitHub Stats")
-        .description("Displays GitHub followers and stars (setup via the Settings tab in the app).")
+        .description("Displays GitHub followers and stars.")
         .supportedFamilies([.accessoryRectangular])
     }
 }

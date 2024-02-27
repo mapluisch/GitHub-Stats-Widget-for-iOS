@@ -56,8 +56,7 @@ struct GitHubStatsWidgetView_Previews: PreviewProvider {
                     configuration: GitHubUserConfigurationIntent(),
                     previousFollowers: 0,
                     previousStars: 0,
-                    contributions: sampleContributions,
-                    lockscreenUsername: "mapluisch"
+                    contributions: sampleContributions
                 )
             )
             .previewContext(WidgetPreviewContext(family: .systemSmall))
@@ -73,8 +72,7 @@ struct GitHubStatsWidgetView_Previews: PreviewProvider {
                     configuration: GitHubUserConfigurationIntent(),
                     previousFollowers: 0,
                     previousStars: 0,
-                    contributions: sampleContributions,
-                    lockscreenUsername: "mapluisch"
+                    contributions: sampleContributions
                 )
             )
             .previewContext(WidgetPreviewContext(family: .systemSmall))
@@ -90,8 +88,7 @@ struct GitHubStatsWidgetView_Previews: PreviewProvider {
                     configuration: GitHubUserConfigurationIntent(),
                     previousFollowers: 0,
                     previousStars: 0,
-                    contributions: sampleContributions,
-                    lockscreenUsername: "mapluisch"
+                    contributions: sampleContributions
                 )
             )
             .previewContext(WidgetPreviewContext(family: .systemMedium))
@@ -107,12 +104,27 @@ struct GitHubStatsWidgetView_Previews: PreviewProvider {
                     configuration: GitHubUserConfigurationIntent(),
                     previousFollowers: 0,
                     previousStars: 0,
-                    contributions: sampleContributions,
-                    lockscreenUsername: "mapluisch"
+                    contributions: sampleContributions
                 )
             )
             .previewContext(WidgetPreviewContext(family: .systemLarge))
-            .previewDisplayName("Large Widget")            
+            .previewDisplayName("Large Widget")      
+            
+            LockscreenWidgetView(
+                entry: GitHubUserStatsEntry(
+                    date: Date(),
+                    username: "mapluisch",
+                    followers: 2,
+                    stars: 17,
+                    avatarImageData: nil,
+                    configuration: GitHubUserConfigurationIntent(),
+                    previousFollowers: 0,
+                    previousStars: 0,
+                    contributions: sampleContributions
+                )
+            )
+            .previewContext(WidgetPreviewContext(family: .systemLarge))
+            .previewDisplayName("Lockscreen")
         }
     }
 }
