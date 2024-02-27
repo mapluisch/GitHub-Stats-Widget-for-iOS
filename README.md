@@ -18,7 +18,8 @@
 <p align="center">
   <img src="https://github.com/mapluisch/GitHub-Stats-Widget-for-iOS/assets/31780571/3e48c5f5-e4ac-4ad5-98f0-e77cbaad63b9" alt="GitHub Stats Widget Screenshot 1" style="width: 20%; margin-right: 10px;">
   <img src="https://github.com/mapluisch/GitHub-Stats-Widget-for-iOS/assets/31780571/d0b83bd0-115f-4422-b9c3-f8d7a1fbb295" alt="GitHub Stats Widget Screenshot 2" style="width: 20%; margin-right: 10px;">
-  <img src="https://github.com/mapluisch/GitHub-Stats-Widget-for-iOS/assets/31780571/a5e1159c-864c-475a-8475-a05485e57f6c" alt="GitHub Stats Widget Screenshot 3" style="width: 20%;">
+  <img src="https://github.com/mapluisch/GitHub-Stats-Widget-for-iOS/assets/31780571/c4e11519-1158-405c-beb4-a1df0ef14319" alt="GitHub Stats Widget Screenshot 3" style="width: 20%; margin-right: 10px;">
+  <img src="https://github.com/mapluisch/GitHub-Stats-Widget-for-iOS/assets/31780571/a5e1159c-864c-475a-8475-a05485e57f6c" alt="GitHub Stats Widget Screenshot 4" style="width: 20%;">
 </p>
 
 GitHub Stats Widget is a free and simple iOS widget collection that allows you to keep an eye on your GitHub statistics right from your home screen. Track your (or other people's) followers, star counts, and contributions.
