@@ -14,7 +14,14 @@ struct GitHubUser: Codable {
 }
 
 struct Repository: Codable {
+    let name: String
     let stargazers_count: Int
+}
+
+struct GitHubFollower: Codable {
+    let login: String
+    let id: Int
+    let avatar_url: String
 }
 
 class GitHubAPIManager {
@@ -42,9 +49,9 @@ class GitHubAPIManager {
         task.resume()
     }
     
-    func fetchUserRepositories(username: String, completion: @escaping (Result<Int, Error>) -> Void) {
-        let urlString = "https://api.github.com/users/\(username)/repos"
-        guard let url = URL(string: urlString) else { return }
+    func fetchFollowers(username: String, completion: @escaping (Result<[String], Error>) -> Void) {
+        let urlString = "https://api.github.com/users/\(username)/followers"
+        guard let url = URL(string: urlString) else { return completion(.failure(URLError(.badURL))) }
 
         let task = URLSession.shared.dataTask(with: url) { data, response, error in
             if let error = error {
@@ -52,12 +59,12 @@ class GitHubAPIManager {
                 return
             }
 
-            guard let data = data else { return }
+            guard let data = data else { return completion(.failure(URLError(.cannotParseResponse))) }
 
             do {
-                let repositories = try JSONDecoder().decode([Repository].self, from: data)
-                let totalStars = repositories.reduce(0) { $0 + $1.stargazers_count }
-                completion(.success(totalStars))
+                let followersArray = try JSONDecoder().decode([GitHubFollower].self, from: data)
+                let followers = followersArray.map { $0.login }
+                completion(.success(followers))
             } catch {
                 completion(.failure(error))
             }
@@ -65,14 +72,36 @@ class GitHubAPIManager {
         task.resume()
     }
     
-    func fetchGitHubUserStats(username: String, completion: @escaping (Result<(GitHubUser, Int), Error>) -> Void) {
-        fetchGitHubUserDetails(username: username) { result in
-            switch result {
+    func fetchUserRepositories(username: String, completion: @escaping (Result<[Repository], Error>) -> Void) {
+        let urlString = "https://api.github.com/users/\(username)/repos"
+        guard let url = URL(string: urlString) else { return completion(.failure(URLError(.badURL))) }
+
+        let task = URLSession.shared.dataTask(with: url) { data, response, error in
+            if let error = error {
+                completion(.failure(error))
+                return
+            }
+
+            guard let data = data else { return completion(.failure(URLError(.cannotParseResponse))) }
+
+            do {
+                let repositories = try JSONDecoder().decode([Repository].self, from: data)
+                completion(.success(repositories))
+            } catch {
+                completion(.failure(error))
+            }
+        }
+        task.resume()
+    }
+    
+    func fetchGitHubUserStats(username: String, completion: @escaping (Result<(GitHubUser, [Repository]), Error>) -> Void) {
+        fetchGitHubUserDetails(username: username) { userDetailsResult in
+            switch userDetailsResult {
             case .success(let user):
-                self .fetchUserRepositories(username: username) { reposResult in
+                self.fetchUserRepositories(username: username) { reposResult in
                     switch reposResult {
-                    case .success(let totalStars):
-                        completion(.success((user, totalStars)))
+                    case .success(let repositories):
+                        completion(.success((user, repositories)))
                     case .failure(let error):
                         completion(.failure(error))
                     }
@@ -82,5 +111,4 @@ class GitHubAPIManager {
             }
         }
     }
-    
 }

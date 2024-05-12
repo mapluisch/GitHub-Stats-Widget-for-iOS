@@ -47,21 +47,23 @@ struct SettingsView: View {
                     Toggle("Notify on stats change", isOn: $notifyOnStatsChange)
                         .onChange(of: notifyOnStatsChange) { newValue in
                             if newValue {
-                                UNUserNotificationCenter.current().requestAuthorization(options: [.alert, .badge, .sound]) { granted, _ in
-                                    if granted {
-                                        DispatchQueue.main.async {
+                                UNUserNotificationCenter.current().requestAuthorization(options: [.alert, .badge, .sound]) { granted, error in
+                                    DispatchQueue.main.async {
+                                        if granted {
                                             UserDefaults.standard.set(true, forKey: "notifyOnStatsChange")
-                                        }
-                                    } else {
-                                        DispatchQueue.main.async {
+                                        } else {
                                             self.notifyOnStatsChange = false
                                             UserDefaults.standard.set(false, forKey: "notifyOnStatsChange")
                                         }
                                     }
                                 }
+                            } else {
+                                UserDefaults.standard.set(false, forKey: "notifyOnStatsChange")
                             }
                         }
                         .toggleStyle(SwitchToggleStyle(tint: colorTheme.colors[circleColorThemeIndex]!))
+                    
+                    
                 }
                 
                 Section(header: Text("About")) {
@@ -116,6 +118,11 @@ struct SettingsView: View {
             .navigationTitle("Settings")
             .onAppear {
                 self.colorTheme = ColorTheme.currentTheme
+                UNUserNotificationCenter.current().getNotificationSettings { settings in
+                    DispatchQueue.main.async {
+                        self.notifyOnStatsChange = settings.authorizationStatus == .authorized
+                    }
+                }
             }
         }
         .navigationViewStyle(StackNavigationViewStyle())

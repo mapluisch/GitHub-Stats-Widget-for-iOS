@@ -90,6 +90,24 @@ extension UserDefaults {
         (followers: UserDefaults.standard.integer(forKey: UserDefaults.previousFollowersKey(forUsername: username)),
          stars: UserDefaults.standard.integer(forKey: UserDefaults.previousStarsKey(forUsername: username)))
     }
+    
+    static func setFollowers(followers: [String], forUsername username: String) {
+        let defaults = UserDefaults.standard
+        defaults.set(followers, forKey: "followers_\(username)")
+    }
+
+    static func getFollowers(forUsername username: String) -> [String] {
+        let defaults = UserDefaults.standard
+        return defaults.stringArray(forKey: "followers_\(username)") ?? []
+    }
+    
+    static func setRepositoryStars(_ stars: [String: Int], forUsername username: String) {
+        UserDefaults.standard.set(stars, forKey: "repoStars_\(username)")
+    }
+
+    static func getRepositoryStars(forUsername username: String) -> [String: Int] {
+        UserDefaults.standard.object(forKey: "repoStars_\(username)") as? [String: Int] ?? [:]
+    }
 }
 
 extension UIColor {
